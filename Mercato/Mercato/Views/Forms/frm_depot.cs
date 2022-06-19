@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Mercato.Views.Forms
 {
-    public partial class frm_fournisseurs : Form
+    public partial class frm_depot : Form
     {
-        public frm_fournisseurs()
+        public frm_depot()
         {
             InitializeComponent();
-        }
-
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txt_telephone_OnValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
