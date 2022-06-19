@@ -19,7 +19,7 @@ namespace Mercato.Views.Forms
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void txt_telephone_OnValueChanged(object sender, EventArgs e)
