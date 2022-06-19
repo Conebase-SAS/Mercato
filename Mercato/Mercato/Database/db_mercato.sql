@@ -88,7 +88,7 @@ create table t_ventes
     num_vente int identity,
     date_vente date,
     id_boutique nvarchar(50),
-    id_client nvarchar(50),
+    id_clients nvarchar(50),
     description_ventes nvarchar(100),
     constraint pk_ventes primary key(num_vente),
     constraint fk_vente_boutique foreign key(id_boutique) references t_boutique(id_boutique),
@@ -104,7 +104,7 @@ create table t_details_approvisionnement
     prix_achat_$ decimal,
     prix_achat_fc decimal,
     qte_entree decimal,
-    id_fournisseur nvarchar(50),
+    id_fournisseurs nvarchar(50),
     date_expiration date,
     date_debut_solde date,
     date_fin_solde date,
@@ -117,7 +117,8 @@ create table t_details_approvisionnement
     constraint pk_details_approv primary key(num_details),
     constraint fk_approv_details foreign key(num_approvisionnement) references t_approvisionnement(num_approvisionnement),
     constraint fk_approvisionnement_fournisseur foreign key(id_fournisseurs) references t_fournisseurs(id_fournisseurs),
-    constraint fk_details_depot foreign key(id_depot) references t_depot(id_depot)
+    constraint fk_details_depot foreign key(id_depot) references t_depot(id_depot),
+    constraint fk_article_details_approv foreign key(id_article) references t_articles(id_article)
 )
 go
 create table t_details_vente
@@ -132,7 +133,14 @@ create table t_details_vente
     constraint fk_details_details foreign key(num_details) references t_details_approvisionnement(num_details) 
 )
 go
-create table t_approvisionnement
+create table t_paiement
 (
-    
+    num_paiement int identity,
+    date_paiement date,
+    num_vente int,
+    montant_paye_$ decimal,
+    montant_paye_fc decimal,
+    solde_restant decimal,
+    constraint pk_paiement primary key(num_paiement),
+    constraint fk_vente_paiement foreign key(num_vente) references t_ventes(num_vente)
 )
