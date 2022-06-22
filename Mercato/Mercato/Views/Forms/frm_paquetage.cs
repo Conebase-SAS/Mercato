@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Mercato.Views.Forms
 {
-    public partial class frm_clients : Form
+    public partial class frm_paquetage : Form
     {
-        public frm_clients()
+        public frm_paquetage()
         {
             InitializeComponent();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

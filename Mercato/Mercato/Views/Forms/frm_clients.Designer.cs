@@ -133,30 +133,31 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(12, 88);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(557, 691);
+            this.panel2.Size = new System.Drawing.Size(557, 685);
             this.panel2.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label4.Location = new System.Drawing.Point(17, 228);
+            this.label4.Location = new System.Drawing.Point(17, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 37);
+            this.label4.Size = new System.Drawing.Size(86, 30);
             this.label4.TabIndex = 14;
             this.label4.Text = "Adresse";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label3.Location = new System.Drawing.Point(17, 123);
+            this.label3.Location = new System.Drawing.Point(17, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(196, 37);
+            this.label3.Size = new System.Drawing.Size(154, 30);
             this.label3.TabIndex = 13;
             this.label3.Text = "Noms du client";
             // 
@@ -164,11 +165,11 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label2.Location = new System.Drawing.Point(17, 18);
+            this.label2.Location = new System.Drawing.Point(17, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 37);
+            this.label2.Size = new System.Drawing.Size(93, 30);
             this.label2.TabIndex = 9;
             this.label2.Text = "ID Client";
             // 
@@ -184,7 +185,7 @@
             this.txt_adresse.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.txt_adresse.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
             this.txt_adresse.LineThickness = 4;
-            this.txt_adresse.Location = new System.Drawing.Point(24, 272);
+            this.txt_adresse.Location = new System.Drawing.Point(22, 265);
             this.txt_adresse.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txt_adresse.Name = "txt_adresse";
             this.txt_adresse.Size = new System.Drawing.Size(514, 54);
@@ -203,7 +204,7 @@
             this.txt_noms_client.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.txt_noms_client.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
             this.txt_noms_client.LineThickness = 4;
-            this.txt_noms_client.Location = new System.Drawing.Point(24, 167);
+            this.txt_noms_client.Location = new System.Drawing.Point(24, 160);
             this.txt_noms_client.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txt_noms_client.Name = "txt_noms_client";
             this.txt_noms_client.Size = new System.Drawing.Size(514, 54);
@@ -256,11 +257,11 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label5.Location = new System.Drawing.Point(17, 339);
+            this.label5.Location = new System.Drawing.Point(17, 323);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(161, 37);
+            this.label5.Size = new System.Drawing.Size(125, 30);
             this.label5.TabIndex = 18;
             this.label5.Text = "Téléphone 1";
             // 
@@ -276,7 +277,7 @@
             this.txt_telephone1.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.txt_telephone1.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
             this.txt_telephone1.LineThickness = 4;
-            this.txt_telephone1.Location = new System.Drawing.Point(24, 383);
+            this.txt_telephone1.Location = new System.Drawing.Point(24, 363);
             this.txt_telephone1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txt_telephone1.Name = "txt_telephone1";
             this.txt_telephone1.Size = new System.Drawing.Size(514, 54);
@@ -287,11 +288,11 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label6.Location = new System.Drawing.Point(17, 452);
+            this.label6.Location = new System.Drawing.Point(19, 421);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 37);
+            this.label6.Size = new System.Drawing.Size(125, 30);
             this.label6.TabIndex = 20;
             this.label6.Text = "Téléphone 2";
             // 
@@ -307,7 +308,7 @@
             this.txt_telephone2.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.txt_telephone2.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
             this.txt_telephone2.LineThickness = 4;
-            this.txt_telephone2.Location = new System.Drawing.Point(24, 496);
+            this.txt_telephone2.Location = new System.Drawing.Point(22, 461);
             this.txt_telephone2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txt_telephone2.Name = "txt_telephone2";
             this.txt_telephone2.Size = new System.Drawing.Size(514, 54);
