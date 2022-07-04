@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +38,12 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\..\..\Documents\Mes Frameworks\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="MaterialSkin">
       <HintPath>..\..\..\..\..\..\Documents\Mes Frameworks\MaterialSkin-master\MaterialSkin-master\MaterialSkin\bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
@@ -43,7 +51,9 @@
       <HintPath>..\..\..\..\..\..\Documents\Mes Frameworks\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,9 +66,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\clsDepot.cs" />
+    <Compile Include="Controllers\clsFournisseur.cs" />
+    <Compile Include="Handlers\Datalib.cs" />
+    <Compile Include="Handlers\Notification_Center.cs" />
     <Compile Include="Handlers\Params.cs" />
+    <Compile Include="Models\Depot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Forms\frm_approvisionnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_approvisionnement.Designer.cs">
+      <DependentUpon>frm_approvisionnement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frm_articles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_articles.Designer.cs">
+      <DependentUpon>frm_articles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\frm_categories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +97,18 @@
     </Compile>
     <Compile Include="Views\Forms\frm_clients.Designer.cs">
       <DependentUpon>frm_clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frm_commandes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_commandes.Designer.cs">
+      <DependentUpon>frm_commandes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frm_composants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_composants.Designer.cs">
+      <DependentUpon>frm_composants.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frm_depot.cs">
       <SubType>Form</SubType>
@@ -83,11 +122,29 @@
     <Compile Include="Views\Forms\frm_fournisseurs.Designer.cs">
       <DependentUpon>frm_fournisseurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\frm_main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_main.Designer.cs">
+      <DependentUpon>frm_main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frm_menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_menu.Designer.cs">
+      <DependentUpon>frm_menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\frm_paquetage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Forms\frm_paquetage.Designer.cs">
       <DependentUpon>frm_paquetage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frm_serveurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_serveurs.Designer.cs">
+      <DependentUpon>frm_serveurs.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frm_shop.cs">
       <SubType>Form</SubType>
@@ -101,6 +158,31 @@
     <Compile Include="Views\Forms\frm_types_articles.Designer.cs">
       <DependentUpon>frm_types_articles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\uc_approvisionnement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_approvisionnement.Designer.cs">
+      <DependentUpon>uc_approvisionnement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_clients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_clients.Designer.cs">
+      <DependentUpon>uc_clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_ventes_articles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_ventes_articles.Designer.cs">
+      <DependentUpon>uc_ventes_articles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_ventes_services.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_ventes_services.Designer.cs">
+      <DependentUpon>uc_ventes_services.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -111,11 +193,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Forms\frm_approvisionnement.resx">
+      <DependentUpon>frm_approvisionnement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_articles.resx">
+      <DependentUpon>frm_articles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_categories.resx">
       <DependentUpon>frm_categories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_clients.resx">
       <DependentUpon>frm_clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_commandes.resx">
+      <DependentUpon>frm_commandes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_composants.resx">
+      <DependentUpon>frm_composants.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_depot.resx">
       <DependentUpon>frm_depot.cs</DependentUpon>
@@ -123,14 +217,35 @@
     <EmbeddedResource Include="Views\Forms\frm_fournisseurs.resx">
       <DependentUpon>frm_fournisseurs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_main.resx">
+      <DependentUpon>frm_main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_menu.resx">
+      <DependentUpon>frm_menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_paquetage.resx">
       <DependentUpon>frm_paquetage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_serveurs.resx">
+      <DependentUpon>frm_serveurs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_shop.resx">
       <DependentUpon>frm_shop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_types_articles.resx">
       <DependentUpon>frm_types_articles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_approvisionnement.resx">
+      <DependentUpon>uc_approvisionnement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_clients.resx">
+      <DependentUpon>uc_clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_ventes_articles.resx">
+      <DependentUpon>uc_ventes_articles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_ventes_services.resx">
+      <DependentUpon>uc_ventes_services.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -145,16 +260,48 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\multiply_104px.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\waste_104px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\db_mercato.sql" />
+    <None Include="Resources\search_96px.png" />
+    <None Include="Resources\sync_96px.png" />
+    <None Include="Resources\create_order_96px1.png" />
+    <None Include="Resources\add_96px1.png" />
+    <None Include="Resources\create_order_96px.png" />
+    <None Include="Resources\add_96px.png" />
+    <None Include="Resources\cutlery_104px.png" />
+    <None Include="Resources\wine_bar_104px.png" />
+    <None Include="Resources\beer_104px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
+      <Version>1.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net471">
+      <Version>1.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
+      <Version>10.0.19041.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.WindowsRuntime">
+      <Version>4.6.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml">
+      <Version>4.6.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
