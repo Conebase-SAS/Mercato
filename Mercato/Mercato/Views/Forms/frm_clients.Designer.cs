@@ -30,10 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.label1 = new System.Windows.Forms.Label();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_telephone2 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_telephone1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,16 +48,10 @@
             this.txt_id_client = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.button1 = new System.Windows.Forms.Button();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_telephone1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_telephone2 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,6 +65,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(580, 73);
             this.panel1.TabIndex = 2;
+            // 
+            // bunifuImageButton2
+            // 
+            this.bunifuImageButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuImageButton2.Image = global::Mercato.Properties.Resources.waste_104px;
+            this.bunifuImageButton2.ImageActive = null;
+            this.bunifuImageButton2.Location = new System.Drawing.Point(447, 12);
+            this.bunifuImageButton2.Name = "bunifuImageButton2";
+            this.bunifuImageButton2.Size = new System.Drawing.Size(51, 49);
+            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton2.TabIndex = 2;
+            this.bunifuImageButton2.TabStop = false;
+            this.bunifuImageButton2.Zoom = 20;
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.multiply_104px;
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(504, 7);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(64, 58);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 1;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 20;
             // 
             // label1
             // 
@@ -133,156 +161,8 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(12, 88);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(557, 685);
+            this.panel2.Size = new System.Drawing.Size(557, 580);
             this.panel2.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label4.Location = new System.Drawing.Point(17, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 30);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Adresse";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label3.Location = new System.Drawing.Point(17, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 30);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Noms du client";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label2.Location = new System.Drawing.Point(17, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 30);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "ID Client";
-            // 
-            // txt_adresse
-            // 
-            this.txt_adresse.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_adresse.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_adresse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_adresse.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_adresse.HintText = "Entrez l\'adresse du client";
-            this.txt_adresse.isPassword = false;
-            this.txt_adresse.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_adresse.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_adresse.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_adresse.LineThickness = 4;
-            this.txt_adresse.Location = new System.Drawing.Point(22, 265);
-            this.txt_adresse.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txt_adresse.Name = "txt_adresse";
-            this.txt_adresse.Size = new System.Drawing.Size(514, 54);
-            this.txt_adresse.TabIndex = 12;
-            this.txt_adresse.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txt_noms_client
-            // 
-            this.txt_noms_client.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_noms_client.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_noms_client.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_noms_client.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_noms_client.HintText = "Entrez les noms du client";
-            this.txt_noms_client.isPassword = false;
-            this.txt_noms_client.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_noms_client.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_noms_client.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_noms_client.LineThickness = 4;
-            this.txt_noms_client.Location = new System.Drawing.Point(24, 160);
-            this.txt_noms_client.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txt_noms_client.Name = "txt_noms_client";
-            this.txt_noms_client.Size = new System.Drawing.Size(514, 54);
-            this.txt_noms_client.TabIndex = 11;
-            this.txt_noms_client.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txt_id_client
-            // 
-            this.txt_id_client.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_id_client.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_id_client.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_id_client.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_id_client.HintText = "Entrez le code du client ou de l\'abonné";
-            this.txt_id_client.isPassword = false;
-            this.txt_id_client.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_id_client.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_id_client.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_id_client.LineThickness = 4;
-            this.txt_id_client.Location = new System.Drawing.Point(24, 62);
-            this.txt_id_client.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txt_id_client.Name = "txt_id_client";
-            this.txt_id_client.Size = new System.Drawing.Size(514, 54);
-            this.txt_id_client.TabIndex = 10;
-            this.txt_id_client.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(60, 605);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(446, 61);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Enregistrer";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.panel1;
-            this.bunifuDragControl1.Vertical = true;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label5.Location = new System.Drawing.Point(17, 323);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 30);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Téléphone 1";
-            // 
-            // txt_telephone1
-            // 
-            this.txt_telephone1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_telephone1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_telephone1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_telephone1.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_telephone1.HintText = "Entrez son numéro de contact 1";
-            this.txt_telephone1.isPassword = false;
-            this.txt_telephone1.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_telephone1.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.txt_telephone1.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
-            this.txt_telephone1.LineThickness = 4;
-            this.txt_telephone1.Location = new System.Drawing.Point(24, 363);
-            this.txt_telephone1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txt_telephone1.Name = "txt_telephone1";
-            this.txt_telephone1.Size = new System.Drawing.Size(514, 54);
-            this.txt_telephone1.TabIndex = 16;
-            this.txt_telephone1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label6
             // 
@@ -290,10 +170,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label6.Location = new System.Drawing.Point(19, 421);
+            this.label6.Location = new System.Drawing.Point(9, 402);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 30);
-            this.label6.TabIndex = 20;
+            this.label6.TabIndex = 31;
             this.label6.Text = "Téléphone 2";
             // 
             // txt_telephone2
@@ -308,48 +188,167 @@
             this.txt_telephone2.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.txt_telephone2.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
             this.txt_telephone2.LineThickness = 4;
-            this.txt_telephone2.Location = new System.Drawing.Point(22, 461);
+            this.txt_telephone2.Location = new System.Drawing.Point(14, 439);
             this.txt_telephone2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.txt_telephone2.Name = "txt_telephone2";
             this.txt_telephone2.Size = new System.Drawing.Size(514, 54);
-            this.txt_telephone2.TabIndex = 19;
+            this.txt_telephone2.TabIndex = 30;
             this.txt_telephone2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuImageButton2
+            // label5
             // 
-            this.bunifuImageButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton2.Image = global::Mercato.Properties.Resources.waste_104px;
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(447, 12);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(51, 49);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton2.TabIndex = 2;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 20;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label5.Location = new System.Drawing.Point(9, 308);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 30);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Téléphone 1";
             // 
-            // bunifuImageButton1
+            // txt_telephone1
             // 
-            this.bunifuImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.multiply_104px;
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(504, 7);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(64, 58);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 1;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 20;
+            this.txt_telephone1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_telephone1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_telephone1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_telephone1.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_telephone1.HintText = "Entrez son numéro de contact 1";
+            this.txt_telephone1.isPassword = false;
+            this.txt_telephone1.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_telephone1.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_telephone1.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_telephone1.LineThickness = 4;
+            this.txt_telephone1.Location = new System.Drawing.Point(14, 341);
+            this.txt_telephone1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txt_telephone1.Name = "txt_telephone1";
+            this.txt_telephone1.Size = new System.Drawing.Size(514, 54);
+            this.txt_telephone1.TabIndex = 28;
+            this.txt_telephone1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label4.Location = new System.Drawing.Point(9, 203);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 30);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Adresse";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label3.Location = new System.Drawing.Point(9, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(154, 30);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Noms du client";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label2.Location = new System.Drawing.Point(9, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 30);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "ID Client";
+            // 
+            // txt_adresse
+            // 
+            this.txt_adresse.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_adresse.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_adresse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_adresse.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_adresse.HintText = "Entrez l\'adresse du client";
+            this.txt_adresse.isPassword = false;
+            this.txt_adresse.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_adresse.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_adresse.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_adresse.LineThickness = 4;
+            this.txt_adresse.Location = new System.Drawing.Point(14, 247);
+            this.txt_adresse.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txt_adresse.Name = "txt_adresse";
+            this.txt_adresse.Size = new System.Drawing.Size(514, 54);
+            this.txt_adresse.TabIndex = 25;
+            this.txt_adresse.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txt_noms_client
+            // 
+            this.txt_noms_client.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_noms_client.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_noms_client.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_noms_client.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_noms_client.HintText = "Entrez les noms du client";
+            this.txt_noms_client.isPassword = false;
+            this.txt_noms_client.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_noms_client.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_noms_client.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_noms_client.LineThickness = 4;
+            this.txt_noms_client.Location = new System.Drawing.Point(14, 142);
+            this.txt_noms_client.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txt_noms_client.Name = "txt_noms_client";
+            this.txt_noms_client.Size = new System.Drawing.Size(514, 54);
+            this.txt_noms_client.TabIndex = 24;
+            this.txt_noms_client.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txt_id_client
+            // 
+            this.txt_id_client.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_id_client.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_id_client.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_id_client.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_id_client.HintText = "Entrez le code du client ou de l\'abonné";
+            this.txt_id_client.isPassword = false;
+            this.txt_id_client.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_id_client.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.txt_id_client.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.txt_id_client.LineThickness = 4;
+            this.txt_id_client.Location = new System.Drawing.Point(14, 44);
+            this.txt_id_client.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txt_id_client.Name = "txt_id_client";
+            this.txt_id_client.Size = new System.Drawing.Size(514, 54);
+            this.txt_id_client.TabIndex = 23;
+            this.txt_id_client.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(117)))), ((int)(((byte)(78)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(94, 531);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(380, 46);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Enregistrer";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.panel1;
+            this.bunifuDragControl1.Vertical = true;
             // 
             // frm_clients
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(580, 785);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(580, 680);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -358,10 +357,10 @@
             this.Text = "Clients";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -375,6 +374,9 @@
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private System.Windows.Forms.Panel panel2;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.Label label6;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_telephone2;
         private System.Windows.Forms.Label label5;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_telephone1;
         private System.Windows.Forms.Label label4;
@@ -384,8 +386,5 @@
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_noms_client;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_id_client;
         private System.Windows.Forms.Button button1;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private System.Windows.Forms.Label label6;
-        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_telephone2;
     }
 }
