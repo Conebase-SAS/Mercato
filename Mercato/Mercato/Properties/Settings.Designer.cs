@@ -8,22 +8,66 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mercato.Properties
-{
-
-
+namespace Mercato.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DESKTOP-M91LNM3")]
+        public string Server {
+            get {
+                return ((string)(this["Server"]));
+            }
+            set {
+                this["Server"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("db_mercato")]
+        public string Database {
+            get {
+                return ((string)(this["Database"]));
+            }
+            set {
+                this["Database"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sa")]
+        public string Username {
+            get {
+                return ((string)(this["Username"]));
+            }
+            set {
+                this["Username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Windy@2022.com?")]
+        public string Password {
+            get {
+                return ((string)(this["Password"]));
+            }
+            set {
+                this["Password"] = value;
             }
         }
     }

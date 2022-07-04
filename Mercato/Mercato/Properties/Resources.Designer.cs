@@ -63,6 +63,66 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_96px {
+            get {
+                object obj = ResourceManager.GetObject("add_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_96px1 {
+            get {
+                object obj = ResourceManager.GetObject("add_96px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap beer_104px {
+            get {
+                object obj = ResourceManager.GetObject("beer_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap create_order_96px {
+            get {
+                object obj = ResourceManager.GetObject("create_order_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap create_order_96px1 {
+            get {
+                object obj = ResourceManager.GetObject("create_order_96px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cutlery_104px {
+            get {
+                object obj = ResourceManager.GetObject("cutlery_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap multiply_104px {
             get {
                 object obj = ResourceManager.GetObject("multiply_104px", resourceCulture);
@@ -73,9 +133,39 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_96px {
+            get {
+                object obj = ResourceManager.GetObject("search_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sync_96px {
+            get {
+                object obj = ResourceManager.GetObject("sync_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap waste_104px {
             get {
                 object obj = ResourceManager.GetObject("waste_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wine_bar_104px {
+            get {
+                object obj = ResourceManager.GetObject("wine_bar_104px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

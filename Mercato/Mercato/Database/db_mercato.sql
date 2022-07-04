@@ -41,13 +41,6 @@ create table t_boutique
     constraint pk_boutique primary key(id_boutique)
 )
 go
-create table t_approvisionnement
-(
-    num_approvisionnement int identity,
-    date_approvisionnement date,
-    constraint pk_approvisionnement primary key(num_approvisionnement)
-)
-go
 create table t_paquetage
 (
     id_paquetage nvarchar(50),
@@ -83,6 +76,8 @@ create table t_articles
     constraint fk_article_types foreign key(id_types_articles) references t_types_articles(id_types_articles)
 )
 go
+
+------ Concernant la vente des produits --------------------------------------------
 create table t_ventes
 (
     num_vente int identity,
@@ -95,10 +90,9 @@ create table t_ventes
     constraint fk_vente_client foreign key(id_clients) references t_clients(id_clients)
 )
 go
-create table t_details_approvisionnement
+create table t_approvisionnement
 (
     num_details int identity,
-    num_approvisionnement int,
     date_details date,
     id_article nvarchar(50),
     prix_achat_$ decimal,
@@ -113,9 +107,9 @@ create table t_details_approvisionnement
     prix_solde_$ decimal,
     prix_solde_fc decimal,
     id_depot nvarchar(50),
+    points int,
     status_vente nvarchar(50) -----to be sold, on hold, expired
     constraint pk_details_approv primary key(num_details),
-    constraint fk_approv_details foreign key(num_approvisionnement) references t_approvisionnement(num_approvisionnement),
     constraint fk_approvisionnement_fournisseur foreign key(id_fournisseurs) references t_fournisseurs(id_fournisseurs),
     constraint fk_details_depot foreign key(id_depot) references t_depot(id_depot),
     constraint fk_article_details_approv foreign key(id_article) references t_articles(id_article)
@@ -130,7 +124,7 @@ create table t_details_vente
     qte_sortie int,
     constraint pk_details_vente primary key(num_details_vente),
     constraint fk_details_num_vente foreign key(num_vente) references t_ventes(num_vente),
-    constraint fk_details_details foreign key(num_details) references t_details_approvisionnement(num_details) 
+    constraint fk_details_details foreign key(num_details) references t_approvisionnement(num_details) 
 )
 go
 create table t_paiement
@@ -142,5 +136,86 @@ create table t_paiement
     montant_paye_fc decimal,
     solde_restant decimal,
     constraint pk_paiement primary key(num_paiement),
-    constraint fk_vente_paiement foreign key(num_vente) references t_ventes(num_vente)
+    constraint fk_vente_paiement foreign key(num_vente) references t_ventes(num_vente) on update cascade
 )
+go
+-------------------Fin de la partie concernant les produits ------------------------------------------------------
+-------------------Debut de la vente des services et autres ------------------------------------------------------
+create table t_composants
+(
+    id_composant nvarchar(50),
+    designation nvarchar(max),
+    constraint pk_composant primary key(id_composant)
+)
+go
+create table t_approv_composants
+(
+    num_approv_composant int identity,
+    id_composant nvarchar(50),
+    date_approv date,
+    qte_entree int,
+    date_expiration date,
+    constraint pk_approv_composant primary key(num_approv_composant),
+    constraint fk_composant_approv foreign key(id_composant) references t_composants(id_composant) on update cascade
+)
+go
+create table t_menu
+(
+    id_menu nvarchar(50),
+    designation nvarchar(50),
+    constraint pk_menu primary key(id_menu)
+)
+go
+create table t_composition_menu
+(
+    num_composition int identity,
+    date_composition date,
+    num_approv_composant int,
+    id_menu nvarchar(50),
+    qte_composee int,
+    constraint pk_composition primary key(num_composition),
+    constraint fk_menu_approv foreign key(id_menu) references t_menu(id_menu),
+    constraint fk_approv_composant foreign key(num_approv_composant) references t_approv_composants(num_approv_composant)
+)
+go
+create table t_agents
+(
+    id_agent nvarchar(50),
+    noms nvarchar(100),
+    constraint pk_agents primary key(id_agent)
+)
+go
+create table t_commandes
+(
+    num_commandes int identity,
+    id_clients nvarchar(50),
+    date_commandes date,
+    id_agent nvarchar(50),
+    constraint pk_commandes primary key(num_commandes),
+    constraint fk_agent foreign key(id_agent) references t_agents(id_agent),
+    constraint fk_client_commandes foreign key (id_clients) references t_clients(id_clients)
+)
+go
+create table t_details_commandes 
+(
+    num_details_commandes int identity,
+    num_commandes int,
+    id_menu nvarchar(50),
+    qte int,
+    prix_actuel decimal,
+    constraint pk_details_commandes primary key(num_details_commandes),
+    constraint fk_commandes_details foreign key(num_commandes) references t_commandes(num_commandes),
+    constraint fk_details_menu foreign key(id_menu) references t_menu(id_menu)
+)
+go
+create table t_paiement_commande
+(
+    num_paiement int identity,
+    date_paiement date,
+    num_commandes int,
+    montant_paye decimal,
+    reste decimal,
+    constraint pk_paiement_commande primary key(num_paiement),
+    constraint fk_commande_paie foreign key(num_commandes) references t_commandes(num_commandes)
+)
+go
