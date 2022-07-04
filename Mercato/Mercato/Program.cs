@@ -17,7 +17,7 @@ namespace Mercato
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_categories());
+            Application.Run(new frm_main());
         }
     }
 }
