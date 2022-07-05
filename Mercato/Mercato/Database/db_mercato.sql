@@ -7,6 +7,7 @@ if not exists(select * from sys.databases where name='db_mercato')
 go
 use db_mercato;
 go
+------------------------------------------FOURNISSEURS------------------------------------------------------------------
 create table t_fournisseurs
 (
     id_fournisseurs nvarchar(50),
@@ -15,6 +16,48 @@ create table t_fournisseurs
     constraint pk_fournisseurs primary key(id_fournisseurs)
 )
 go
+create procedure afficher_fournisseurs
+as
+select top 50 
+    id_fournisseurs as 'ID',
+    designation_fournisseurs as 'Designation',
+    telephone as 'Télephone'
+from t_fournisseurs
+    order by id_fournisseurs asc
+go
+create procedure charger_fournisseurs
+as
+select 
+    id_fournisseurs
+from t_fournisseurs
+    order by id_fournisseurs asc
+go
+create procedure enregistrer_fournisseurs
+@id_fournisseurs nvarchar(50),
+@designation_fournisseurs nvarchar(100),
+@telephone nvarchar(50)
+as
+    merge into t_fournisseurs
+	using(select @id_fournisseurs as x_id) as x_source
+	on (x_source.x_id=t_fournisseurs.id_fournisseurs)
+	when matched then	
+		update set
+            designation_fournisseurs=@designation_fournisseurs,
+            telephone=@telephone
+    when not matched then
+        insert
+            (id_fournisseurs, designation_fournisseurs, telephone)
+        values
+            (@id_fournisseurs, @designation_fournisseurs, @telephone);
+go
+create procedure supprimer_fournisseur
+@id_fournisseurs nvarchar(50)
+as
+    delete from t_fournisseurs
+        where id_fournisseurs like @id_fournisseurs
+go
+-----------------------------------------FIN FOURNISSEURS---------------------------------------------------------------
+------------------------------------------DEBUT CODE DEPOT -------------------------------------------------------------
 create table t_depot
 (
     id_depot nvarchar(50),
@@ -23,6 +66,46 @@ create table t_depot
     constraint pk_depot primary key(id_depot)
 )
 go
+create procedure afficher_depot
+as
+    select top 50 
+        id_depot as 'ID',
+        designation_depot as 'Designation',
+        telephone as 'Télephone'
+    from t_depot
+        order by id_depot asc
+go
+create procedure charger_depot
+as
+    select id_depot from t_depot
+    order by id_depot asc
+go
+create procedure enregistrer_depot
+@id_depot nvarchar(50),
+@designation_depot nvarchar(100),
+@telephone nvarchar(50)
+as
+    merge into t_depot
+	using(select @id_depot as x_nif) as x_source
+	on (x_source.x_nif=t_depot.id_depot)
+	when matched then	
+		update set
+            designation_depot=@designation_depot,
+            telephone=@telephone
+    when not matched then
+        insert
+            (id_depot, designation_depot, telephone)
+        values
+            (@id_depot, @designation_depot, @telephone);
+go
+create procedure supprimer_depot
+@id_depot nvarchar(50)
+as
+    delete from t_depot
+        where id_depot like @id_depot
+go
+----------------------------------------FIN CODE DEPOT----------------------------------------------------------------
+
 create table t_clients
 (
     id_clients nvarchar(50),
