@@ -20,6 +20,10 @@ namespace Mercato.Views.Forms
         clsDepot cls = new clsDepot();
         Datalib datalib = new Datalib();
         Depot depot = new Depot();
+        clsFournisseur cls_fournisseur = new clsFournisseur();
+        Fournisseur fournisseur = new Fournisseur();
+        clsArticles cls_art = new clsArticles();
+        Articles articles = new Articles();
         public frm_approvisionnement()
         {
             InitializeComponent();
@@ -28,6 +32,8 @@ namespace Mercato.Views.Forms
         private void refresh()
         {
             cls.charger_depot(cbx_depot);
+            cls_art.charger_listbox_article(listBox1);
+            cls_fournisseur.charger_fournisseurs(cbx_fournisseur);
             txt_article.Text = "";
             txt_num_approv.Text = "";
             txt_points.Text = "";
@@ -63,6 +69,17 @@ namespace Mercato.Views.Forms
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             refresh();
+        }
+
+        private void btn_add_article_Click(object sender, EventArgs e)
+        {
+            var fr = new frm_articles();
+            fr.ShowDialog();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_article.Text = listBox1.SelectedItem.ToString();
         }
     }
 }
