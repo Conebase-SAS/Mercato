@@ -124,6 +124,7 @@ create table t_boutique
     constraint pk_boutique primary key(id_boutique)
 )
 go
+---------------------------------------CODES POUR PAQUETAGE--------------------------------------------------------
 create table t_paquetage
 (
     id_paquetage nvarchar(50),
@@ -131,6 +132,45 @@ create table t_paquetage
     constraint pk_paquetage primary key(id_paquetage)
 )
 go
+create procedure afficher_paquetage
+as
+select top 50
+    id_paquetage as 'ID',
+    designation_paquetage as 'Designation'
+from t_paquetage
+    order by id_paquetage asc
+go
+create procedure charger_paquetage
+as
+select 
+    id_paquetage 
+from t_paquetage
+    order by id_paquetage asc
+go
+create procedure enregistrer_paquetage
+@id_paquetage nvarchar(50),
+@designation_paquetage nvarchar(100)
+as
+    merge into t_paquetage
+	using(select @id_paquetage as x_id) as x_source
+	on (x_source.x_id=t_paquetage.id_paquetage)
+	when matched then	
+		update set
+            designation_paquetage=@designation_paquetage
+    when not matched then
+        insert
+            (id_paquetage, designation_paquetage)
+        values
+            (@id_paquetage, @designation_paquetage);
+go
+create procedure supprimer_paquetage
+@id_paquetage nvarchar(50)
+as
+    delete from t_paquetage
+        where id_paquetage like @id_paquetage
+go
+---------------------------------------Fin des codes pour paquetage-----------------------------------------------
+---------------------------------------Debut des codes pour types articles----------------------------------------
 create table t_types_articles
 (
     id_types_articles nvarchar(50),
@@ -138,6 +178,45 @@ create table t_types_articles
     constraint pk_types_articles primary key(id_types_articles)
 )
 go
+create procedure afficher_types_articles
+as
+select top 50
+    id_types_articles as 'ID',
+    designation_types_articles as 'Designation'
+from t_types_articles
+    order by id_types_articles asc
+go
+create procedure charger_types_articles
+as
+select 
+    id_types_articles 
+from t_types_articles
+    order by id_types_articles asc
+go
+create procedure enregistrer_types_articles
+@id_types_articles nvarchar(50),
+@designation_types_articles nvarchar(100)
+as
+    merge into t_types_articles
+	using(select @id_types_articles as x_id) as x_source
+	on (x_source.x_id=t_types_articles.id_types_articles)
+	when matched then	
+		update set
+            designation_types_articles=@designation_types_articles
+    when not matched then
+        insert
+            (id_types_articles, designation_types_articles)
+        values
+            (@id_types_articles, @designation_types_articles);
+go
+create procedure supprimer_types_articles
+@id_types_articles nvarchar(50)
+as
+    delete from t_types_articles
+        where id_types_articles like @id_types_articles
+go
+---------------------------------------Fin des codes pour types articles------------------------------------------
+---------------------------------------Début des codes pour catégories articles ----------------------------------
 create table t_categories_articles
 (
     id_categories_articles nvarchar(50),
@@ -145,6 +224,45 @@ create table t_categories_articles
     constraint pk_categories_articles primary key(id_categories_articles)
 )
 go
+create procedure afficher_catégorie_articles
+as
+select top 50 
+    id_categories_articles as 'ID',
+    designation_categories_articles as 'Désignation'
+from t_categories_articles
+    order by
+        id_categories_articles asc
+go
+create procedure charger_categories_articles
+as
+select 
+    id_categories_articles
+from t_categories_articles 
+    order by id_categories_articles asc
+go
+create procedure enregistrer_categories_articles
+@id_categories_articles nvarchar(50),
+@designation_categories_articles nvarchar(100)
+as
+    merge into t_categories_articles
+	using(select @id_categories_articles as x_id) as x_source
+	on (x_source.x_id=t_categories_articles.id_categories_articles)
+	when matched then	
+		update set
+            designation_categories_articles=@designation_categories_articles
+    when not matched then
+        insert
+            (id_categories_articles, designation_categories_articles)
+        values
+            (@id_categories_articles, @designation_categories_articles);
+go
+create procedure supprimer_categories_articles
+@id_categories_articles nvarchar(50)
+as
+    delete from t_categories_articles
+        where @id_categories_articles like @id_categories_articles
+go
+--------------------------------------Fin des codes pour catégories d'articles------------------------------------
 create table t_articles
 (
     id_article nvarchar(50),
@@ -159,7 +277,51 @@ create table t_articles
     constraint fk_article_types foreign key(id_types_articles) references t_types_articles(id_types_articles)
 )
 go
-
+create procedure afficher_articles
+as
+select top 50
+    id_article as 'ID',
+    designation_article as 'Designation'
+from t_articles
+    order by id_article asc
+go
+create procedure charger_listbox_article
+as
+select top 50 
+    id_article as 'ID'
+from t_articles
+order by id_article asc
+go
+create procedure enregistrer_articles
+@id_article nvarchar(50),
+@designation_article nvarchar(100),
+@id_categories_articles nvarchar(50),
+@id_types_articles nvarchar(50),
+@id_paquetage nvarchar(50),
+@description_articles nvarchar(max)
+as
+    merge into t_articles
+	using(select @id_article as x_id) as x_source
+	on (x_source.x_id=t_articles.id_article)
+	when matched then	
+		update set
+            designation_article=@designation_article,
+            id_categories_articles=@id_categories_articles,
+            id_types_articles=@id_types_articles,
+            id_paquetage=@id_paquetage,
+            description_articles=@description_articles
+    when not matched then
+        insert
+            (id_article, designation_article, id_categories_articles, id_types_articles, id_paquetage, description_articles)
+        values
+            (@id_article,@designation_article, @id_categories_articles, @id_types_articles, @id_paquetage, @description_articles);
+go
+create procedure supprimer_articles
+@id_article nvarchar(50)
+as
+    delete from t_articles
+        where id_article like @id_article
+go
 ------ Concernant la vente des produits --------------------------------------------
 create table t_ventes
 (
