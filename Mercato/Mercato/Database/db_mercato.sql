@@ -322,6 +322,15 @@ as
     delete from t_articles
         where id_article like @id_article
 go
+create procedure rechercher_article
+@search nvarchar(50)
+as
+select
+    id_article as 'ID'
+from t_articles
+    where id_article like '%'+@search+'%'   
+    order by id_article asc
+go
 ------ Concernant la vente des produits --------------------------------------------
 create table t_ventes
 (
@@ -335,6 +344,7 @@ create table t_ventes
     constraint fk_vente_client foreign key(id_clients) references t_clients(id_clients)
 )
 go
+--------------------------Debut du codes pour approvisionnement---------------------
 create table t_approvisionnement
 (
     num_details int identity,
@@ -360,6 +370,187 @@ create table t_approvisionnement
     constraint fk_article_details_approv foreign key(id_article) references t_articles(id_article)
 )
 go
+create procedure afficher_approvisionnement
+as
+select top 50 
+    num_details as 'ID',
+    date_details as 'Date',
+    id_article as 'ID Articles',
+    prix_achat_$ as 'Prix (Achat) USD',
+    prix_achat_fc as 'Prix (Achat) FC',
+    qte_entree as 'Qte',
+    id_fournisseurs as 'Fournisseur',
+    date_expiration as 'Expiration',
+    date_debut_solde as 'Début Solde',
+    date_fin_solde as 'Fin Solde',
+    prix_vente_$ as 'Prix (Vente) USD',
+    prix_vente_fc as 'Prx (Vente) FC',
+    prix_solde_$ as 'Prix (Solde) USD',
+    prix_solde_fc as 'Prix (Solde) FC',
+    id_depot as 'Depot',
+    points as 'Points',
+    status_vente as 'Status'
+from t_approvisionnement
+    order by num_details desc
+go
+create procedure rechercher_approvisionnement_fournisseur
+@search nvarchar(50)
+as
+select
+    num_details as 'ID',
+    date_details as 'Date',
+    id_article as 'ID Articles',
+    prix_achat_$ as 'Prix (Achat) USD',
+    prix_achat_fc as 'Prix (Achat) FC',
+    qte_entree as 'Qte',
+    id_fournisseurs as 'Fournisseur',
+    date_expiration as 'Expiration',
+    date_debut_solde as 'Début Solde',
+    date_fin_solde as 'Fin Solde',
+    prix_vente_$ as 'Prix (Vente) USD',
+    prix_vente_fc as 'Prx (Vente) FC',
+    prix_solde_$ as 'Prix (Solde) USD',
+    prix_solde_fc as 'Prix (Solde) FC',
+    id_depot as 'Depot',
+    points as 'Points',
+    status_vente as 'Status'
+from t_approvisionnement
+    where id_fournisseurs like '%'+@search+'%'
+order by num_details desc
+go
+create procedure rechercher_approvisionnement_produit
+@search nvarchar(50)
+as
+select
+    num_details as 'ID',
+    date_details as 'Date',
+    id_article as 'ID Articles',
+    prix_achat_$ as 'Prix (Achat) USD',
+    prix_achat_fc as 'Prix (Achat) FC',
+    qte_entree as 'Qte',
+    id_fournisseurs as 'Fournisseur',
+    date_expiration as 'Expiration',
+    date_debut_solde as 'Début Solde',
+    date_fin_solde as 'Fin Solde',
+    prix_vente_$ as 'Prix (Vente) USD',
+    prix_vente_fc as 'Prx (Vente) FC',
+    prix_solde_$ as 'Prix (Solde) USD',
+    prix_solde_fc as 'Prix (Solde) FC',
+    id_depot as 'Depot',
+    points as 'Points',
+    status_vente as 'Status'
+from t_approvisionnement
+    where id_article like '%'+@search+'%'
+order by num_details desc
+go
+create procedure rechercher_approvisionnement_details
+@search nvarchar(50)
+as
+select
+    num_details as 'ID',
+    date_details as 'Date',
+    id_article as 'ID Articles',
+    prix_achat_$ as 'Prix (Achat) USD',
+    prix_achat_fc as 'Prix (Achat) FC',
+    qte_entree as 'Qte',
+    id_fournisseurs as 'Fournisseur',
+    date_expiration as 'Expiration',
+    date_debut_solde as 'Début Solde',
+    date_fin_solde as 'Fin Solde',
+    prix_vente_$ as 'Prix (Vente) USD',
+    prix_vente_fc as 'Prx (Vente) FC',
+    prix_solde_$ as 'Prix (Solde) USD',
+    prix_solde_fc as 'Prix (Solde) FC',
+    id_depot as 'Depot',
+    points as 'Points',
+    status_vente as 'Status'
+from t_approvisionnement
+    where num_details like '%'+@search+'%'
+order by num_details desc
+go
+create procedure rechercher_approvisionnement_vente
+@search nvarchar(50)
+as
+select
+    num_details as 'ID',
+    date_details as 'Date',
+    id_article as 'ID Articles',
+    prix_achat_$ as 'Prix (Achat) USD',
+    prix_achat_fc as 'Prix (Achat) FC',
+    qte_entree as 'Qte',
+    id_fournisseurs as 'Fournisseur',
+    date_expiration as 'Expiration',
+    date_debut_solde as 'Début Solde',
+    date_fin_solde as 'Fin Solde',
+    prix_vente_$ as 'Prix (Vente) USD',
+    prix_vente_fc as 'Prx (Vente) FC',
+    prix_solde_$ as 'Prix (Solde) USD',
+    prix_solde_fc as 'Prix (Solde) FC',
+    id_depot as 'Depot',
+    points as 'Points',
+    status_vente as 'Status'
+from t_approvisionnement
+    where status_vente like '%'+@search+'%'
+order by num_details desc
+go
+create procedure enregistrer_approvisionement
+@num_details int,
+@id_article nvarchar(50),
+@prix_achat_$ decimal,
+@prix_achat_fc decimal,
+@qte_entree decimal,
+@id_fournisseurs nvarchar(50),
+@date_expiration date,
+@date_debut_solde date,
+@date_fin_solde date,
+@prix_vente_$ decimal,
+@prix_vente_fc decimal,
+@prix_solde_$ decimal,
+@prix_solde_fc decimal,
+@id_depot nvarchar(50),
+@points int,
+@status_vente nvarchar(50)
+as
+    merge into t_approvisionnement
+	using(select @num_details as x_id) as x_source
+	on (x_source.x_id=t_approvisionnement.num_details)
+	when matched then	
+		update set
+            date_details=getdate(),
+            id_article=@id_article,
+            prix_achat_$=@prix_achat_$,
+            prix_achat_fc=@prix_achat_fc,
+            qte_entree=@qte_entree,
+            id_fournisseurs=@id_fournisseurs,
+            date_expiration=@date_expiration,
+            date_debut_solde=@date_debut_solde,
+            date_fin_solde=@date_fin_solde,
+            prix_vente_$=@prix_vente_$ ,
+            prix_vente_fc=@prix_vente_fc,
+            prix_solde_$=@prix_solde_$,
+            prix_solde_fc=@prix_solde_fc,
+            id_depot=@id_depot,
+            points=@points,
+            status_vente=@status_vente
+    when not matched then
+        insert
+            (
+                date_details, id_article, prix_achat_$, prix_achat_fc, qte_entree, id_fournisseurs, date_expiration, date_debut_solde, date_fin_solde, prix_vente_$, prix_vente_fc,
+                prix_solde_$, prix_solde_fc, id_depot, points, status_vente
+            )
+        values
+            (
+                @date_details, @id_article, @prix_achat_$, @prix_achat_fc, @qte_entree, @id_fournisseurs, @date_expiration, @date_debut_solde, @date_fin_solde, @prix_vente_$, 
+                @prix_vente_fc, @prix_solde_$, @prix_solde_fc, @id_depot, @points, @status_vente
+            );
+go
+create procedure supprimer_approvisionnement
+@num_details int
+as
+delete from t_approvisionnement
+    where num_details like @num_details
+go
+---------------------------Fin du code d'approvisionnement--------------------------------------------------------------
 create table t_details_vente
 (
     num_details_vente int identity,

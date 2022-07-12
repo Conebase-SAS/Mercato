@@ -49,6 +49,43 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
+        
+            public void rechercher_article(ListBox lst, Articles articles)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("rechercher_article", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = articles.Id_article;
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                lst.Items.Clear();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    lst.Items.Add(Convert.ToString(dr[0]));
+                }
+            }
+            catch (Exception exct)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(exct.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
         public void charger_listbox_article(ListBox lst)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());

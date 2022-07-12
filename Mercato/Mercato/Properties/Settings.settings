@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LENSCORPX</Value>
+      <Value Profile="(Default)">DESKTOP-QEV6E3Q</Value>
     </Setting>
     <Setting Name="Database" Type="System.String" Scope="User">
       <Value Profile="(Default)">db_mercato</Value>
@@ -12,7 +12,7 @@
       <Value Profile="(Default)">sa</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Windy@2022.com?</Value>
+      <Value Profile="(Default)">binsaleh97</Value>
     </Setting>
   </Settings>
 </SettingsFile>
