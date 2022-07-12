@@ -38,6 +38,7 @@
             this.txt_search = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_add_article = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_refresh = new Bunifu.Framework.UI.BunifuImageButton();
             this.cbx_status = new System.Windows.Forms.ComboBox();
             this.cbx_depot = new System.Windows.Forms.ComboBox();
@@ -50,8 +51,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.bunifuDatepicker3 = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.bunifuDatepicker2 = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dt_pick_fin_solde = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dtpick_debut_solde = new Bunifu.Framework.UI.BunifuDatepicker();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_prix_solde_dollars = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label14 = new System.Windows.Forms.Label();
@@ -61,7 +62,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.bunifuDatepicker1 = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dtpick_expiration = new Bunifu.Framework.UI.BunifuDatepicker();
             this.txt_qte_entree = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_prix_achat_francs = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -74,15 +75,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txt_num_approv = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_add_article = new Bunifu.Framework.UI.BunifuImageButton();
             this.pnl_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_add_article)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_fournisseur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_add_article)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl2
@@ -165,6 +165,7 @@
             this.txt_search.Size = new System.Drawing.Size(215, 45);
             this.txt_search.TabIndex = 17;
             this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_search.OnValueChanged += new System.EventHandler(this.txt_search_OnValueChanged);
             // 
             // listBox1
             // 
@@ -192,8 +193,8 @@
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.bunifuDatepicker3);
-            this.panel2.Controls.Add(this.bunifuDatepicker2);
+            this.panel2.Controls.Add(this.dt_pick_fin_solde);
+            this.panel2.Controls.Add(this.dtpick_debut_solde);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.txt_prix_solde_dollars);
             this.panel2.Controls.Add(this.label14);
@@ -203,7 +204,7 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.bunifuDatepicker1);
+            this.panel2.Controls.Add(this.dtpick_expiration);
             this.panel2.Controls.Add(this.txt_qte_entree);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txt_prix_achat_francs);
@@ -221,6 +222,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(973, 557);
             this.panel2.TabIndex = 4;
+            // 
+            // btn_add_article
+            // 
+            this.btn_add_article.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add_article.BackColor = System.Drawing.Color.Transparent;
+            this.btn_add_article.Image = global::Mercato.Properties.Resources.add_96px1;
+            this.btn_add_article.ImageActive = null;
+            this.btn_add_article.Location = new System.Drawing.Point(471, 102);
+            this.btn_add_article.Name = "btn_add_article";
+            this.btn_add_article.Size = new System.Drawing.Size(28, 28);
+            this.btn_add_article.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_add_article.TabIndex = 66;
+            this.btn_add_article.TabStop = false;
+            this.btn_add_article.Zoom = 20;
+            this.btn_add_article.Click += new System.EventHandler(this.btn_add_article_Click);
             // 
             // btn_refresh
             // 
@@ -243,6 +259,11 @@
             this.cbx_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_status.FormattingEnabled = true;
+            this.cbx_status.Items.AddRange(new object[] {
+            "Vente",
+            "Stock",
+            "Archivé",
+            "Expiré"});
             this.cbx_status.Location = new System.Drawing.Point(193, 374);
             this.cbx_status.Name = "cbx_status";
             this.cbx_status.Size = new System.Drawing.Size(272, 29);
@@ -385,35 +406,35 @@
             this.label15.TabIndex = 53;
             this.label15.Text = "Dépôt";
             // 
-            // bunifuDatepicker3
+            // dt_pick_fin_solde
             // 
-            this.bunifuDatepicker3.BackColor = System.Drawing.Color.Black;
-            this.bunifuDatepicker3.BorderRadius = 0;
-            this.bunifuDatepicker3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDatepicker3.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatepicker3.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.bunifuDatepicker3.FormatCustom = null;
-            this.bunifuDatepicker3.Location = new System.Drawing.Point(193, 327);
-            this.bunifuDatepicker3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuDatepicker3.Name = "bunifuDatepicker3";
-            this.bunifuDatepicker3.Size = new System.Drawing.Size(272, 32);
-            this.bunifuDatepicker3.TabIndex = 52;
-            this.bunifuDatepicker3.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
+            this.dt_pick_fin_solde.BackColor = System.Drawing.Color.Black;
+            this.dt_pick_fin_solde.BorderRadius = 0;
+            this.dt_pick_fin_solde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_pick_fin_solde.ForeColor = System.Drawing.Color.White;
+            this.dt_pick_fin_solde.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dt_pick_fin_solde.FormatCustom = null;
+            this.dt_pick_fin_solde.Location = new System.Drawing.Point(193, 327);
+            this.dt_pick_fin_solde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dt_pick_fin_solde.Name = "dt_pick_fin_solde";
+            this.dt_pick_fin_solde.Size = new System.Drawing.Size(272, 32);
+            this.dt_pick_fin_solde.TabIndex = 52;
+            this.dt_pick_fin_solde.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
             // 
-            // bunifuDatepicker2
+            // dtpick_debut_solde
             // 
-            this.bunifuDatepicker2.BackColor = System.Drawing.Color.Black;
-            this.bunifuDatepicker2.BorderRadius = 0;
-            this.bunifuDatepicker2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDatepicker2.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatepicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.bunifuDatepicker2.FormatCustom = null;
-            this.bunifuDatepicker2.Location = new System.Drawing.Point(193, 285);
-            this.bunifuDatepicker2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuDatepicker2.Name = "bunifuDatepicker2";
-            this.bunifuDatepicker2.Size = new System.Drawing.Size(272, 32);
-            this.bunifuDatepicker2.TabIndex = 51;
-            this.bunifuDatepicker2.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
+            this.dtpick_debut_solde.BackColor = System.Drawing.Color.Black;
+            this.dtpick_debut_solde.BorderRadius = 0;
+            this.dtpick_debut_solde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpick_debut_solde.ForeColor = System.Drawing.Color.White;
+            this.dtpick_debut_solde.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpick_debut_solde.FormatCustom = null;
+            this.dtpick_debut_solde.Location = new System.Drawing.Point(193, 285);
+            this.dtpick_debut_solde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpick_debut_solde.Name = "dtpick_debut_solde";
+            this.dtpick_debut_solde.Size = new System.Drawing.Size(272, 32);
+            this.dtpick_debut_solde.TabIndex = 51;
+            this.dtpick_debut_solde.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
             // 
             // label13
             // 
@@ -523,20 +544,20 @@
             this.label8.TabIndex = 40;
             this.label8.Text = "Date d\'expiration";
             // 
-            // bunifuDatepicker1
+            // dtpick_expiration
             // 
-            this.bunifuDatepicker1.BackColor = System.Drawing.Color.Black;
-            this.bunifuDatepicker1.BorderRadius = 0;
-            this.bunifuDatepicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDatepicker1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatepicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.bunifuDatepicker1.FormatCustom = null;
-            this.bunifuDatepicker1.Location = new System.Drawing.Point(193, 243);
-            this.bunifuDatepicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuDatepicker1.Name = "bunifuDatepicker1";
-            this.bunifuDatepicker1.Size = new System.Drawing.Size(272, 32);
-            this.bunifuDatepicker1.TabIndex = 39;
-            this.bunifuDatepicker1.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
+            this.dtpick_expiration.BackColor = System.Drawing.Color.Black;
+            this.dtpick_expiration.BorderRadius = 0;
+            this.dtpick_expiration.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpick_expiration.ForeColor = System.Drawing.Color.White;
+            this.dtpick_expiration.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpick_expiration.FormatCustom = null;
+            this.dtpick_expiration.Location = new System.Drawing.Point(193, 243);
+            this.dtpick_expiration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpick_expiration.Name = "dtpick_expiration";
+            this.dtpick_expiration.Size = new System.Drawing.Size(272, 32);
+            this.dtpick_expiration.TabIndex = 39;
+            this.dtpick_expiration.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
             // 
             // txt_qte_entree
             // 
@@ -680,6 +701,7 @@
             this.button1.TabIndex = 28;
             this.button1.Text = "Enregistrer";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt_num_approv
             // 
@@ -711,21 +733,6 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "N° Approv.";
             // 
-            // btn_add_article
-            // 
-            this.btn_add_article.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add_article.BackColor = System.Drawing.Color.Transparent;
-            this.btn_add_article.Image = global::Mercato.Properties.Resources.add_96px1;
-            this.btn_add_article.ImageActive = null;
-            this.btn_add_article.Location = new System.Drawing.Point(471, 102);
-            this.btn_add_article.Name = "btn_add_article";
-            this.btn_add_article.Size = new System.Drawing.Size(28, 28);
-            this.btn_add_article.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_add_article.TabIndex = 66;
-            this.btn_add_article.TabStop = false;
-            this.btn_add_article.Zoom = 20;
-            this.btn_add_article.Click += new System.EventHandler(this.btn_add_article_Click);
-            // 
             // frm_approvisionnement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -744,10 +751,10 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_add_article)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_refresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_fournisseur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_add_article)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -775,8 +782,8 @@
         private System.Windows.Forms.Label label4;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_article;
         private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker3;
-        private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker2;
+        private Bunifu.Framework.UI.BunifuDatepicker dt_pick_fin_solde;
+        private Bunifu.Framework.UI.BunifuDatepicker dtpick_debut_solde;
         private System.Windows.Forms.Label label13;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_solde_dollars;
         private System.Windows.Forms.Label label14;
@@ -786,7 +793,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker1;
+        private Bunifu.Framework.UI.BunifuDatepicker dtpick_expiration;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_points;

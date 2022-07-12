@@ -24,6 +24,9 @@ namespace Mercato.Views.Forms
         Fournisseur fournisseur = new Fournisseur();
         clsArticles cls_art = new clsArticles();
         Articles articles = new Articles();
+        clsApprovisionnements cls_approv = new clsApprovisionnements();
+        Approvisionnement approvisionnement = new Approvisionnement();
+        
         public frm_approvisionnement()
         {
             InitializeComponent();
@@ -79,7 +82,57 @@ namespace Mercato.Views.Forms
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txt_article.Text = listBox1.SelectedItem.ToString();
+            try
+            {
+                txt_article.Text = listBox1.SelectedItem.ToString();
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        private void txt_search_OnValueChanged(object sender, EventArgs e)
+        {
+            articles.Id_article = txt_search.Text;
+            cls_art.rechercher_article(listBox1, articles);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(txt_article.Text==""||txt_prix_vente_dollars.Text==""||txt_prix_vente_fc.Text==""||txt_qte_entree.Text=="")
+            {
+                MessageBox.Show("Veuillez completer les informations de base");
+            }
+            else
+            {
+                if(txt_num_approv.Text=="")
+                {
+                    approvisionnement.num_details = 0;
+                }
+                else
+                {
+                    approvisionnement.num_details = Convert.ToInt32(txt_num_approv.Text);
+                }
+                approvisionnement.Id_article = txt_article.Text;
+                approvisionnement.Id_article = txt_article.Text;
+                approvisionnement.prix_achat_usd = Convert.ToDecimal(txt_prix_achat_dollars.Text);
+                approvisionnement.prix_achat_fc = Convert.ToDecimal(txt_prix_achat_francs.Text);
+                approvisionnement.qte_entree = Convert.ToDecimal(txt_qte_entree.Text);
+                approvisionnement.ID_fournisseurs = cbx_fournisseur.Text;
+                approvisionnement.Date_expriation = dtpick_expiration.Value;
+                approvisionnement.Date_debut_solde = dtpick_debut_solde.Value;
+                approvisionnement.Date_fin_solde = dt_pick_fin_solde.Value;
+                approvisionnement.prix_vente_usd = Convert.ToDecimal(txt_prix_vente_dollars.Text);
+                approvisionnement.prix_vente_fc = Convert.ToDecimal(txt_prix_vente_fc.Text);
+                approvisionnement.prix_solde_usd = Convert.ToDecimal(txt_prix_solde_dollars.Text);
+                approvisionnement.prix_solde_fc = Convert.ToDecimal(txt_prix_solde_fc.Text);
+                approvisionnement.points =Convert.ToInt32(txt_points.Text);
+                approvisionnement.ID_Depot=cbx_depot.Text;
+                approvisionnement.stats_vente=cbx_status.Text;
+                cls_approv.enregistrer_approvisionement(approvisionnement);
+            }
         }
     }
 }
