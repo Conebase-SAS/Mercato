@@ -782,8 +782,6 @@
         private System.Windows.Forms.Label label4;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_article;
         private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuDatepicker dt_pick_fin_solde;
-        private Bunifu.Framework.UI.BunifuDatepicker dtpick_debut_solde;
         private System.Windows.Forms.Label label13;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_solde_dollars;
         private System.Windows.Forms.Label label14;
@@ -793,7 +791,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private Bunifu.Framework.UI.BunifuDatepicker dtpick_expiration;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_points;
@@ -802,10 +799,13 @@
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_solde_fc;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuImageButton btn_add_fournisseur;
-        private System.Windows.Forms.ComboBox cbx_fournisseur;
-        private System.Windows.Forms.ComboBox cbx_status;
-        private System.Windows.Forms.ComboBox cbx_depot;
         private Bunifu.Framework.UI.BunifuImageButton btn_refresh;
         private Bunifu.Framework.UI.BunifuImageButton btn_add_article;
+        public Bunifu.Framework.UI.BunifuDatepicker dt_pick_fin_solde;
+        public Bunifu.Framework.UI.BunifuDatepicker dtpick_debut_solde;
+        public Bunifu.Framework.UI.BunifuDatepicker dtpick_expiration;
+        public System.Windows.Forms.ComboBox cbx_fournisseur;
+        public System.Windows.Forms.ComboBox cbx_status;
+        public System.Windows.Forms.ComboBox cbx_depot;
     }
 }
