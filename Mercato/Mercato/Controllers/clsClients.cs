@@ -1,0 +1,223 @@
+﻿using Mercato.Handlers;
+using Mercato.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Mercato.Controllers
+{
+    class clsClients
+    {
+        Datalib datas = new Datalib();
+        static SqlConnection cnx;
+        Clients clients = new Clients();
+        Notification_Center notify = new Notification_Center();
+
+        public void afficher_clients(DataGridView dtg)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("afficher_clients", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                dtg.DataSource = dt;
+            }
+            catch (Exception exct)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(exct.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+        public void charger_clients(ComboBox lst)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("charger_clients", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                lst.Items.Clear();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    lst.Items.Add(Convert.ToString(dr[0]));
+                }
+            }
+            catch (Exception exct)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(exct.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+        public void recuperer_id_client(string noms, Label client)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("recuperer_id_client", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("noms", SqlDbType.NVarChar)).Value = noms;
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    client.Text=Convert.ToString(dr[0]);
+                }
+            }
+            catch (Exception exct)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(exct.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+        public void enregistrer_client(Clients clients)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("enregistrer_client", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("id_clients", SqlDbType.NVarChar)).Value = clients.Id_clients;
+                cmd.Parameters.Add(new SqlParameter("noms", SqlDbType.NVarChar)).Value = clients.Noms;
+                cmd.Parameters.Add(new SqlParameter("adresse", SqlDbType.NVarChar)).Value = clients.Adresse;
+                cmd.Parameters.Add(new SqlParameter("telephone_mobile", SqlDbType.NVarChar)).Value = clients.Telephone_mobile;
+                cmd.Parameters.Add(new SqlParameter("telephone_work", SqlDbType.NVarChar)).Value = clients.Telephone_work;
+
+                cmd.ExecuteNonQuery();
+                notify.notifier("Enregistrement avec succès!");
+                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception tdf)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Voulez vous voir le code d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(tdf.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+        public void rechercher_clients_by_noms(Clients clients, DataGridView dtg)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("rechercher_clients_by_noms", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = clients.Noms;
+
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                dtg.DataSource = dt;
+                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception tdf)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Voulez vous voir le code d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(tdf.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+        public void supprimer_client(Clients clients)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("supprimer_client", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("id_clients", SqlDbType.NVarChar)).Value = clients.Id_clients;
+
+                cmd.ExecuteNonQuery();
+                notify.notifier("Enregistrement avec succès!");
+                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception tdf)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Voulez vous voir le code d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(tdf.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+    }
+}
