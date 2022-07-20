@@ -8,24 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bunifu.Framework.UI;
 
 namespace Mercato.Controllers
 {
-    class clsApprovisionnements
+    class clsMenu
     {
         Datalib datas = new Datalib();
         static SqlConnection cnx;
-        Approvisionnement approvisionnement = new Approvisionnement();
+        Menu_Services menu = new Menu_Services();
         Notification_Center notify = new Notification_Center();
 
-        public void afficher_approvisionnement(DataGridView dtg)
+        public void afficher_menu(DataGridView dtg)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("afficher_approvisionnement", cnx)
+                var cmd = new SqlCommand("afficher_menu", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -49,23 +50,27 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        public void rechercher_approvisionnement_fournisseur(DataGridView dtg, Approvisionnement approvisionnement)
+
+        public void Recuperer_prix_menu(BunifuMaterialTextbox lbl, Menu_Services menu)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("rechercher_approvisionnement_fournisseur", cnx)
+                var cmd = new SqlCommand("recuperer_prix_menu", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.ID_fournisseurs;
+                cmd.Parameters.Add(new SqlParameter("id_menu", SqlDbType.NVarChar)).Value = menu.Id_menu;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
                 da.Fill(dt);
-                dtg.DataSource = dt;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    lbl.Text=Convert.ToString(dr[0]);
+                }
             }
             catch (Exception exct)
             {
@@ -81,110 +86,14 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        public void rechercher_approvisionnement_produit(DataGridView dtg, Approvisionnement approvisionnement)
+        public void recuperer_menu(ListBox lst)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("rechercher_approvisionnement_produit", cnx)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.Id_article;
-                cmd.ExecuteNonQuery();
-                var da = new SqlDataAdapter(cmd);
-                var dt = new DataTable();
-                da.Fill(dt);
-                dtg.DataSource = dt;
-            }
-            catch (Exception exct)
-            {
-                var rs = new DialogResult();
-                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (rs == DialogResult.Yes)
-                {
-                    MessageBox.Show(exct.ToString());
-                }
-            }
-            finally
-            {
-                cnx.Close(); cnx.Dispose();
-            }
-        }
-        public void rechercher_approvisionnement_details(DataGridView dtg, Approvisionnement approvisionnement)
-        {
-            cnx = new SqlConnection(datas.getInstance().ToString());
-            try
-            {
-                if (cnx.State == ConnectionState.Closed)
-                    cnx.Open();
-                var cmd = new SqlCommand("rechercher_approvisionnement_details", cnx)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.num_details;
-                cmd.ExecuteNonQuery();
-                var da = new SqlDataAdapter(cmd);
-                var dt = new DataTable();
-                da.Fill(dt);
-                dtg.DataSource = dt;
-            }
-            catch (Exception exct)
-            {
-                var rs = new DialogResult();
-                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (rs == DialogResult.Yes)
-                {
-                    MessageBox.Show(exct.ToString());
-                }
-            }
-            finally
-            {
-                cnx.Close(); cnx.Dispose();
-            }
-        }
-        public void rechercher_approvisionnement_vente(DataGridView dtg, Approvisionnement approvisionnement)
-        {
-            cnx = new SqlConnection(datas.getInstance().ToString());
-            try
-            {
-                if (cnx.State == ConnectionState.Closed)
-                    cnx.Open();
-                var cmd = new SqlCommand("rechercher_approvisionnement_vente", cnx)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.stats_vente;
-                cmd.ExecuteNonQuery();
-                var da = new SqlDataAdapter(cmd);
-                var dt = new DataTable();
-                da.Fill(dt);
-                dtg.DataSource = dt;
-            }
-            catch (Exception exct)
-            {
-                var rs = new DialogResult();
-                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (rs == DialogResult.Yes)
-                {
-                    MessageBox.Show(exct.ToString());
-                }
-            }
-            finally
-            {
-                cnx.Close(); cnx.Dispose();
-            }
-        }
-        public void charger_listbox_article(ListBox lst)
-        {
-            cnx = new SqlConnection(datas.getInstance().ToString());
-            try
-            {
-                if (cnx.State == ConnectionState.Closed)
-                    cnx.Open();
-                var cmd = new SqlCommand("charger_listbox_article", cnx)
+                var cmd = new SqlCommand("recuperer_menu", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -212,34 +121,56 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        public void enregistrer_approvisionement(Approvisionnement approvisionnement)
+        public void rechercher_menu(ListBox lst, Menu_Services menu)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("enregistrer_approvisionement", cnx)
+                var cmd = new SqlCommand("rechercher_menu", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("num_details", SqlDbType.Int)).Value = approvisionnement.num_details;
-                //cmd.Parameters.Add(new SqlParameter("date_details", SqlDbType.NVarChar)).Value = approvisionnement.date_details;
-                cmd.Parameters.Add(new SqlParameter("id_article", SqlDbType.NVarChar)).Value = approvisionnement.Id_article;
-                cmd.Parameters.Add(new SqlParameter("prix_achat_$", SqlDbType.Decimal)).Value = approvisionnement.prix_achat_usd;
-                cmd.Parameters.Add(new SqlParameter("prix_achat_fc", SqlDbType.Decimal)).Value = approvisionnement.prix_achat_fc;
-                cmd.Parameters.Add(new SqlParameter("qte_entree", SqlDbType.Decimal)).Value = approvisionnement.qte_entree;
-                cmd.Parameters.Add(new SqlParameter("id_fournisseurs", SqlDbType.NVarChar)).Value = approvisionnement.ID_fournisseurs;
-                cmd.Parameters.Add(new SqlParameter("date_expiration", SqlDbType.DateTime)).Value = approvisionnement.Date_expriation;
-                cmd.Parameters.Add(new SqlParameter("date_debut_solde", SqlDbType.DateTime)).Value = approvisionnement.Date_debut_solde;
-                cmd.Parameters.Add(new SqlParameter("date_fin_solde", SqlDbType.DateTime)).Value = approvisionnement.Date_fin_solde;
-                cmd.Parameters.Add(new SqlParameter("prix_vente_$", SqlDbType.Decimal)).Value = approvisionnement.prix_vente_usd;
-                cmd.Parameters.Add(new SqlParameter("prix_vente_fc", SqlDbType.Decimal)).Value = approvisionnement.prix_vente_fc;
-                cmd.Parameters.Add(new SqlParameter("prix_solde_$", SqlDbType.Decimal)).Value = approvisionnement.prix_solde_usd;
-                cmd.Parameters.Add(new SqlParameter("prix_solde_fc", SqlDbType.Decimal)).Value = approvisionnement.prix_solde_fc;
-                cmd.Parameters.Add(new SqlParameter("id_depot", SqlDbType.NVarChar)).Value = approvisionnement.ID_Depot;
-                cmd.Parameters.Add(new SqlParameter("points", SqlDbType.Int)).Value = approvisionnement.points;
-                cmd.Parameters.Add(new SqlParameter("status_vente", SqlDbType.NVarChar)).Value = approvisionnement.stats_vente;
+                cmd.Parameters.Add(new SqlParameter("id_menu", SqlDbType.NVarChar)).Value = menu.Id_menu;
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                lst.Items.Clear();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    lst.Items.Add(Convert.ToString(dr[0]));
+                }
+            }
+            catch (Exception exct)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(exct.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+        public void enregistrer_menu(Menu_Services menu)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("enregistrer_menu", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("id_menu", SqlDbType.NVarChar)).Value = menu.Id_menu;
+                cmd.Parameters.Add(new SqlParameter("designation", SqlDbType.NVarChar)).Value = menu.Designation;
+                cmd.Parameters.Add(new SqlParameter("prix", SqlDbType.Decimal)).Value = menu.Prix;
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");
@@ -259,18 +190,18 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        public void supprimer_approvisionnement(Approvisionnement approvisionnement)
+        public void supprimer_menu(Menu_Services menu)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("supprimer_approvisionnement", cnx)
+                var cmd = new SqlCommand("supprimer_menu", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("num_details", SqlDbType.Int)).Value = approvisionnement.num_details;
+                cmd.Parameters.Add(new SqlParameter("id_menu", SqlDbType.NVarChar)).Value = menu.Id_menu;
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");

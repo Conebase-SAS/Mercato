@@ -105,7 +105,7 @@ as
         where id_depot like @id_depot
 go
 ----------------------------------------FIN CODE DEPOT----------------------------------------------------------------
-
+----------------------------------------Codes pour les clients--------------------------------------------------------
 create table t_clients
 (
     id_clients nvarchar(50),
@@ -116,6 +116,72 @@ create table t_clients
     constraint pk_clients primary key(id_clients)
 )
 go
+create procedure afficher_clients
+as
+select top 50 
+    id_clients as 'ID',
+    noms as 'Noms',
+    adresse as 'Adresse',
+    telephone_mobile as 'Mobile n°1',
+    telephone_work as 'Mobile n°2'
+from t_clients
+order by
+    id_clients asc
+go
+create procedure charger_clients
+as
+select
+    noms
+from t_clients
+order by noms asc
+go
+create procedure rechercher_clients_by_noms
+@search nvarchar(50)
+as
+select top 50 
+    id_clients as 'ID',
+    noms as 'Noms',
+    adresse as 'Adresse',
+    telephone_mobile as 'Mobile n°1',
+    telephone_work as 'Mobile n°2'
+from t_clients
+    where noms like '%'+@search+'%'
+order by
+    id_clients asc
+go
+create procedure enregistrer_client
+@id_clients nvarchar(50),
+@noms nvarchar(100),
+@adresse nvarchar(max),
+@telephone_mobile nvarchar(50),
+@telephone_work nvarchar(50)
+as
+merge into t_clients
+	using(select @id_clients as x_id) as x_source
+	on (x_source.x_id=t_clients.id_clients)
+	when matched then	
+		update set
+            noms=@noms,
+            adresse=@adresse,
+            telephone_mobile=@telephone_mobile,
+            telephone_work=@telephone_work
+    when not matched then
+        insert
+            (id_clients, noms, adresse, telephone_mobile, telephone_work)
+        values
+            (@id_clients, @noms, @adresse, @telephone_mobile, @telephone_work);
+go
+create procedure recuperer_id_client
+@noms nvarchar(50)
+as
+    select id_clients from t_clients where noms like @noms
+go
+create procedure supprimer_client
+@id_clients nvarchar(50)
+as
+delete from t_clients where id_clients like '%'+@id_clients+'%'
+go
+---------------------------------------Fin des codes pour les clients------------------------------------------------
 create table t_boutique
 (
     id_boutique nvarchar(50),
@@ -331,10 +397,11 @@ from t_articles
     where id_article like '%'+@search+'%'   
     order by id_article asc
 go
------- Concernant la vente des produits --------------------------------------------
+--------------------------- Concernant la vente des produits --------------------------------------------
 create table t_ventes
 (
     num_vente int identity,
+    vente_id nvarchar(50),
     date_vente date,
     id_boutique nvarchar(50),
     id_clients nvarchar(50),
@@ -344,6 +411,63 @@ create table t_ventes
     constraint fk_vente_client foreign key(id_clients) references t_clients(id_clients)
 )
 go
+create procedure afficher_vente
+as
+select top 50 
+    num_vente as 'ID',
+    vente_id as 'Code',
+    date_vente as 'Date',
+    id_boutique as 'Etablissement',
+    id_clients as 'Client',
+    description_ventes as 'Description'
+from t_ventes
+    order by num_vente desc
+go
+create procedure rechercher_vente_par_client
+@id_clients nvarchar(50)
+as
+select top 50 
+    num_vente as 'ID',
+    vente_id as 'Code',
+    date_vente as 'Date',
+    id_boutique as 'Etablissement',
+    id_clients as 'Client',
+    description_ventes as 'Description'
+from t_ventes
+    where id_clients like '%'+@id_clients+'%'
+    order by num_vente desc
+go
+create procedure enregistrer_vente
+@num_vente int,
+@vente_id nvarchar(50),
+@date_vente date,
+@id_boutique nvarchar(50),
+@id_clients nvarchar(50),
+@description_ventes nvarchar(100)
+as
+    merge into t_ventes
+	using(select @num_vente as x_id) as x_source
+	on (x_source.x_id=t_ventes.num_vente)
+	when matched then	
+		update set
+            id_boutique=@id_boutique,
+            id_clients=@id_clients,            
+            description_ventes=@description_ventes
+    when not matched then
+        insert
+            (vente_id, date_vente, id_boutique, id_clients, description_ventes)
+        values
+            (@vente_id, getdate(), @id_boutique, @id_clients, @description_ventes);  
+
+go
+create procedure supprimer_vente
+@num_vente int
+as
+    delete from t_ventes
+        where num_vente like @num_vente
+go
+
+-----------------------------FIN VENTES DE PRODUITS------------------------------------------------------
 --------------------------Debut du codes pour approvisionnement---------------------
 create table t_approvisionnement
 (
@@ -495,6 +619,7 @@ order by num_details desc
 go
 create procedure enregistrer_approvisionement
 @num_details int,
+@date_details date,
 @id_article nvarchar(50),
 @prix_achat_$ decimal,
 @prix_achat_fc decimal,
@@ -540,7 +665,7 @@ as
             )
         values
             (
-                @date_details, @id_article, @prix_achat_$, @prix_achat_fc, @qte_entree, @id_fournisseurs, @date_expiration, @date_debut_solde, @date_fin_solde, @prix_vente_$, 
+                getdate(), @id_article, @prix_achat_$, @prix_achat_fc, @qte_entree, @id_fournisseurs, @date_expiration, @date_debut_solde, @date_fin_solde, @prix_vente_$, 
                 @prix_vente_fc, @prix_solde_$, @prix_solde_fc, @id_depot, @points, @status_vente
             );
 go
@@ -595,13 +720,77 @@ create table t_approv_composants
     constraint fk_composant_approv foreign key(id_composant) references t_composants(id_composant) on update cascade
 )
 go
+------------------------------------------Menus------------------------------------------------------------------------
 create table t_menu
 (
     id_menu nvarchar(50),
     designation nvarchar(50),
+    prix decimal,
     constraint pk_menu primary key(id_menu)
 )
 go
+create procedure afficher_menu
+as
+select top 50 
+    id_menu as 'ID',
+    designation as 'Description',
+    prix as 'Prix'
+from t_menu
+    order by id_menu asc
+go
+create procedure rechercher_menu
+@id_menu nvarchar(50)
+as
+select top 50 
+    id_menu as 'ID',
+    designation as 'Description',
+    prix as 'Prix'
+from t_menu
+    where id_menu like '%'+@id_menu+'%'
+        order by id_menu asc
+go
+create procedure enregistrer_menu
+@id_menu nvarchar(50),
+@designation nvarchar(50),
+@prix decimal
+as
+merge into t_menu
+	using(select @id_menu as x_id) as x_source
+	on (x_source.x_id=t_menu.id_menu)
+	when matched then	
+		update set
+            designation=@designation,
+            prix=@prix
+    when not matched then
+        insert
+            (id_menu, designation, prix)
+        values
+             (@id_menu, @designation, @prix);  
+go
+create procedure recuperer_menu
+as
+select top 50 
+    id_menu
+from t_menu
+    order by 
+        id_menu asc
+go
+create procedure recuperer_prix_menu
+@id_menu nvarchar(50)
+as
+    select 
+        prix 
+    from 
+        t_menu 
+    where id_menu like @id_menu
+go
+create procedure supprimer_menu
+@id_menu nvarchar(50)
+as
+    delete from t_menu
+        where id_menu like @id_menu
+go
+-----------------------------------------Menus-------------------------------------------------------------------------
 create table t_composition_menu
 (
     num_composition int identity,
@@ -655,3 +844,44 @@ create table t_paiement_commande
     constraint fk_commande_paie foreign key(num_commandes) references t_commandes(num_commandes)
 )
 go
+--------------------------------Calculs spéciaux-----------------------------------------
+create procedure recupérer_info_approv_vente
+@search nvarchar(50)
+as
+    select top 1
+        id_article, 
+        num_details,
+        prix_vente_$, 
+        prix_vente_fc,
+        qte_entree
+    from t_approvisionnement
+    where id_article like @search and status_vente='Vente'
+go
+create procedure retour_qte_vendue
+@search nvarchar(50)
+as
+select 
+    sum(qte_sortie)
+from t_details_vente
+    where
+        num_details like @search
+go
+
+create procedure afficher_inventaire
+as
+select        
+    t_approvisionnement.num_details as 'ID', 
+    t_approvisionnement.id_article as 'Article', 
+    t_approvisionnement.prix_vente_$ as 'Prix $', 
+    t_approvisionnement.prix_vente_fc as 'Prix FC', 
+    t_approvisionnement.qte_entree as 'Qte Entrée',
+    t_details_vente.qte_sortie as 'Qte sortie',
+    t_details_vente.date_details_vente as 'Date',
+    t_approvisionnement.status_vente as 'Status'
+from            
+    t_approvisionnement 
+        inner join
+            t_details_vente 
+                on t_approvisionnement.num_details = t_details_vente.num_details
+go
+--------------------------------Fin calculs spéciaux-------------------------------------

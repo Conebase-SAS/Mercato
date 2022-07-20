@@ -25,7 +25,7 @@ namespace Mercato.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DESKTOP-QEV6E3Q")]
+        [global::System.Configuration.DefaultSettingValueAttribute("LENSCORPX")]
         public string Server {
             get {
                 return ((string)(this["Server"]));
@@ -61,7 +61,7 @@ namespace Mercato.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("binsaleh97")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Windy@2022.com?")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
