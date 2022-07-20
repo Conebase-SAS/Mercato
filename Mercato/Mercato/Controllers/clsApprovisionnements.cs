@@ -224,7 +224,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("num_details", SqlDbType.Int)).Value = approvisionnement.num_details;
-                cmd.Parameters.Add(new SqlParameter("date_details", SqlDbType.NVarChar)).Value = approvisionnement.date_details;
+                //cmd.Parameters.Add(new SqlParameter("date_details", SqlDbType.NVarChar)).Value = approvisionnement.date_details;
                 cmd.Parameters.Add(new SqlParameter("id_article", SqlDbType.NVarChar)).Value = approvisionnement.Id_article;
                 cmd.Parameters.Add(new SqlParameter("prix_achat_$", SqlDbType.Decimal)).Value = approvisionnement.prix_achat_usd;
                 cmd.Parameters.Add(new SqlParameter("prix_achat_fc", SqlDbType.Decimal)).Value = approvisionnement.prix_achat_fc;
