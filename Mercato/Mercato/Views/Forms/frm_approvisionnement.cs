@@ -116,7 +116,6 @@ namespace Mercato.Views.Forms
                     approvisionnement.num_details = Convert.ToInt32(txt_num_approv.Text);
                 }
                 approvisionnement.Id_article = txt_article.Text;
-                approvisionnement.Id_article = txt_article.Text;
                 approvisionnement.prix_achat_usd = Convert.ToDecimal(txt_prix_achat_dollars.Text);
                 approvisionnement.prix_achat_fc = Convert.ToDecimal(txt_prix_achat_francs.Text);
                 approvisionnement.qte_entree = Convert.ToDecimal(txt_qte_entree.Text);
