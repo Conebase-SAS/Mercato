@@ -97,20 +97,27 @@
     <Compile Include="Controllers\clsApprovisionnements.cs" />
     <Compile Include="Controllers\clsArticles.cs" />
     <Compile Include="Controllers\clsCategorie.cs" />
+    <Compile Include="Controllers\clsClients.cs" />
     <Compile Include="Controllers\clsDepot.cs" />
     <Compile Include="Controllers\clsFournisseur.cs" />
+    <Compile Include="Controllers\clsMenu.cs" />
     <Compile Include="Controllers\clsPaquetage.cs" />
     <Compile Include="Controllers\clsTypes_Articles.cs" />
+    <Compile Include="Controllers\clsVentes.cs" />
     <Compile Include="Handlers\Datalib.cs" />
     <Compile Include="Handlers\Notification_Center.cs" />
     <Compile Include="Handlers\Params.cs" />
     <Compile Include="Models\Approvisionnement.cs" />
     <Compile Include="Models\Articles.cs" />
+    <Compile Include="Models\Calculs.cs" />
     <Compile Include="Models\Categorie.cs" />
+    <Compile Include="Models\Clients.cs" />
     <Compile Include="Models\Depot.cs" />
     <Compile Include="Models\Fournisseur.cs" />
+    <Compile Include="Models\Menu_Services.cs" />
     <Compile Include="Models\Paquetage.cs" />
     <Compile Include="Models\Types_Articles.cs" />
+    <Compile Include="Models\Ventes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Forms\frm_approvisionnement.cs">
@@ -161,6 +168,12 @@
     <Compile Include="Views\Forms\frm_fournisseurs.Designer.cs">
       <DependentUpon>frm_fournisseurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +222,18 @@
     <Compile Include="Views\UserControls\uc_clients.Designer.cs">
       <DependentUpon>uc_clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\uc_dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_dashboard.Designer.cs">
+      <DependentUpon>uc_dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_inventaire.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_inventaire.Designer.cs">
+      <DependentUpon>uc_inventaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\uc_ventes_articles.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,6 +281,9 @@
     <EmbeddedResource Include="Views\Forms\frm_fournisseurs.resx">
       <DependentUpon>frm_fournisseurs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_login.resx">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +307,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\uc_clients.resx">
       <DependentUpon>uc_clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_dashboard.resx">
+      <DependentUpon>uc_dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_inventaire.resx">
+      <DependentUpon>uc_inventaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\uc_ventes_articles.resx">
       <DependentUpon>uc_ventes_articles.cs</DependentUpon>
@@ -320,6 +354,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\db_mercato.sql" />
+    <None Include="Resources\cancel_96px.png" />
     <None Include="Resources\search_96px.png" />
     <None Include="Resources\sync_96px.png" />
     <None Include="Resources\create_order_96px1.png" />
