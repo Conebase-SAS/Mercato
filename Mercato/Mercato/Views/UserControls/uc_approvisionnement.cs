@@ -26,6 +26,8 @@ namespace Mercato.Views.UserControls
         Articles articles = new Articles();
         clsApprovisionnements cls_approv = new clsApprovisionnements();
         Approvisionnement approvisionnement = new Approvisionnement();
+
+
         public uc_approvisionnement()
         {
             InitializeComponent();
@@ -41,29 +43,6 @@ namespace Mercato.Views.UserControls
         {
             var fr = new frm_approvisionnement();
             fr.ShowDialog();
-        }
-        private void rdbtn_produit_MouseClick(object sender, MouseEventArgs e)
-        {
-            //txt_search.HintText = "Rechercher par nom de produit";
-            rdbtn_status.Checked = false;
-            rdbtn_fournisseur.Checked = false;
-            rdbtn_approv.Checked = false;
-        }
-
-        private void rdbtn_approv_MouseClick(object sender, MouseEventArgs e)
-        {
-            //txt_search.HintText = "Rechercher par approvisionnement de produit";
-            rdbtn_status.Checked = false;
-            rdbtn_fournisseur.Checked = false;
-            rdbtn_produit.Checked = false;
-        }
-
-        private void rdbtn_status_MouseClick(object sender, MouseEventArgs e)
-        {
-            //txt_search.HintText = "Rechercher par status du produit";
-            rdbtn_produit.Checked = false;
-            rdbtn_fournisseur.Checked = false;
-            rdbtn_approv.Checked = false;
         }
 
         private void txt_search_OnValueChanged(object sender, EventArgs e)
@@ -106,33 +85,71 @@ namespace Mercato.Views.UserControls
         }
         private void rdbtn_fournisseur_CheckedChanged_1(object sender, EventArgs e)
         {
-            txt_search.HintText = "Rechercher par fournisseur";
+            //txt_search.HintText = "Rechercher par fournisseur";
             rdbtn_status.Checked = false;
             rdbtn_fournisseur.Checked = false;
             rdbtn_approv.Checked = false;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             frm_approvisionnement fr = new frm_approvisionnement();
+
             fr.txt_num_approv.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            fr.txt_article.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
-            fr.txt_prix_achat_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
-            fr.txt_prix_achat_francs.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
-            fr.txt_caracteristiques.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
-            fr.cbx_fournisseur.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
-            fr.dtpick_expiration.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
-            fr.txt_prix_vente_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
-            fr.txt_prix_vente_fc.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
-            fr.cbx_depot.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
-            fr.txt_points.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[10].Value.ToString());
-            fr.cbx_status.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
+
+            fr.txt_article.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+
+            fr.txt_numero_serie.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+
+            fr.cbx_couleur.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
+
+            fr.txt_caracteristiques.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
+
+            fr.txt_prix_achat_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
+
+            fr.txt_prix_achat_francs.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
+
+            fr.txt_qte.Text= Convert.ToString(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
+
+            fr.cbx_fournisseur.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
+
+            fr.dtpick_expiration.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[10].Value.ToString());
+
+            fr.txt_prix_vente_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
+
+            fr.txt_prix_vente_fc.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
+
+            fr.cbx_depot.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
+
+            fr.txt_points.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[14].Value.ToString());
+
+            fr.cbx_status.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[15].Value.ToString());
+
             fr.ShowDialog();
+        }
+
+        private void rdbtn_produit_CheckedChanged(object sender, EventArgs e)
+        {
+            //txt_search.HintText = "Rechercher par nom de produit";
+            rdbtn_status.Checked = false;
+            rdbtn_fournisseur.Checked = false;
+            rdbtn_approv.Checked = false;
+        }
+
+        private void rdbtn_approv_CheckedChanged(object sender, EventArgs e)
+        {
+            //txt_search.HintText = "Rechercher par approvisionnement de produit";
+            rdbtn_status.Checked = false;
+            rdbtn_fournisseur.Checked = false;
+            rdbtn_produit.Checked = false;
+        }
+
+        private void rdbtn_status_CheckedChanged(object sender, EventArgs e)
+        {
+            //txt_search.HintText = "Rechercher par status du produit";
+            rdbtn_produit.Checked = false;
+            rdbtn_fournisseur.Checked = false;
+            rdbtn_approv.Checked = false;
         }
     }
 }
