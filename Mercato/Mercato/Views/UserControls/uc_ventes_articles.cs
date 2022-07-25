@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Mercato.Handlers;
 using Mercato.Controllers;
 using Mercato.Models;
+using Mercato.Views.Forms;
 
 namespace Mercato.Views.UserControls
 {
@@ -37,45 +38,26 @@ namespace Mercato.Views.UserControls
         }
         private void refresh()
         {
-            cls_art.charger_listbox_article(listBox1);
+            //cls_art.charger_listbox_article(listBox1);
             cls_clients.charger_clients(cbx_clients);
+            cls_approv.afficher_articles_disponible(dataGridView1);
             txt_article.Text = "";
         }
         private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
         {
-            articles.Id_article = txt_search.Text;
-            cls_art.rechercher_article(listBox1, articles);
+            //articles.Id_article = txt_search.Text;
+            //cls_art.rechercher_article(listBox1, articles);
         }
 
         private void txt_search_OnValueChanged(object sender, EventArgs e)
         {
-            articles.Id_article = txt_search.Text;
-            cls_art.rechercher_article(listBox1, articles);
+            //articles.Id_article = txt_search.Text;
+            //cls_art.rechercher_article(listBox1, articles);
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            if(cbx_clients.Text=="")
-            {
-                MessageBox.Show("Selectionner un client!");
-            }
-            else
-            {
-                if (txt_num_commande.Text == "")
-                {
-                    vente.Num_vente = 0;
-                }
-                else
-                {
-                    vente.Num_vente = Convert.ToInt32(txt_num_commande.Text);
-                }
-                vente.Id_clients = cbx_clients.Text;
-                vente.Id_boutique = "ONE HORIZON 1";
-                vente.Description_ventes = "Test";
-                vente.Date_vente = DateTime.Now;
-                vente.Vente_id = Environment.UserName;
-                cls_ventes.enregistrer_vente(vente);
-            }
+            
             
         }
 
@@ -83,7 +65,7 @@ namespace Mercato.Views.UserControls
         {
             try
             {
-                txt_article.Text = listBox1.SelectedItem.ToString();
+                //txt_article.Text = listBox1.SelectedItem.ToString();
             }
             catch
             {
@@ -95,6 +77,64 @@ namespace Mercato.Views.UserControls
         {
             //cls_clients.recuperer_id_client();
             //MessageBox.Show(clients.Id_clients);
+        }
+
+        private void txt_article_OnValueChanged(object sender, EventArgs e)
+        {
+            approvisionnement.Id_article = txt_article.Text;
+            cls_approv.rechercher_articles_disponible_nom(dataGridView1, approvisionnement);
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            if (cbx_clients.Text == "")
+            {
+                MessageBox.Show("Selectionner un client!");
+            }
+            else
+            {
+                if (txt_num_vente.Text == "")
+                {
+                    vente.Num_vente = 0;
+                }
+                else
+                {
+                    vente.Num_vente = Convert.ToInt32(txt_num_vente.Text);
+                }
+                vente.Id_clients = cbx_clients.Text;
+                vente.Id_boutique = "ONEHORIZON";
+                vente.Description_ventes = "Test";
+                vente.Date_vente = DateTime.Now;
+                vente.Vente_id = Environment.UserName;
+                cls_ventes.enregistrer_vente(vente);
+                txt_num_vente.Text =Convert.ToString(vente.Num_vente);
+            }
+        }
+
+        private void txt_numero_serie_OnValueChanged(object sender, EventArgs e)
+        {
+            approvisionnement.Numero_serie = txt_numero_serie.Text;
+            cls_approv.rechercher_articles_disponible_serie(dataGridView1, approvisionnement);
+        }
+
+        private void txt_caracterisitques_OnValueChanged(object sender, EventArgs e)
+        {
+            approvisionnement.Caracteristiques = txt_caracterisitques.Text;
+            cls_approv.rechercher_articles_disponible_specs(dataGridView1, approvisionnement);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frm_vente fr = new frm_vente();
+            fr.txt_num_vente.Text = txt_num_vente.Text;
+            fr.txt_num_approv.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            fr.txt_article.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+            fr.txt_numero_serie.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+            fr.txt_couleur.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+            fr.txt_caracteristiques.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
+            fr.txt_prix_vente_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
+            fr.txt_prix_vente_fc.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
+            fr.ShowDialog();
         }
     }
 }
