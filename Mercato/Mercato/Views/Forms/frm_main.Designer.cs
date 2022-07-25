@@ -297,6 +297,7 @@
             this.Name = "frm_main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_main";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
