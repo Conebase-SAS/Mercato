@@ -49,7 +49,7 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        public void enregistrer_vente(Ventes ventes)
+        public void enregistrer_vente(Ventes ventes )
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
@@ -60,14 +60,15 @@ namespace Mercato.Controllers
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("num_vente", SqlDbType.Int)).Value = ventes.Num_vente;
+                //cmd.Parameters.Add(new SqlParameter("num_vente", SqlDbType.Int)).Value = ventes.Num_vente;
                 cmd.Parameters.Add(new SqlParameter("date_vente", SqlDbType.DateTime)).Value = ventes.Date_vente;
                 cmd.Parameters.Add(new SqlParameter("vente_id", SqlDbType.NVarChar)).Value = ventes.Vente_id;
                 cmd.Parameters.Add(new SqlParameter("id_boutique", SqlDbType.NVarChar)).Value = ventes.Id_boutique;
                 cmd.Parameters.Add(new SqlParameter("id_clients", SqlDbType.NVarChar)).Value = ventes.Id_clients;
                 cmd.Parameters.Add(new SqlParameter("description_ventes", SqlDbType.NVarChar)).Value = ventes.Description_ventes;
-
+                cmd.Parameters.Add("@num_vente", SqlDbType.Int).Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
+                ventes.Num_vente=Convert.ToInt32(cmd.Parameters["@num_vente"].Value);
                 notify.notifier("Enregistrement avec succès!");
                 //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
