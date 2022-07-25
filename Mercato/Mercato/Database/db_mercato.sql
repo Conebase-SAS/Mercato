@@ -438,7 +438,7 @@ from t_ventes
     order by num_vente desc
 go
 create procedure enregistrer_vente
-@num_vente int,
+@num_vente int output,
 @vente_id nvarchar(50),
 @date_vente date,
 @id_boutique nvarchar(50),
@@ -457,8 +457,10 @@ as
         insert
             (vente_id, date_vente, id_boutique, id_clients, description_ventes)
         values
-            (@vente_id, getdate(), @id_boutique, @id_clients, @description_ventes);  
-
+            (@vente_id, getdate(), @id_boutique, @id_clients, @description_ventes);
+        set @num_vente=SCOPE_IDENTITY()
+        return @num_vente
+        ;  
 go
 create procedure supprimer_vente
 @num_vente int
@@ -467,28 +469,70 @@ as
         where num_vente like @num_vente
 go
 
------------------------------FIN VENTES DE PRODUITS------------------------------------------------------
+-----------------------------FIN VENTES DE PRODUITS---------------------------------
+create table t_couleurs
+(
+    id_couleur nvarchar(50),
+    designation_couleur nvarchar(100),
+    constraint pk_couleur primary key(id_couleur)
+)
+go
+create procedure afficher_couleur
+as
+    select top 50
+        id_couleur as 'Couleur',
+        designation_couleur as 'Désignation'
+    from t_couleurs
+go
+create procedure recuperer_couleur
+as
+    select id_couleur from t_couleurs
+        order by id_couleur asc
+go
+create procedure enregistrer_couleur
+@id_couleur nvarchar(50),
+@designation_couleur nvarchar(100)
+as
+    merge into t_couleurs
+	using(select @id_couleur as x_id) as x_source
+	on (x_source.x_id=t_couleurs.id_couleur)
+	when matched then	
+		update set
+            designation_couleur=@designation_couleur
+    when not matched then
+        insert
+            (id_couleur, designation_couleur)
+        values
+            (@id_couleur, @designation_couleur);
+go
+create procedure supprimer_couleur
+@id_couleur nvarchar(50)
+as
+    delete from t_couleurs
+        where id_couleur=@id_couleur
+go
+
 --------------------------Debut du codes pour approvisionnement---------------------
 create table t_approvisionnement
 (
     num_details int identity,
     date_details date,
     id_article nvarchar(50),
+    numero_serie nvarchar(50),
+    id_couleur nvarchar(50),
+    id_caracteristiques nvarchar(max),
     prix_achat_$ decimal,
     prix_achat_fc decimal,
     qte_entree decimal,
     id_fournisseurs nvarchar(50),
     date_expiration date,
-    date_debut_solde date,
-    date_fin_solde date,
     prix_vente_$ decimal,
     prix_vente_fc decimal,
-    prix_solde_$ decimal,
-    prix_solde_fc decimal,
     id_depot nvarchar(50),
     points int,
     status_vente nvarchar(50) -----to be sold, on hold, expired
     constraint pk_details_approv primary key(num_details),
+    constraint fk_couleur_approv foreign key(id_couleur) references t_couleurs(id_couleur),
     constraint fk_approvisionnement_fournisseur foreign key(id_fournisseurs) references t_fournisseurs(id_fournisseurs),
     constraint fk_details_depot foreign key(id_depot) references t_depot(id_depot),
     constraint fk_article_details_approv foreign key(id_article) references t_articles(id_article)
@@ -500,17 +544,16 @@ select top 50
     num_details as 'ID',
     date_details as 'Date',
     id_article as 'ID Articles',
+    numero_serie as 'Numéro Série',
+    id_couleur as 'Couleur',
+    id_caracteristiques as 'Caractéristiques',
     prix_achat_$ as 'Prix (Achat) USD',
     prix_achat_fc as 'Prix (Achat) FC',
     qte_entree as 'Qte',
     id_fournisseurs as 'Fournisseur',
     date_expiration as 'Expiration',
-    date_debut_solde as 'Début Solde',
-    date_fin_solde as 'Fin Solde',
     prix_vente_$ as 'Prix (Vente) USD',
     prix_vente_fc as 'Prx (Vente) FC',
-    prix_solde_$ as 'Prix (Solde) USD',
-    prix_solde_fc as 'Prix (Solde) FC',
     id_depot as 'Depot',
     points as 'Points',
     status_vente as 'Status'
@@ -520,21 +563,20 @@ go
 create procedure rechercher_approvisionnement_fournisseur
 @search nvarchar(50)
 as
-select
+select top 50 
     num_details as 'ID',
     date_details as 'Date',
     id_article as 'ID Articles',
+    numero_serie as 'Numéro Série',
+    id_couleur as 'Couleur',
+    id_caracteristiques as 'Caractéristiques',
     prix_achat_$ as 'Prix (Achat) USD',
     prix_achat_fc as 'Prix (Achat) FC',
     qte_entree as 'Qte',
     id_fournisseurs as 'Fournisseur',
     date_expiration as 'Expiration',
-    date_debut_solde as 'Début Solde',
-    date_fin_solde as 'Fin Solde',
     prix_vente_$ as 'Prix (Vente) USD',
     prix_vente_fc as 'Prx (Vente) FC',
-    prix_solde_$ as 'Prix (Solde) USD',
-    prix_solde_fc as 'Prix (Solde) FC',
     id_depot as 'Depot',
     points as 'Points',
     status_vente as 'Status'
@@ -545,21 +587,20 @@ go
 create procedure rechercher_approvisionnement_produit
 @search nvarchar(50)
 as
-select
+select top 50 
     num_details as 'ID',
     date_details as 'Date',
     id_article as 'ID Articles',
+    numero_serie as 'Numéro Série',
+    id_couleur as 'Couleur',
+    id_caracteristiques as 'Caractéristiques',
     prix_achat_$ as 'Prix (Achat) USD',
     prix_achat_fc as 'Prix (Achat) FC',
     qte_entree as 'Qte',
     id_fournisseurs as 'Fournisseur',
     date_expiration as 'Expiration',
-    date_debut_solde as 'Début Solde',
-    date_fin_solde as 'Fin Solde',
     prix_vente_$ as 'Prix (Vente) USD',
     prix_vente_fc as 'Prx (Vente) FC',
-    prix_solde_$ as 'Prix (Solde) USD',
-    prix_solde_fc as 'Prix (Solde) FC',
     id_depot as 'Depot',
     points as 'Points',
     status_vente as 'Status'
@@ -570,21 +611,20 @@ go
 create procedure rechercher_approvisionnement_details
 @search nvarchar(50)
 as
-select
+select top 50 
     num_details as 'ID',
     date_details as 'Date',
     id_article as 'ID Articles',
+    numero_serie as 'Numéro Série',
+    id_couleur as 'Couleur',
+    id_caracteristiques as 'Caractéristiques',
     prix_achat_$ as 'Prix (Achat) USD',
     prix_achat_fc as 'Prix (Achat) FC',
     qte_entree as 'Qte',
     id_fournisseurs as 'Fournisseur',
     date_expiration as 'Expiration',
-    date_debut_solde as 'Début Solde',
-    date_fin_solde as 'Fin Solde',
     prix_vente_$ as 'Prix (Vente) USD',
     prix_vente_fc as 'Prx (Vente) FC',
-    prix_solde_$ as 'Prix (Solde) USD',
-    prix_solde_fc as 'Prix (Solde) FC',
     id_depot as 'Depot',
     points as 'Points',
     status_vente as 'Status'
@@ -595,21 +635,20 @@ go
 create procedure rechercher_approvisionnement_vente
 @search nvarchar(50)
 as
-select
+select top 50 
     num_details as 'ID',
     date_details as 'Date',
     id_article as 'ID Articles',
+    numero_serie as 'Numéro Série',
+    id_couleur as 'Couleur',
+    id_caracteristiques as 'Caractéristiques',
     prix_achat_$ as 'Prix (Achat) USD',
     prix_achat_fc as 'Prix (Achat) FC',
     qte_entree as 'Qte',
     id_fournisseurs as 'Fournisseur',
     date_expiration as 'Expiration',
-    date_debut_solde as 'Début Solde',
-    date_fin_solde as 'Fin Solde',
     prix_vente_$ as 'Prix (Vente) USD',
     prix_vente_fc as 'Prx (Vente) FC',
-    prix_solde_$ as 'Prix (Solde) USD',
-    prix_solde_fc as 'Prix (Solde) FC',
     id_depot as 'Depot',
     points as 'Points',
     status_vente as 'Status'
@@ -619,19 +658,17 @@ order by num_details desc
 go
 create procedure enregistrer_approvisionement
 @num_details int,
-@date_details date,
 @id_article nvarchar(50),
+@numero_serie nvarchar(50),
+@id_couleur nvarchar(50),
+@id_caracteristiques nvarchar(max),
 @prix_achat_$ decimal,
 @prix_achat_fc decimal,
 @qte_entree decimal,
 @id_fournisseurs nvarchar(50),
 @date_expiration date,
-@date_debut_solde date,
-@date_fin_solde date,
 @prix_vente_$ decimal,
 @prix_vente_fc decimal,
-@prix_solde_$ decimal,
-@prix_solde_fc decimal,
 @id_depot nvarchar(50),
 @points int,
 @status_vente nvarchar(50)
@@ -643,30 +680,29 @@ as
 		update set
             date_details=getdate(),
             id_article=@id_article,
+            numero_serie=@numero_serie,
+            id_couleur=@id_couleur,
+            id_caracteristiques=@id_caracteristiques,
             prix_achat_$=@prix_achat_$,
             prix_achat_fc=@prix_achat_fc,
             qte_entree=@qte_entree,
             id_fournisseurs=@id_fournisseurs,
             date_expiration=@date_expiration,
-            date_debut_solde=@date_debut_solde,
-            date_fin_solde=@date_fin_solde,
             prix_vente_$=@prix_vente_$ ,
             prix_vente_fc=@prix_vente_fc,
-            prix_solde_$=@prix_solde_$,
-            prix_solde_fc=@prix_solde_fc,
             id_depot=@id_depot,
             points=@points,
             status_vente=@status_vente
     when not matched then
         insert
             (
-                date_details, id_article, prix_achat_$, prix_achat_fc, qte_entree, id_fournisseurs, date_expiration, date_debut_solde, date_fin_solde, prix_vente_$, prix_vente_fc,
-                prix_solde_$, prix_solde_fc, id_depot, points, status_vente
+                date_details, id_article, numero_serie, id_couleur, id_caracteristiques, prix_achat_$, prix_achat_fc, qte_entree, id_fournisseurs, date_expiration, prix_vente_$, prix_vente_fc,
+                id_depot, points, status_vente
             )
         values
             (
-                getdate(), @id_article, @prix_achat_$, @prix_achat_fc, @qte_entree, @id_fournisseurs, @date_expiration, @date_debut_solde, @date_fin_solde, @prix_vente_$, 
-                @prix_vente_fc, @prix_solde_$, @prix_solde_fc, @id_depot, @points, @status_vente
+                getdate(), @id_article, @numero_serie, @id_couleur, @id_caracteristiques, @prix_achat_$, @prix_achat_fc, @qte_entree, @id_fournisseurs, @date_expiration,  @prix_vente_$, 
+                @prix_vente_fc, @id_depot, @points, @status_vente
             );
 go
 create procedure supprimer_approvisionnement
@@ -883,5 +919,78 @@ from
         inner join
             t_details_vente 
                 on t_approvisionnement.num_details = t_details_vente.num_details
+go
+create procedure afficher_articles_disponible
+as
+select top 50
+    num_details as 'ID', 
+    id_article as 'Article', 
+    numero_serie as 'N° Série', 
+    id_couleur as 'Couleur', 
+    id_caracteristiques as 'Spéc.', 
+    prix_vente_$ as 'Prix USD', 
+    prix_vente_fc as 'Prix FC', 
+    id_depot as 'Dépôt', 
+    status_vente as 'Status'
+from
+    t_approvisionnement
+    where status_vente like 'Vente'
+go
+create procedure rechercher_articles_disponible_nom
+@search nvarchar(50)
+as
+select top 50
+    num_details as 'ID', 
+    id_article as 'Article', 
+    numero_serie as 'N° Série', 
+    id_couleur as 'Couleur', 
+    id_caracteristiques as 'Spéc.', 
+    prix_vente_$ as 'Prix USD', 
+    prix_vente_fc as 'Prix FC', 
+    id_depot as 'Dépôt', 
+    status_vente as 'Status'
+from
+    t_approvisionnement
+    where status_vente like 'Vente' and id_article like '%'+@search+'%'
+go
+create procedure rechercher_articles_disponible_serie
+@search nvarchar(50)
+as
+select top 50
+    num_details as 'ID', 
+    id_article as 'Article', 
+    numero_serie as 'N° Série', 
+    id_couleur as 'Couleur', 
+    id_caracteristiques as 'Spéc.', 
+    prix_vente_$ as 'Prix USD', 
+    prix_vente_fc as 'Prix FC', 
+    id_depot as 'Dépôt', 
+    status_vente as 'Status'
+from
+    t_approvisionnement
+    where status_vente like 'Vente' and numero_serie like '%'+@search+'%'
+go
+create procedure rechercher_articles_disponible_specs
+@search nvarchar(50)
+as
+select top 50
+    num_details as 'ID', 
+    id_article as 'Article', 
+    numero_serie as 'N° Série', 
+    id_couleur as 'Couleur', 
+    id_caracteristiques as 'Spéc.', 
+    prix_vente_$ as 'Prix USD', 
+    prix_vente_fc as 'Prix FC', 
+    id_depot as 'Dépôt', 
+    status_vente as 'Status'
+from
+    t_approvisionnement
+    where status_vente like 'Vente' and id_caracteristiques like '%'+@search+'%'
+go
+create procedure sortie_par_article
+@num_details int
+as
+    select sum(qte_sortie) from t_details_vente
+        where num_details like @num_details
 go
 --------------------------------Fin calculs spéciaux-------------------------------------
