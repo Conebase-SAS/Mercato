@@ -26,6 +26,8 @@ namespace Mercato.Views.Forms
         Articles articles = new Articles();
         clsApprovisionnements cls_approv = new clsApprovisionnements();
         Approvisionnement approvisionnement = new Approvisionnement();
+        clsCouleurs cls_couleurs = new clsCouleurs();
+        Couleurs couleurs = new Couleurs();
         
         public frm_approvisionnement()
         {
@@ -37,16 +39,15 @@ namespace Mercato.Views.Forms
             cls.charger_depot(cbx_depot);
             cls_art.charger_listbox_article(listBox1);
             cls_fournisseur.charger_fournisseurs(cbx_fournisseur);
+            cls_couleurs.recuperer_couleur(cbx_couleur);
             txt_article.Text = "";
             txt_num_approv.Text = "";
             txt_points.Text = "";
             txt_prix_achat_dollars.Text = "";
             txt_prix_achat_francs.Text = "";
-            txt_prix_solde_dollars.Text = "";
-            txt_prix_solde_fc.Text = "";
             txt_prix_vente_dollars.Text = "";
             txt_prix_vente_fc.Text = "";
-            txt_qte_entree.Text = "";
+            txt_caracteristiques.Text = "";
             txt_search.Text = "";
             cbx_depot.Text = "";
             cbx_fournisseur.Text = "";
@@ -101,7 +102,7 @@ namespace Mercato.Views.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(txt_article.Text==""||txt_prix_vente_dollars.Text==""||txt_prix_vente_fc.Text==""||txt_qte_entree.Text=="")
+            if(txt_article.Text==""||txt_prix_vente_dollars.Text==""||txt_prix_vente_fc.Text==""||txt_caracteristiques.Text=="")
             {
                 MessageBox.Show("Veuillez completer les informations de base");
             }
@@ -116,17 +117,16 @@ namespace Mercato.Views.Forms
                     approvisionnement.num_details = Convert.ToInt32(txt_num_approv.Text);
                 }
                 approvisionnement.Id_article = txt_article.Text;
+                approvisionnement.Numero_serie = txt_numero_serie.Text;
+                approvisionnement.Id_couleur = cbx_couleur.Text;
+                approvisionnement.Caracteristiques = txt_caracteristiques.Text;
                 approvisionnement.prix_achat_usd = Convert.ToDecimal(txt_prix_achat_dollars.Text);
                 approvisionnement.prix_achat_fc = Convert.ToDecimal(txt_prix_achat_francs.Text);
-                approvisionnement.qte_entree = Convert.ToDecimal(txt_qte_entree.Text);
+                approvisionnement.qte_entree = Convert.ToDecimal(txt_qte.Text);
                 approvisionnement.ID_fournisseurs = cbx_fournisseur.Text;
                 approvisionnement.Date_expriation = dtpick_expiration.Value;
-                approvisionnement.Date_debut_solde = dtpick_debut_solde.Value;
-                approvisionnement.Date_fin_solde = dt_pick_fin_solde.Value;
                 approvisionnement.prix_vente_usd = Convert.ToDecimal(txt_prix_vente_dollars.Text);
                 approvisionnement.prix_vente_fc = Convert.ToDecimal(txt_prix_vente_fc.Text);
-                approvisionnement.prix_solde_usd = Convert.ToDecimal(txt_prix_solde_dollars.Text);
-                approvisionnement.prix_solde_fc = Convert.ToDecimal(txt_prix_solde_fc.Text);
                 approvisionnement.points =Convert.ToInt32(txt_points.Text);
                 approvisionnement.ID_Depot=cbx_depot.Text;
                 approvisionnement.stats_vente=cbx_status.Text;

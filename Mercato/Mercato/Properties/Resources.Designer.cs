@@ -133,6 +133,16 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap money_bag_64px {
+            get {
+                object obj = ResourceManager.GetObject("money_bag_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap multiply_104px {
             get {
                 object obj = ResourceManager.GetObject("multiply_104px", resourceCulture);

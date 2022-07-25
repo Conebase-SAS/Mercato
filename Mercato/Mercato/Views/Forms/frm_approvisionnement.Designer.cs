@@ -38,6 +38,13 @@
             this.txt_search = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_numero_serie = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cbx_couleur = new System.Windows.Forms.ComboBox();
+            this.cbx_couleurs = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_qte = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btn_add_article = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_refresh = new Bunifu.Framework.UI.BunifuImageButton();
             this.cbx_status = new System.Windows.Forms.ComboBox();
@@ -45,25 +52,17 @@
             this.cbx_fournisseur = new System.Windows.Forms.ComboBox();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_add_fournisseur = new Bunifu.Framework.UI.BunifuImageButton();
-            this.txt_prix_solde_fc = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txt_prix_vente_fc = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txt_points = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.dt_pick_fin_solde = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.dtpick_debut_solde = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_prix_solde_dollars = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_prix_vente_dollars = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpick_expiration = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.txt_qte_entree = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txt_caracteristiques = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_prix_achat_francs = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label6 = new System.Windows.Forms.Label();
@@ -79,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbx_couleurs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_article)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
@@ -180,6 +180,13 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txt_numero_serie);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.cbx_couleur);
+            this.panel2.Controls.Add(this.cbx_couleurs);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.txt_qte);
+            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.btn_add_article);
             this.panel2.Controls.Add(this.btn_refresh);
             this.panel2.Controls.Add(this.cbx_status);
@@ -187,25 +194,17 @@
             this.panel2.Controls.Add(this.cbx_fournisseur);
             this.panel2.Controls.Add(this.bunifuImageButton2);
             this.panel2.Controls.Add(this.btn_add_fournisseur);
-            this.panel2.Controls.Add(this.txt_prix_solde_fc);
             this.panel2.Controls.Add(this.txt_prix_vente_fc);
             this.panel2.Controls.Add(this.txt_points);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.dt_pick_fin_solde);
-            this.panel2.Controls.Add(this.dtpick_debut_solde);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.txt_prix_solde_dollars);
-            this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.txt_prix_vente_dollars);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.dtpick_expiration);
-            this.panel2.Controls.Add(this.txt_qte_entree);
+            this.panel2.Controls.Add(this.txt_caracteristiques);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txt_prix_achat_francs);
             this.panel2.Controls.Add(this.label6);
@@ -222,6 +221,98 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(973, 557);
             this.panel2.TabIndex = 4;
+            // 
+            // txt_numero_serie
+            // 
+            this.txt_numero_serie.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_numero_serie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.txt_numero_serie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_numero_serie.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_numero_serie.HintText = "Numéro série";
+            this.txt_numero_serie.isPassword = false;
+            this.txt_numero_serie.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_numero_serie.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_numero_serie.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_numero_serie.LineThickness = 3;
+            this.txt_numero_serie.Location = new System.Drawing.Point(193, 141);
+            this.txt_numero_serie.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txt_numero_serie.Name = "txt_numero_serie";
+            this.txt_numero_serie.Size = new System.Drawing.Size(272, 45);
+            this.txt_numero_serie.TabIndex = 73;
+            this.txt_numero_serie.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(24, 156);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(113, 21);
+            this.label13.TabIndex = 72;
+            this.label13.Text = "Numéro série";
+            // 
+            // cbx_couleur
+            // 
+            this.cbx_couleur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_couleur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_couleur.FormattingEnabled = true;
+            this.cbx_couleur.Location = new System.Drawing.Point(193, 283);
+            this.cbx_couleur.Name = "cbx_couleur";
+            this.cbx_couleur.Size = new System.Drawing.Size(272, 29);
+            this.cbx_couleur.TabIndex = 71;
+            // 
+            // cbx_couleurs
+            // 
+            this.cbx_couleurs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_couleurs.BackColor = System.Drawing.Color.Transparent;
+            this.cbx_couleurs.Image = global::Mercato.Properties.Resources.add_96px1;
+            this.cbx_couleurs.ImageActive = null;
+            this.cbx_couleurs.Location = new System.Drawing.Point(471, 283);
+            this.cbx_couleurs.Name = "cbx_couleurs";
+            this.cbx_couleurs.Size = new System.Drawing.Size(28, 28);
+            this.cbx_couleurs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cbx_couleurs.TabIndex = 70;
+            this.cbx_couleurs.TabStop = false;
+            this.cbx_couleurs.Zoom = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(24, 283);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 21);
+            this.label10.TabIndex = 69;
+            this.label10.Text = "Couleur";
+            // 
+            // txt_qte
+            // 
+            this.txt_qte.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_qte.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.txt_qte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_qte.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_qte.HintText = "Quantité entrée";
+            this.txt_qte.isPassword = false;
+            this.txt_qte.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_qte.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_qte.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_qte.LineThickness = 3;
+            this.txt_qte.Location = new System.Drawing.Point(193, 321);
+            this.txt_qte.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txt_qte.Name = "txt_qte";
+            this.txt_qte.Size = new System.Drawing.Size(272, 45);
+            this.txt_qte.TabIndex = 68;
+            this.txt_qte.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(24, 334);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(130, 21);
+            this.label9.TabIndex = 67;
+            this.label9.Text = "Quantité entrée";
             // 
             // btn_add_article
             // 
@@ -262,9 +353,9 @@
             this.cbx_status.Items.AddRange(new object[] {
             "Vente",
             "Stock",
-            "Archivé",
+            "Ecoulé",
             "Expiré"});
-            this.cbx_status.Location = new System.Drawing.Point(193, 374);
+            this.cbx_status.Location = new System.Drawing.Point(193, 424);
             this.cbx_status.Name = "cbx_status";
             this.cbx_status.Size = new System.Drawing.Size(272, 29);
             this.cbx_status.TabIndex = 64;
@@ -274,7 +365,7 @@
             this.cbx_depot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_depot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_depot.FormattingEnabled = true;
-            this.cbx_depot.Location = new System.Drawing.Point(193, 416);
+            this.cbx_depot.Location = new System.Drawing.Point(193, 466);
             this.cbx_depot.Name = "cbx_depot";
             this.cbx_depot.Size = new System.Drawing.Size(272, 29);
             this.cbx_depot.TabIndex = 63;
@@ -284,7 +375,7 @@
             this.cbx_fournisseur.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_fournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_fournisseur.FormattingEnabled = true;
-            this.cbx_fournisseur.Location = new System.Drawing.Point(193, 150);
+            this.cbx_fournisseur.Location = new System.Drawing.Point(193, 195);
             this.cbx_fournisseur.Name = "cbx_fournisseur";
             this.cbx_fournisseur.Size = new System.Drawing.Size(272, 29);
             this.cbx_fournisseur.TabIndex = 61;
@@ -295,7 +386,7 @@
             this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuImageButton2.Image = global::Mercato.Properties.Resources.add_96px1;
             this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(471, 416);
+            this.bunifuImageButton2.Location = new System.Drawing.Point(471, 467);
             this.bunifuImageButton2.Name = "bunifuImageButton2";
             this.bunifuImageButton2.Size = new System.Drawing.Size(28, 28);
             this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -310,7 +401,7 @@
             this.btn_add_fournisseur.BackColor = System.Drawing.Color.Transparent;
             this.btn_add_fournisseur.Image = global::Mercato.Properties.Resources.add_96px1;
             this.btn_add_fournisseur.ImageActive = null;
-            this.btn_add_fournisseur.Location = new System.Drawing.Point(471, 150);
+            this.btn_add_fournisseur.Location = new System.Drawing.Point(471, 195);
             this.btn_add_fournisseur.Name = "btn_add_fournisseur";
             this.btn_add_fournisseur.Size = new System.Drawing.Size(28, 28);
             this.btn_add_fournisseur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -318,25 +409,6 @@
             this.btn_add_fournisseur.TabStop = false;
             this.btn_add_fournisseur.Zoom = 20;
             this.btn_add_fournisseur.Click += new System.EventHandler(this.btn_add_fournisseur_Click);
-            // 
-            // txt_prix_solde_fc
-            // 
-            this.txt_prix_solde_fc.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_prix_solde_fc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txt_prix_solde_fc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_prix_solde_fc.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_prix_solde_fc.HintText = "Prix de solde FC";
-            this.txt_prix_solde_fc.isPassword = false;
-            this.txt_prix_solde_fc.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_prix_solde_fc.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_prix_solde_fc.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_prix_solde_fc.LineThickness = 3;
-            this.txt_prix_solde_fc.Location = new System.Drawing.Point(669, 331);
-            this.txt_prix_solde_fc.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txt_prix_solde_fc.Name = "txt_prix_solde_fc";
-            this.txt_prix_solde_fc.Size = new System.Drawing.Size(272, 45);
-            this.txt_prix_solde_fc.TabIndex = 58;
-            this.txt_prix_solde_fc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // txt_prix_vente_fc
             // 
@@ -369,7 +441,7 @@
             this.txt_points.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_points.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
             this.txt_points.LineThickness = 3;
-            this.txt_points.Location = new System.Drawing.Point(193, 450);
+            this.txt_points.Location = new System.Drawing.Point(193, 500);
             this.txt_points.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txt_points.Name = "txt_points";
             this.txt_points.Size = new System.Drawing.Size(272, 45);
@@ -380,7 +452,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(24, 463);
+            this.label17.Location = new System.Drawing.Point(24, 513);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(143, 21);
             this.label17.TabIndex = 55;
@@ -390,7 +462,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(24, 377);
+            this.label16.Location = new System.Drawing.Point(24, 427);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(105, 21);
             this.label16.TabIndex = 54;
@@ -400,80 +472,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(24, 416);
+            this.label15.Location = new System.Drawing.Point(24, 466);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(57, 21);
             this.label15.TabIndex = 53;
             this.label15.Text = "Dépôt";
-            // 
-            // dt_pick_fin_solde
-            // 
-            this.dt_pick_fin_solde.BackColor = System.Drawing.Color.Black;
-            this.dt_pick_fin_solde.BorderRadius = 0;
-            this.dt_pick_fin_solde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_pick_fin_solde.ForeColor = System.Drawing.Color.White;
-            this.dt_pick_fin_solde.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dt_pick_fin_solde.FormatCustom = null;
-            this.dt_pick_fin_solde.Location = new System.Drawing.Point(193, 327);
-            this.dt_pick_fin_solde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dt_pick_fin_solde.Name = "dt_pick_fin_solde";
-            this.dt_pick_fin_solde.Size = new System.Drawing.Size(272, 32);
-            this.dt_pick_fin_solde.TabIndex = 52;
-            this.dt_pick_fin_solde.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
-            // 
-            // dtpick_debut_solde
-            // 
-            this.dtpick_debut_solde.BackColor = System.Drawing.Color.Black;
-            this.dtpick_debut_solde.BorderRadius = 0;
-            this.dtpick_debut_solde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpick_debut_solde.ForeColor = System.Drawing.Color.White;
-            this.dtpick_debut_solde.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpick_debut_solde.FormatCustom = null;
-            this.dtpick_debut_solde.Location = new System.Drawing.Point(193, 285);
-            this.dtpick_debut_solde.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtpick_debut_solde.Name = "dtpick_debut_solde";
-            this.dtpick_debut_solde.Size = new System.Drawing.Size(272, 32);
-            this.dtpick_debut_solde.TabIndex = 51;
-            this.dtpick_debut_solde.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(519, 338);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(130, 21);
-            this.label13.TabIndex = 49;
-            this.label13.Text = "Prix de solde FC";
-            // 
-            // txt_prix_solde_dollars
-            // 
-            this.txt_prix_solde_dollars.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_prix_solde_dollars.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txt_prix_solde_dollars.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_prix_solde_dollars.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_prix_solde_dollars.HintText = "Prix de solde $";
-            this.txt_prix_solde_dollars.isPassword = false;
-            this.txt_prix_solde_dollars.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_prix_solde_dollars.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_prix_solde_dollars.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_prix_solde_dollars.LineThickness = 3;
-            this.txt_prix_solde_dollars.Location = new System.Drawing.Point(669, 274);
-            this.txt_prix_solde_dollars.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txt_prix_solde_dollars.Name = "txt_prix_solde_dollars";
-            this.txt_prix_solde_dollars.Size = new System.Drawing.Size(272, 45);
-            this.txt_prix_solde_dollars.TabIndex = 48;
-            this.txt_prix_solde_dollars.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(519, 285);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(121, 21);
-            this.label14.TabIndex = 47;
-            this.label14.Text = "Prix de solde $";
             // 
             // label11
             // 
@@ -514,31 +517,11 @@
             this.label12.TabIndex = 43;
             this.label12.Text = "Prix de vente $";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(24, 332);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 21);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Date de fin solde";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(24, 289);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(140, 21);
-            this.label9.TabIndex = 41;
-            this.label9.Text = "Date début solde";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(24, 246);
+            this.label8.Location = new System.Drawing.Point(24, 381);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(144, 21);
             this.label8.TabIndex = 40;
@@ -552,41 +535,41 @@
             this.dtpick_expiration.ForeColor = System.Drawing.Color.White;
             this.dtpick_expiration.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpick_expiration.FormatCustom = null;
-            this.dtpick_expiration.Location = new System.Drawing.Point(193, 243);
+            this.dtpick_expiration.Location = new System.Drawing.Point(193, 377);
             this.dtpick_expiration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpick_expiration.Name = "dtpick_expiration";
             this.dtpick_expiration.Size = new System.Drawing.Size(272, 32);
             this.dtpick_expiration.TabIndex = 39;
             this.dtpick_expiration.Value = new System.DateTime(2022, 7, 4, 12, 56, 20, 541);
             // 
-            // txt_qte_entree
+            // txt_caracteristiques
             // 
-            this.txt_qte_entree.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_qte_entree.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txt_qte_entree.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_qte_entree.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_qte_entree.HintText = "Quantité entrée";
-            this.txt_qte_entree.isPassword = false;
-            this.txt_qte_entree.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_qte_entree.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_qte_entree.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_qte_entree.LineThickness = 3;
-            this.txt_qte_entree.Location = new System.Drawing.Point(193, 184);
-            this.txt_qte_entree.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txt_qte_entree.Name = "txt_qte_entree";
-            this.txt_qte_entree.Size = new System.Drawing.Size(272, 45);
-            this.txt_qte_entree.TabIndex = 38;
-            this.txt_qte_entree.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_caracteristiques.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_caracteristiques.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.txt_caracteristiques.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_caracteristiques.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_caracteristiques.HintText = "Caractéristiques";
+            this.txt_caracteristiques.isPassword = false;
+            this.txt_caracteristiques.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_caracteristiques.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_caracteristiques.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_caracteristiques.LineThickness = 3;
+            this.txt_caracteristiques.Location = new System.Drawing.Point(193, 229);
+            this.txt_caracteristiques.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txt_caracteristiques.Name = "txt_caracteristiques";
+            this.txt_caracteristiques.Size = new System.Drawing.Size(272, 45);
+            this.txt_caracteristiques.TabIndex = 38;
+            this.txt_caracteristiques.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(24, 197);
+            this.label7.Location = new System.Drawing.Point(24, 242);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 21);
+            this.label7.Size = new System.Drawing.Size(132, 21);
             this.label7.TabIndex = 37;
-            this.label7.Text = "Quantité entrée";
+            this.label7.Text = "Caractéristiques";
             // 
             // txt_prix_achat_francs
             // 
@@ -650,7 +633,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(24, 150);
+            this.label4.Location = new System.Drawing.Point(24, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 21);
             this.label4.TabIndex = 32;
@@ -695,7 +678,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(523, 416);
+            this.button1.Location = new System.Drawing.Point(523, 497);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(418, 48);
             this.button1.TabIndex = 28;
@@ -751,6 +734,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbx_couleurs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_article)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_refresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
@@ -773,7 +757,7 @@
         private System.Windows.Forms.Button button1;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_num_approv;
         private System.Windows.Forms.Label label3;
-        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_qte_entree;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_caracteristiques;
         private System.Windows.Forms.Label label7;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_achat_francs;
         private System.Windows.Forms.Label label6;
@@ -782,30 +766,29 @@
         private System.Windows.Forms.Label label4;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_article;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label13;
-        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_solde_dollars;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_vente_dollars;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_points;
         private System.Windows.Forms.Label label17;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_vente_fc;
-        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_prix_solde_fc;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuImageButton btn_add_fournisseur;
         private Bunifu.Framework.UI.BunifuImageButton btn_refresh;
         private Bunifu.Framework.UI.BunifuImageButton btn_add_article;
-        public Bunifu.Framework.UI.BunifuDatepicker dt_pick_fin_solde;
-        public Bunifu.Framework.UI.BunifuDatepicker dtpick_debut_solde;
         public Bunifu.Framework.UI.BunifuDatepicker dtpick_expiration;
         public System.Windows.Forms.ComboBox cbx_fournisseur;
         public System.Windows.Forms.ComboBox cbx_status;
         public System.Windows.Forms.ComboBox cbx_depot;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_numero_serie;
+        private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.ComboBox cbx_couleur;
+        private Bunifu.Framework.UI.BunifuImageButton cbx_couleurs;
+        private System.Windows.Forms.Label label10;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txt_qte;
+        private System.Windows.Forms.Label label9;
     }
 }

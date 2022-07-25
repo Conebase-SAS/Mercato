@@ -11,21 +11,21 @@ using System.Windows.Forms;
 
 namespace Mercato.Controllers
 {
-    class clsVentes
+    class clsCouleurs
     {
         Datalib datas = new Datalib();
         static SqlConnection cnx;
-        Ventes ventes = new Ventes();
+        Couleurs couleur = new Couleurs();
         Notification_Center notify = new Notification_Center();
 
-        public void afficher_vente(DataGridView dtg)
+        public void afficher_couleur(DataGridView dtg)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("afficher_vente", cnx)
+                var cmd = new SqlCommand("afficher_couleur", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -49,36 +49,34 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        public void enregistrer_vente(Ventes ventes )
+        public void recuperer_couleur(ComboBox cbx)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("enregistrer_vente", cnx)
+                var cmd = new SqlCommand("recuperer_couleur", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                //cmd.Parameters.Add(new SqlParameter("num_vente", SqlDbType.Int)).Value = ventes.Num_vente;
-                cmd.Parameters.Add(new SqlParameter("date_vente", SqlDbType.DateTime)).Value = ventes.Date_vente;
-                cmd.Parameters.Add(new SqlParameter("vente_id", SqlDbType.NVarChar)).Value = ventes.Vente_id;
-                cmd.Parameters.Add(new SqlParameter("id_boutique", SqlDbType.NVarChar)).Value = ventes.Id_boutique;
-                cmd.Parameters.Add(new SqlParameter("id_clients", SqlDbType.NVarChar)).Value = ventes.Id_clients;
-                cmd.Parameters.Add(new SqlParameter("description_ventes", SqlDbType.NVarChar)).Value = ventes.Description_ventes;
-                cmd.Parameters.Add("@num_vente", SqlDbType.Int).Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
-                ventes.Num_vente=Convert.ToInt32(cmd.Parameters["@num_vente"].Value);
-                notify.notifier("Enregistrement avec succès!");
-                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                cbx.Items.Clear();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbx.Items.Add(Convert.ToString(dr[0]));
+                }
             }
-            catch (Exception tdf)
+            catch (Exception exct)
             {
                 var rs = new DialogResult();
-                rs = MessageBox.Show("Voulez vous voir le code d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (rs == DialogResult.Yes)
                 {
-                    MessageBox.Show(tdf.ToString());
+                    MessageBox.Show(exct.ToString());
                 }
             }
             finally
@@ -86,18 +84,19 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        public void supprimer_vente(Ventes ventes)
+        public void enregistrer_couleur(Couleurs couleur)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("supprimer_vente", cnx)
+                var cmd = new SqlCommand("enregistrer_couleur", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("num_vente", SqlDbType.Int)).Value = ventes.Num_vente;
+                cmd.Parameters.Add(new SqlParameter("id_couleur", SqlDbType.NVarChar)).Value = couleur.ID_couleur;
+                cmd.Parameters.Add(new SqlParameter("designation_couleur", SqlDbType.NVarChar)).Value = couleur.Designation;
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");
@@ -116,7 +115,6 @@ namespace Mercato.Controllers
             {
                 cnx.Close(); cnx.Dispose();
             }
-
         }
     }
 }

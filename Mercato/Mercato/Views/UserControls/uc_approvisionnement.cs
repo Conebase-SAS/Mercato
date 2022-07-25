@@ -114,24 +114,24 @@ namespace Mercato.Views.UserControls
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
             frm_approvisionnement fr = new frm_approvisionnement();
             fr.txt_num_approv.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             fr.txt_article.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
             fr.txt_prix_achat_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
             fr.txt_prix_achat_francs.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
-            fr.txt_qte_entree.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
+            fr.txt_caracteristiques.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
             fr.cbx_fournisseur.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
-
             fr.dtpick_expiration.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
-            fr.dtpick_debut_solde.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
-            fr.dt_pick_fin_solde.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
-            fr.txt_prix_vente_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
-            fr.txt_prix_vente_fc.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[10].Value.ToString());
-            fr.txt_prix_solde_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
-            fr.txt_prix_solde_fc.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
-            fr.cbx_depot.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
-            fr.txt_points.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[14].Value.ToString());
-            fr.cbx_status.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[15].Value.ToString());
+            fr.txt_prix_vente_dollars.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
+            fr.txt_prix_vente_fc.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
+            fr.cbx_depot.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
+            fr.txt_points.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[10].Value.ToString());
+            fr.cbx_status.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
             fr.ShowDialog();
         }
     }

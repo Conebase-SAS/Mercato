@@ -10,6 +10,7 @@ namespace Mercato.Models
     {
         public decimal Prix_vente_dollars { get; set; }
         public decimal Prix_vente_fc { get; set; }
-        public int Qte_restante { get; set; }
+        public int Qte_sortie { get; set; }
+        public int Qte_disponible {get; set;}
     }
 }
