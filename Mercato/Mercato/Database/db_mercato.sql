@@ -182,14 +182,84 @@ as
 delete from t_clients where id_clients like '%'+@id_clients+'%'
 go
 ---------------------------------------Fin des codes pour les clients------------------------------------------------
+---------------------------------------Debut codes pour les compagnies-----------------------------------------------
+create table t_compagnie
+(
+    id_compagnie nvarchar(50),
+    designation nvarchar(100),
+    telephone nvarchar(50),
+    constraint pk_compagnie primary key(id_compagnie)
+)
+go
+create procedure afficher_compagnie
+as
+select top 50
+    id_compagnie as 'ID Entreprise',
+    designation as 'Description',
+    telephone as 'Téléphone'
+from t_compagnie
+    order by id_compagnie asc
+go
+create procedure enregistrer_compagnie
+@id_compagnie nvarchar(50),
+@designation nvarchar(100),
+@telephone nvarchar(50)
+as
+    merge into t_compagnie
+    using(select @id_compagnie as x_id) as x_source
+	on (x_source.x_id=t_compagnie.id_compagnie)
+	when matched then	
+		update set
+            designation=@designation,
+            telephone=@telephone
+    when not matched then
+        insert
+            (id_compagnie, designation, telephone)
+        values
+            (@id_compagnie, @designation, @telephone);
+go
+create procedure supprimer_compagnie
+@id_compagnie nvarchar(50)
+as
+    delete from t_compagnie
+        where id_compagnie like @id_compagnie
+go
+--------------------------------------Fin des codes pour la comagnie------------------------------------------------
+--------------------------------------Début codes pour la boutique -------------------------------------------------
 create table t_boutique
 (
     id_boutique nvarchar(50),
     designation nvarchar(100),
-    mot_de_passe Binary,
-    constraint pk_boutique primary key(id_boutique)
+    mot_de_passe Binary not null,
+    id_compagnie nvarchar(50),
+    extension nvarchar(50),
+    constraint pk_boutique primary key(id_boutique),
+    constraint fk_boutique_compagnie foreign key(id_compagnie) references t_compagnie(id_compagnie) on update cascade on delete cascade
 )
 go
+create procedure enregistrer_boutique
+@id_boutique nvarchar(50),
+@designation nvarchar(100),
+@mot_de_passe nvarchar(50),
+@id_compagnie nvarchar(50)
+as
+    declare @extension UNIQUEIDENTIFIER=NEWID()
+    merge into t_boutique
+    using (select @id_boutique as x_id) as x_source
+    on (x_source.x_id=t_boutique.id_boutique)
+	when matched then	
+		update set
+            designation=@designation,
+            mot_de_passe=hashbytes('SHA2_512',@mot_de_passe+cast(@extension as nvarchar(50))),
+            id_compagnie=@id_compagnie,
+            extension=@extension
+    when not matched then
+        insert
+            (id_boutique, designation, mot_de_passe, extension, id_compagnie)
+        values
+            (@id_boutique, @designation, hashbytes('SHA2_512',@mot_de_passe+cast(@extension as nvarchar(50))), @extension, @id_compagnie);
+go
+--------------------------------------Fin des codes pour la boutique------------------------------------------------
 ---------------------------------------CODES POUR PAQUETAGE--------------------------------------------------------
 create table t_paquetage
 (
@@ -936,6 +1006,12 @@ from
     t_approvisionnement
     where status_vente like 'Vente'
 go
+create procedure recuperer_qte_initiale
+@num_details nvarchar(50)
+as
+    select qte_entree from t_approvisionnement
+        where num_details like @num_details
+go
 create procedure rechercher_articles_disponible_nom
 @search nvarchar(50)
 as
@@ -947,6 +1023,7 @@ select top 50
     id_caracteristiques as 'Spéc.', 
     prix_vente_$ as 'Prix USD', 
     prix_vente_fc as 'Prix FC', 
+    qte_entree as 'Qte initiale',
     id_depot as 'Dépôt', 
     status_vente as 'Status'
 from
@@ -990,7 +1067,7 @@ go
 create procedure sortie_par_article
 @num_details int
 as
-    select sum(qte_sortie) from t_details_vente
+    select isnull(sum(qte_sortie),0) from t_details_vente
         where num_details like @num_details
 go
 --------------------------------Fin calculs spéciaux-------------------------------------
