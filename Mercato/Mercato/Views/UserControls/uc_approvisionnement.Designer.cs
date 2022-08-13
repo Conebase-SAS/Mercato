@@ -108,7 +108,7 @@
             this.rdbtn_status.Text = "Par status vente";
             this.rdbtn_status.UseVisualStyleBackColor = true;
             this.rdbtn_status.CheckedChanged += new System.EventHandler(this.rdbtn_status_CheckedChanged);
-            this.rdbtn_status.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbtn_status_MouseClick);
+            //this.rdbtn_status.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbtn_status_MouseClick);
             // 
             // rdbtn_approv
             // 
@@ -122,7 +122,7 @@
             this.rdbtn_approv.Text = "Par approvisionnement";
             this.rdbtn_approv.UseVisualStyleBackColor = true;
             this.rdbtn_approv.CheckedChanged += new System.EventHandler(this.rdbtn_approv_CheckedChanged);
-            this.rdbtn_approv.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbtn_approv_MouseClick);
+            //this.rdbtn_approv.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbtn_approv_MouseClick);
             // 
             // rdbtn_produit
             // 
@@ -136,7 +136,7 @@
             this.rdbtn_produit.Text = "Par produit";
             this.rdbtn_produit.UseVisualStyleBackColor = true;
             this.rdbtn_produit.CheckedChanged += new System.EventHandler(this.rdbtn_produit_CheckedChanged);
-            this.rdbtn_produit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbtn_produit_MouseClick);
+            //this.rdbtn_produit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbtn_produit_MouseClick);
             // 
             // txt_search
             // 

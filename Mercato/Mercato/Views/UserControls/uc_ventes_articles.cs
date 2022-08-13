@@ -136,5 +136,10 @@ namespace Mercato.Views.UserControls
             fr.txt_prix_vente_fc.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
             fr.ShowDialog();
         }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
