@@ -133,5 +133,11 @@ namespace Mercato.Views.Forms
                 cls_approv.enregistrer_approvisionement(approvisionnement);
             }
         }
+
+        private void cbx_couleurs_Click(object sender, EventArgs e)
+        {
+            var fr = new frm_couleur();
+            fr.ShowDialog();
+        }
     }
 }

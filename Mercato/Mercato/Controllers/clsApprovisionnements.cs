@@ -436,14 +436,46 @@ namespace Mercato.Controllers
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    if(dr[0]!=null)
-                    {
                         calcul.Qte_sortie = Convert.ToInt32(dr[0]);
-                    }
-                    else
-                    {
-                        calcul.Qte_sortie = 0;
-                    }
+                }
+                notify.notifier("Enregistrement avec succès!");
+                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception tdf)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Voulez vous voir le code d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(tdf.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+
+        }
+        public void recuperer_qte_initiale(Approvisionnement approvisionnement, Calculs calcul)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("recuperer_qte_initiale", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("num_details", SqlDbType.Int)).Value = approvisionnement.num_details;
+
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    calcul.Qte_initiale = Convert.ToInt32(dr[0]);
                 }
                 notify.notifier("Enregistrement avec succès!");
                 //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
