@@ -230,9 +230,10 @@ create table t_boutique
 (
     id_boutique nvarchar(50),
     designation nvarchar(100),
-    mot_de_passe Binary not null,
+    mot_de_passe nvarchar(100),
     id_compagnie nvarchar(50),
     extension nvarchar(50),
+    admin_level nvarchar(50),
     constraint pk_boutique primary key(id_boutique),
     constraint fk_boutique_compagnie foreign key(id_compagnie) references t_compagnie(id_compagnie) on update cascade on delete cascade
 )
@@ -241,23 +242,78 @@ create procedure enregistrer_boutique
 @id_boutique nvarchar(50),
 @designation nvarchar(100),
 @mot_de_passe nvarchar(50),
-@id_compagnie nvarchar(50)
+@id_compagnie nvarchar(50),
+@admin_level nvarchar(50) --between 1 to 4 -1 regular user, -2 company admin, -3 Conebase Management -4 Super Manager
 as
-    declare @extension UNIQUEIDENTIFIER=NEWID()
+    declare @extension uniqueidentifier=newid()
     merge into t_boutique
     using (select @id_boutique as x_id) as x_source
     on (x_source.x_id=t_boutique.id_boutique)
 	when matched then	
 		update set
             designation=@designation,
-            mot_de_passe=hashbytes('SHA2_512',@mot_de_passe+cast(@extension as nvarchar(50))),
+            mot_de_passe=@mot_de_passe,
             id_compagnie=@id_compagnie,
-            extension=@extension
+            extension=@extension,
+            admin_level=@admin_level
     when not matched then
         insert
-            (id_boutique, designation, mot_de_passe, extension, id_compagnie)
+            (id_boutique, designation, mot_de_passe, extension, id_compagnie, admin_level)
         values
-            (@id_boutique, @designation, hashbytes('SHA2_512',@mot_de_passe+cast(@extension as nvarchar(50))), @extension, @id_compagnie);
+            (@id_boutique, @designation, @mot_de_passe, @extension, @id_compagnie, @admin_level);
+go
+create procedure rechercher_login
+@id_boutique nvarchar(50),
+@mot_de_passe varchar(50)
+as
+    select        
+        t_boutique.id_boutique as 'ID', 
+        t_boutique.designation as 'Designation', 
+        t_boutique.mot_de_passe as 'Passkey', 
+        t_boutique.extension as 'Extension ID', 
+        t_compagnie.id_compagnie as 'Entreprise', 
+        t_compagnie.telephone as 'Telephone',
+        t_boutique.admin_level as 'Admin Rights'
+    from
+        t_boutique inner join
+            t_compagnie on t_boutique.id_compagnie = t_compagnie.id_compagnie
+    where 
+        id_boutique like @id_boutique and mot_de_passe=@mot_de_passe;
+go
+create procedure afficher_login
+@id_compagnie nvarchar(50),
+@id_boutique nvarchar(50)
+as
+    select        
+        t_boutique.id_boutique as 'ID', 
+        t_boutique.designation as 'Designation', 
+        t_boutique.mot_de_passe as 'Passkey', 
+        t_boutique.extension as 'Extension ID', 
+        t_compagnie.id_compagnie as 'Entreprise', 
+        t_compagnie.telephone as 'Telephone',
+        t_boutique.admin_level as 'Admin Rights'
+    from
+        t_boutique inner join
+            t_compagnie on t_boutique.id_compagnie = t_compagnie.id_compagnie
+    where
+        t_compagnie.id_compagnie like @id_compagnie and t_boutique.id_boutique like @id_boutique
+go
+create procedure afficher_login_par_noms
+@id_boutique nvarchar(50)
+as
+    select        
+        t_boutique.id_boutique as 'ID', 
+        t_boutique.designation as 'Designation', 
+        t_boutique.mot_de_passe as 'Passkey', 
+        t_boutique.extension as 'Extension ID', 
+        t_compagnie.id_compagnie as 'Entreprise', 
+        t_compagnie.telephone as 'Telephone',
+        t_boutique.admin_level as 'Admin Rights'
+    from
+        t_boutique inner join
+            t_compagnie on t_boutique.id_compagnie = t_compagnie.id_compagnie
+    where
+        t_boutique.id_boutique like @id_boutique
 go
 --------------------------------------Fin des codes pour la boutique------------------------------------------------
 ---------------------------------------CODES POUR PAQUETAGE--------------------------------------------------------
@@ -1071,3 +1127,7 @@ as
         where num_details like @num_details
 go
 --------------------------------Fin calculs spéciaux-------------------------------------
+insert into t_compagnie
+    (id_compagnie, designation,telephone)
+values
+    ('ETIKETS','ETIKETS SAS','+243977551835')
