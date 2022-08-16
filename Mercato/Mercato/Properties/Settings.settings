@@ -14,5 +14,11 @@
     <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)">Windy@2022.com?</Value>
     </Setting>
+    <Setting Name="Id_boutique" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Empty</Value>
+    </Setting>
+    <Setting Name="Id_company" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Empty</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

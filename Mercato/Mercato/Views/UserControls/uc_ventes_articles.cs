@@ -30,6 +30,7 @@ namespace Mercato.Views.UserControls
         Clients clients = new Clients();
         clsVentes cls_ventes = new clsVentes();
         Ventes vente = new Ventes();
+        Boutique boutique = new Boutique();
 
         public uc_ventes_articles()
         {
@@ -102,10 +103,11 @@ namespace Mercato.Views.UserControls
                     vente.Num_vente = Convert.ToInt32(txt_num_vente.Text);
                 }
                 vente.Id_clients = cbx_clients.Text;
-                vente.Id_boutique = "ONEHORIZON";
-                vente.Description_ventes = "Test";
+                vente.Id_boutique = Properties.Settings.Default.Id_boutique;
+                vente.Description_ventes = "Vente articles";
                 vente.Date_vente = DateTime.Now;
-                vente.Vente_id = Environment.UserName;
+                vente.Vente_id = Guid.NewGuid().ToString();
+                MessageBox.Show(boutique.Id_boutique);
                 cls_ventes.enregistrer_vente(vente);
                 txt_num_vente.Text =Convert.ToString(vente.Num_vente);
             }

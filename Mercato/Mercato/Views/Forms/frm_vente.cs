@@ -47,7 +47,7 @@ namespace Mercato.Views.Forms
         {
             if (int.TryParse(txt_qte_voulue.Text, out _))
             {
-                if (Convert.ToInt32(txt_qte_voulue.Text) == Convert.ToInt32(txt_qte_disponible.Text))
+                if (Convert.ToInt32(txt_qte_voulue.Text) <= Convert.ToInt32(txt_qte_disponible.Text))
                 {
 
                 }
