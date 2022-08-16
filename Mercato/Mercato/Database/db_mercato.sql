@@ -281,8 +281,7 @@ as
         id_boutique like @id_boutique and mot_de_passe=@mot_de_passe;
 go
 create procedure afficher_login
-@id_compagnie nvarchar(50),
-@id_boutique nvarchar(50)
+@id_compagnie nvarchar(50)
 as
     select        
         t_boutique.id_boutique as 'ID', 
@@ -296,7 +295,7 @@ as
         t_boutique inner join
             t_compagnie on t_boutique.id_compagnie = t_compagnie.id_compagnie
     where
-        t_compagnie.id_compagnie like @id_compagnie and t_boutique.id_boutique like @id_boutique
+        t_compagnie.id_compagnie like @id_compagnie
 go
 create procedure afficher_login_par_noms
 @id_boutique nvarchar(50)
