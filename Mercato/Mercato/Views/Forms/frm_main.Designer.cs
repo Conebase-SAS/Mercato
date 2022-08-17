@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
             this.pnl_header = new System.Windows.Forms.Panel();
+            this.lbl_titre = new System.Windows.Forms.Label();
             this.lbl_company = new System.Windows.Forms.Label();
             this.lbl_boutique = new System.Windows.Forms.Label();
             this.pnl_nav = new System.Windows.Forms.Panel();
@@ -49,7 +50,6 @@
             this.btn_articles = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_dash = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.lbl_titre = new System.Windows.Forms.Label();
             this.pnl_header.SuspendLayout();
             this.pnl_nav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_logout)).BeginInit();
@@ -67,7 +67,7 @@
             // 
             // pnl_header
             // 
-            this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
+            this.pnl_header.BackColor = System.Drawing.Color.White;
             this.pnl_header.Controls.Add(this.lbl_titre);
             this.pnl_header.Controls.Add(this.lbl_company);
             this.pnl_header.Controls.Add(this.bunifuImageButton1);
@@ -79,13 +79,29 @@
             this.pnl_header.Size = new System.Drawing.Size(1366, 50);
             this.pnl_header.TabIndex = 3;
             // 
+            // lbl_titre
+            // 
+            this.lbl_titre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_titre.AutoSize = true;
+            this.lbl_titre.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition1.SetDecoration(this.lbl_titre, BunifuAnimatorNS.DecorationType.None);
+            this.lbl_titre.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_titre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
+            this.lbl_titre.Location = new System.Drawing.Point(653, 13);
+            this.lbl_titre.Name = "lbl_titre";
+            this.lbl_titre.Size = new System.Drawing.Size(84, 25);
+            this.lbl_titre.TabIndex = 5;
+            this.lbl_titre.Text = "Mercato";
+            this.lbl_titre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lbl_company
             // 
             this.lbl_company.AutoSize = true;
+            this.lbl_company.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.lbl_company, BunifuAnimatorNS.DecorationType.None);
             this.lbl_company.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_company.ForeColor = System.Drawing.Color.White;
-            this.lbl_company.Location = new System.Drawing.Point(12, 8);
+            this.lbl_company.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
+            this.lbl_company.Location = new System.Drawing.Point(9, 9);
             this.lbl_company.Name = "lbl_company";
             this.lbl_company.Size = new System.Drawing.Size(182, 32);
             this.lbl_company.TabIndex = 4;
@@ -94,9 +110,10 @@
             // lbl_boutique
             // 
             this.lbl_boutique.AutoSize = true;
+            this.lbl_boutique.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.lbl_boutique, BunifuAnimatorNS.DecorationType.None);
             this.lbl_boutique.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_boutique.ForeColor = System.Drawing.Color.White;
+            this.lbl_boutique.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
             this.lbl_boutique.Location = new System.Drawing.Point(210, 14);
             this.lbl_boutique.Name = "lbl_boutique";
             this.lbl_boutique.Size = new System.Drawing.Size(118, 25);
@@ -106,7 +123,7 @@
             // 
             // pnl_nav
             // 
-            this.pnl_nav.BackColor = System.Drawing.Color.White;
+            this.pnl_nav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
             this.pnl_nav.Controls.Add(this.btn_logout);
             this.pnl_nav.Controls.Add(this.btn_finances);
             this.pnl_nav.Controls.Add(this.btn_settings);
@@ -137,22 +154,22 @@
             // 
             this.bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.bunifuTransition1.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 0;
-            animation5.Padding = new System.Windows.Forms.Padding(0);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 0F;
-            animation5.TransparencyCoeff = 0F;
-            this.bunifuTransition1.DefaultAnimation = animation5;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.bunifuTransition1.DefaultAnimation = animation1;
             // 
             // bunifuDragControl1
             // 
@@ -167,7 +184,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_logout.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_logout, BunifuAnimatorNS.DecorationType.None);
-            this.btn_logout.Image = global::Mercato.Properties.Resources.shutdown_104px;
+            this.btn_logout.Image = global::Mercato.Properties.Resources.shutdown_120px;
             this.btn_logout.ImageActive = null;
             this.btn_logout.Location = new System.Drawing.Point(3, 661);
             this.btn_logout.Name = "btn_logout";
@@ -182,7 +199,7 @@
             // 
             this.btn_finances.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_finances, BunifuAnimatorNS.DecorationType.None);
-            this.btn_finances.Image = global::Mercato.Properties.Resources.currency_exchange_104px;
+            this.btn_finances.Image = global::Mercato.Properties.Resources.finance;
             this.btn_finances.ImageActive = null;
             this.btn_finances.Location = new System.Drawing.Point(3, 458);
             this.btn_finances.Name = "btn_finances";
@@ -197,7 +214,7 @@
             // 
             this.btn_settings.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_settings, BunifuAnimatorNS.DecorationType.None);
-            this.btn_settings.Image = global::Mercato.Properties.Resources.services_104px;
+            this.btn_settings.Image = global::Mercato.Properties.Resources.services_120px;
             this.btn_settings.ImageActive = null;
             this.btn_settings.Location = new System.Drawing.Point(4, 522);
             this.btn_settings.Name = "btn_settings";
@@ -212,7 +229,7 @@
             // 
             this.btn_users.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_users, BunifuAnimatorNS.DecorationType.None);
-            this.btn_users.Image = global::Mercato.Properties.Resources.male_user_104px;
+            this.btn_users.Image = global::Mercato.Properties.Resources.admin_settings_male_120px;
             this.btn_users.ImageActive = null;
             this.btn_users.Location = new System.Drawing.Point(3, 394);
             this.btn_users.Name = "btn_users";
@@ -227,7 +244,7 @@
             // 
             this.btn_inventory.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_inventory, BunifuAnimatorNS.DecorationType.None);
-            this.btn_inventory.Image = global::Mercato.Properties.Resources.store;
+            this.btn_inventory.Image = global::Mercato.Properties.Resources.delivered_box_120px;
             this.btn_inventory.ImageActive = null;
             this.btn_inventory.Location = new System.Drawing.Point(3, 330);
             this.btn_inventory.Name = "btn_inventory";
@@ -242,7 +259,7 @@
             // 
             this.btn_stock.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_stock, BunifuAnimatorNS.DecorationType.None);
-            this.btn_stock.Image = global::Mercato.Properties.Resources.store2;
+            this.btn_stock.Image = global::Mercato.Properties.Resources.box_120px;
             this.btn_stock.ImageActive = null;
             this.btn_stock.Location = new System.Drawing.Point(3, 266);
             this.btn_stock.Name = "btn_stock";
@@ -257,7 +274,7 @@
             // 
             this.btn_customers.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_customers, BunifuAnimatorNS.DecorationType.None);
-            this.btn_customers.Image = global::Mercato.Properties.Resources.debt_104px;
+            this.btn_customers.Image = global::Mercato.Properties.Resources.profile_120px;
             this.btn_customers.ImageActive = null;
             this.btn_customers.Location = new System.Drawing.Point(3, 202);
             this.btn_customers.Name = "btn_customers";
@@ -272,7 +289,7 @@
             // 
             this.btn_services.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_services, BunifuAnimatorNS.DecorationType.None);
-            this.btn_services.Image = global::Mercato.Properties.Resources.services1;
+            this.btn_services.Image = global::Mercato.Properties.Resources.service_120px;
             this.btn_services.ImageActive = null;
             this.btn_services.Location = new System.Drawing.Point(3, 138);
             this.btn_services.Name = "btn_services";
@@ -287,7 +304,7 @@
             // 
             this.btn_articles.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_articles, BunifuAnimatorNS.DecorationType.None);
-            this.btn_articles.Image = global::Mercato.Properties.Resources.sales;
+            this.btn_articles.Image = global::Mercato.Properties.Resources.sales_white;
             this.btn_articles.ImageActive = null;
             this.btn_articles.Location = new System.Drawing.Point(3, 74);
             this.btn_articles.Name = "btn_articles";
@@ -302,7 +319,7 @@
             // 
             this.btn_dash.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.btn_dash, BunifuAnimatorNS.DecorationType.None);
-            this.btn_dash.Image = global::Mercato.Properties.Resources.dashboard_104px;
+            this.btn_dash.Image = global::Mercato.Properties.Resources.dashboard_layout_120px;
             this.btn_dash.ImageActive = null;
             this.btn_dash.Location = new System.Drawing.Point(4, 10);
             this.btn_dash.Name = "btn_dash";
@@ -318,30 +335,16 @@
             this.bunifuImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.bunifuImageButton1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.multiply_104px;
+            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.close_window_120px;
             this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(1316, 12);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(1316, 5);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(38, 27);
+            this.bunifuImageButton1.Size = new System.Drawing.Size(42, 41);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bunifuImageButton1.TabIndex = 3;
             this.bunifuImageButton1.TabStop = false;
             this.bunifuImageButton1.Zoom = 20;
             this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
-            // 
-            // lbl_titre
-            // 
-            this.lbl_titre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_titre.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.lbl_titre, BunifuAnimatorNS.DecorationType.None);
-            this.lbl_titre.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_titre.ForeColor = System.Drawing.Color.White;
-            this.lbl_titre.Location = new System.Drawing.Point(653, 13);
-            this.lbl_titre.Name = "lbl_titre";
-            this.lbl_titre.Size = new System.Drawing.Size(84, 25);
-            this.lbl_titre.TabIndex = 5;
-            this.lbl_titre.Text = "Mercato";
-            this.lbl_titre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frm_main
             // 

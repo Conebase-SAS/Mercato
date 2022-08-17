@@ -143,5 +143,17 @@ namespace Mercato.Views.UserControls
         {
 
         }
+
+        private void bunifuImageButton1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bunifuImageButton1_Click_2(object sender, EventArgs e)
+        {
+            frm_pay_articles fr = new frm_pay_articles();
+            fr.txt_num_vente.Text = txt_num_vente.Text;
+            fr.ShowDialog();
+        }
     }
 }

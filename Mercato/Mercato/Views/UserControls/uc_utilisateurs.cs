@@ -49,6 +49,11 @@ namespace Mercato.Views.UserControls
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
             frm_clients fr = new frm_clients();
             fr.txt_id_client.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             fr.txt_noms_client.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());

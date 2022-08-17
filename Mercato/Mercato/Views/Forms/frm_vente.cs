@@ -18,6 +18,8 @@ namespace Mercato.Views.Forms
         Datalib datalib = new Datalib();
         Calculs calcul = new Calculs();
         clsApprovisionnements cls_approv = new clsApprovisionnements();
+        clsDetails_Ventes cls_details_vente = new clsDetails_Ventes();
+        Details_Ventes detail_vente = new Details_Ventes();
         Approvisionnement approv = new Approvisionnement();
         public frm_vente()
         {
@@ -49,7 +51,30 @@ namespace Mercato.Views.Forms
             {
                 if (Convert.ToInt32(txt_qte_voulue.Text) <= Convert.ToInt32(txt_qte_disponible.Text))
                 {
-
+                    if(txt_num_approv.Text!=""||txt_qte_voulue.Text!="")
+                    {
+                        if (txt_num_vente.Text == "")
+                        {
+                            detail_vente.Num_details_vente = 0;
+                        }
+                        else
+                        {
+                            if (int.TryParse(txt_num_vente.Text, out _))
+                            {
+                                detail_vente.Num_details_vente = Convert.ToInt32(txt_num_vente.Text);
+                            }
+                        }
+                        detail_vente.Num_details = Convert.ToInt32(txt_num_approv.Text);
+                        detail_vente.Date_details_vente = DateTime.Now;
+                        detail_vente.Num_vente = Convert.ToInt32(txt_num_vente.Text);
+                        detail_vente.Qte_sortie = Convert.ToInt32(txt_qte_voulue.Text);
+                        cls_details_vente.enregistrer_details_vente(detail_vente);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Informations manquantes! "+e.ToString());
+                    }
+                    
                 }
                 else
                 {

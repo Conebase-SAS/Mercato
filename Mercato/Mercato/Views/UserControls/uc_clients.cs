@@ -55,5 +55,16 @@ namespace Mercato.Views.UserControls
             fr.txt_telephone2.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
             fr.ShowDialog();
         }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            frm_clients fr = new frm_clients();
+            fr.txt_id_client.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            fr.txt_noms_client.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+            fr.txt_adresse.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+            fr.txt_telephone1.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+            fr.txt_telephone2.Text = Convert.ToString(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
+            fr.ShowDialog();
+        }
     }
 }
