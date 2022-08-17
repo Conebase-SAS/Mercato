@@ -837,18 +837,102 @@ delete from t_approvisionnement
     where num_details like @num_details
 go
 ---------------------------Fin du code d'approvisionnement--------------------------------------------------------------
+---------------------------Debut code details vente---------------------------------------------------------------------
 create table t_details_vente
 (
     num_details_vente int identity,
     date_details_vente date,
     num_vente int,
     num_details int,
-    qte_sortie int,
+    qte_sortie int,    
     constraint pk_details_vente primary key(num_details_vente),
     constraint fk_details_num_vente foreign key(num_vente) references t_ventes(num_vente),
     constraint fk_details_details foreign key(num_details) references t_approvisionnement(num_details) 
 )
 go
+create procedure afficher_details_vente
+as
+    select top 50
+        t_details_vente.num_details_vente, 
+        t_details_vente.num_vente, 
+        t_details_vente.num_details, 
+        t_approvisionnement.id_article, 
+        t_details_vente.qte_sortie
+    from            
+        t_approvisionnement 
+            inner join
+        t_details_vente on t_approvisionnement.num_details = t_details_vente.num_details 
+            inner join
+                t_ventes on t_details_vente.num_vente = t_ventes.num_vente
+go
+create procedure enregistrer_details_vente
+@num_details_vente int,
+@date_details_vente date,
+@num_vente int,
+@num_details int,
+@qte_sortie int
+as
+    merge into t_details_vente
+	using(select @num_details_vente as x_id) as x_source
+	on (x_source.x_id=t_details_vente.num_details_vente)
+	when matched then	
+		update set
+            date_details_vente=getdate(),
+            num_vente=@num_vente,
+            num_details=@num_details,
+            qte_sortie=@qte_sortie
+    when not matched then
+        insert
+            (
+                date_details_vente, num_vente, num_details, qte_sortie
+            )
+        values
+            (
+                getdate(), @num_vente, @num_details, @qte_sortie
+            );
+go
+create procedure supprimer_details_vente
+@num_details_vente int
+as
+    delete from t_details_vente where num_details_vente like @num_details_vente
+go
+create procedure recuperer_facture_details
+@num_vente int
+as
+select        
+    t_details_vente.num_details_vente as 'ID Details', 
+    t_details_vente.num_vente as 'ID vente',
+    t_details_vente.num_details as 'ID Stock', 
+    t_approvisionnement.id_article as 'Article', 
+    t_approvisionnement.prix_vente_$ as 'Prix $', 
+    t_approvisionnement.prix_vente_fc as 'Prix FC', 
+    t_details_vente.qte_sortie as 'Qte',
+    t_approvisionnement.prix_vente_$ * t_details_vente.qte_sortie as 'Total $',
+    t_approvisionnement.prix_vente_fc * t_details_vente.qte_sortie as 'Total FC'
+from            
+    t_approvisionnement 
+        inner join
+            t_details_vente on t_approvisionnement.num_details = t_details_vente.num_details 
+        inner join
+            t_ventes on t_details_vente.num_vente = t_ventes.num_vente
+where 
+    t_details_vente.num_vente like @num_vente
+go
+create procedure recuperer_total_facture
+@num_vente int
+as
+select sum(t_approvisionnement.prix_vente_$ * t_details_vente.qte_sortie), sum(t_approvisionnement.prix_vente_fc * t_details_vente.qte_sortie)     
+from            
+    t_approvisionnement 
+        inner join
+            t_details_vente on t_approvisionnement.num_details = t_details_vente.num_details 
+        inner join
+            t_ventes on t_details_vente.num_vente = t_ventes.num_vente
+where 
+    t_details_vente.num_vente like @num_vente
+go
+-----------------------------------Fin codes pour details vente------------------------------------
+-----------------------------------Debut codes pour Paiement articles------------------------------
 create table t_paiement
 (
     num_paiement int identity,
@@ -861,6 +945,55 @@ create table t_paiement
     constraint fk_vente_paiement foreign key(num_vente) references t_ventes(num_vente) on update cascade
 )
 go
+create procedure afficher_paiement
+as
+    select top 50 
+        num_paiement as 'ID',
+        date_paiement as 'Date',
+        num_vente as 'Vente ID',
+        montant_paye_$ as '$',
+        montant_paye_fc as 'FC',
+        solde_restant 'Solde $'
+    from t_paiement
+        order by num_paiement desc
+go
+create procedure enregistrer_paiement
+@num_vente int,
+@montant_dollars decimal,
+@montant_fc decimal,
+@solde_restant_dollars decimal
+as
+    insert into t_paiement
+        (date_paiement, num_vente, montant_paye_$, montant_paye_fc)
+    values
+        (getdate(), @num_vente, @montant_dollars, @montant_fc)
+go
+create procedure supprimer_paiement
+@num_paiement int
+as
+    delete from t_paiement
+        where num_paiement like @num_paiement
+go
+create table t_taux
+(
+    id_taux int identity,
+    valeur_dollar decimal,
+    valeur_francs decimal,
+    constraint pk_taux primary key(id_taux)
+)
+go
+create procedure enregistrer_taux
+@valeur_dollars decimal,
+@valeur_francs decimal
+as
+insert into t_taux
+    (valeur_dollar, valeur_francs)
+values
+    (@valeur_dollars, @valeur_francs)
+go
+insert into t_taux
+values
+ (1,2005)
 -------------------Fin de la partie concernant les produits ------------------------------------------------------
 -------------------Debut de la vente des services et autres ------------------------------------------------------
 create table t_composants
