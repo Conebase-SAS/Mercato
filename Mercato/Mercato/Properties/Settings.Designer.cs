@@ -70,5 +70,29 @@ namespace Mercato.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Id_boutique {
+            get {
+                return ((string)(this["Id_boutique"]));
+            }
+            set {
+                this["Id_boutique"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Id_company {
+            get {
+                return ((string)(this["Id_company"]));
+            }
+            set {
+                this["Id_company"] = value;
+            }
+        }
     }
 }

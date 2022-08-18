@@ -94,10 +94,11 @@
             // 
             // cbx_paquetage
             // 
+            this.cbx_paquetage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
             this.cbx_paquetage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_paquetage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_paquetage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cbx_paquetage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
+            this.cbx_paquetage.ForeColor = System.Drawing.Color.White;
             this.cbx_paquetage.FormattingEnabled = true;
             this.cbx_paquetage.Location = new System.Drawing.Point(148, 263);
             this.cbx_paquetage.Name = "cbx_paquetage";
@@ -106,10 +107,11 @@
             // 
             // cbx_type
             // 
+            this.cbx_type.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
             this.cbx_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_type.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cbx_type.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
+            this.cbx_type.ForeColor = System.Drawing.Color.White;
             this.cbx_type.FormattingEnabled = true;
             this.cbx_type.Location = new System.Drawing.Point(148, 210);
             this.cbx_type.Name = "cbx_type";
@@ -118,10 +120,11 @@
             // 
             // cbx_categorie
             // 
+            this.cbx_categorie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
             this.cbx_categorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_categorie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_categorie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cbx_categorie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
+            this.cbx_categorie.ForeColor = System.Drawing.Color.White;
             this.cbx_categorie.FormattingEnabled = true;
             this.cbx_categorie.Location = new System.Drawing.Point(148, 156);
             this.cbx_categorie.Name = "cbx_categorie";
@@ -318,6 +321,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
             this.label4.Location = new System.Drawing.Point(6, 156);

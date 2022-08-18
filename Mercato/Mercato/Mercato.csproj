@@ -7,7 +7,7 @@
     <ProjectGuid>{27CB4FFF-B2DB-4939-B537-B6E9109A3DD2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Mercato</RootNamespace>
-    <AssemblyName>Mercato</AssemblyName>
+    <AssemblyName>Mercato App</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -62,6 +62,12 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_conebase-1-300x300~1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Mercato.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\Mes Frameworks\Bunifu_UI_v1.52.dll</HintPath>
@@ -96,6 +102,7 @@
   <ItemGroup>
     <Compile Include="Controllers\clsApprovisionnements.cs" />
     <Compile Include="Controllers\clsArticles.cs" />
+    <Compile Include="Controllers\clsBoutique.cs" />
     <Compile Include="Controllers\clsCategorie.cs" />
     <Compile Include="Controllers\clsClients.cs" />
     <Compile Include="Controllers\clsCouleurs.cs" />
@@ -104,21 +111,26 @@
     <Compile Include="Controllers\clsMenu.cs" />
     <Compile Include="Controllers\clsPaquetage.cs" />
     <Compile Include="Controllers\clsTypes_Articles.cs" />
+    <Compile Include="Controllers\clsDetails_Ventes.cs" />
+    <Compile Include="Controllers\clsPaiements.cs" />
     <Compile Include="Controllers\clsVentes.cs" />
     <Compile Include="Handlers\Datalib.cs" />
     <Compile Include="Handlers\Notification_Center.cs" />
     <Compile Include="Handlers\Params.cs" />
     <Compile Include="Models\Approvisionnement.cs" />
     <Compile Include="Models\Articles.cs" />
+    <Compile Include="Models\Boutique.cs" />
     <Compile Include="Models\Calculs.cs" />
     <Compile Include="Models\Categorie.cs" />
     <Compile Include="Models\Clients.cs" />
     <Compile Include="Models\Couleurs.cs" />
+    <Compile Include="Models\Paiement.cs" />
     <Compile Include="Models\Depot.cs" />
     <Compile Include="Models\Fournisseur.cs" />
     <Compile Include="Models\Menu_Services.cs" />
     <Compile Include="Models\Paquetage.cs" />
     <Compile Include="Models\Types_Articles.cs" />
+    <Compile Include="Models\Details_Ventes.cs" />
     <Compile Include="Models\Ventes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +157,12 @@
     </Compile>
     <Compile Include="Views\Forms\frm_couleur.Designer.cs">
       <DependentUpon>frm_couleur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frm_pay_articles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frm_pay_articles.Designer.cs">
+      <DependentUpon>frm_pay_articles.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frm_vente.cs">
       <SubType>Form</SubType>
@@ -182,11 +200,11 @@
     <Compile Include="Views\Forms\frm_fournisseurs.Designer.cs">
       <DependentUpon>frm_fournisseurs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\frm_login.cs">
+    <Compile Include="Views\Forms\frm_logins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\frm_login.Designer.cs">
-      <DependentUpon>frm_login.cs</DependentUpon>
+    <Compile Include="Views\Forms\frm_logins.Designer.cs">
+      <DependentUpon>frm_logins.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frm_main.cs">
       <SubType>Form</SubType>
@@ -229,6 +247,12 @@
     </Compile>
     <Compile Include="Views\UserControls\uc_approvisionnement.Designer.cs">
       <DependentUpon>uc_approvisionnement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_utilisateurs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_utilisateurs.Designer.cs">
+      <DependentUpon>uc_utilisateurs.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\uc_clients.cs">
       <SubType>UserControl</SubType>
@@ -283,6 +307,9 @@
     <EmbeddedResource Include="Views\Forms\frm_couleur.resx">
       <DependentUpon>frm_couleur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frm_pay_articles.resx">
+      <DependentUpon>frm_pay_articles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_vente.resx">
       <DependentUpon>frm_vente.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,8 +328,8 @@
     <EmbeddedResource Include="Views\Forms\frm_fournisseurs.resx">
       <DependentUpon>frm_fournisseurs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\frm_login.resx">
-      <DependentUpon>frm_login.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Forms\frm_logins.resx">
+      <DependentUpon>frm_logins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>
@@ -324,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\uc_approvisionnement.resx">
       <DependentUpon>uc_approvisionnement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_utilisateurs.resx">
+      <DependentUpon>uc_utilisateurs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\uc_clients.resx">
       <DependentUpon>uc_clients.cs</DependentUpon>
@@ -374,6 +404,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\db_mercato.sql" />
+    <Content Include="logo_conebase-1-300x300.ico" />
+    <Content Include="logo_conebase-1-300x300~1.ico" />
+    <None Include="Resources\close_window_120px.png" />
+    <None Include="Resources\shutdown_120px.png" />
+    <None Include="Resources\services_120px.png" />
+    <None Include="Resources\finance.png" />
+    <None Include="Resources\admin_settings_male_120px.png" />
+    <None Include="Resources\delivered_box_120px.png" />
+    <None Include="Resources\box_120px.png" />
+    <None Include="Resources\profile_120px.png" />
+    <None Include="Resources\service_120px.png" />
+    <None Include="Resources\sales-white.png" />
+    <None Include="Resources\dashboard_layout_120px.png" />
+    <None Include="Resources\Cancel_104px.png" />
+    <None Include="Resources\shutdown_104px.png" />
+    <None Include="Resources\services_104px.png" />
+    <None Include="Resources\currency_exchange_104px.png" />
+    <None Include="Resources\male_user_104px.png" />
+    <None Include="Resources\store.png" />
+    <None Include="Resources\store2.png" />
+    <None Include="Resources\debt_104px.png" />
+    <None Include="Resources\services1.png" />
+    <None Include="Resources\sales.png" />
+    <None Include="Resources\dashboard_104px.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\buy_for_change_96px.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\change_user_96px.png" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\stock.png" />
+    <None Include="Resources\customers.png" />
+    <None Include="Resources\services.png" />
+    <None Include="Resources\shopping_cart_96px.png" />
+    <None Include="Resources\dashboard.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\cb-04.png" />
     <None Include="Resources\fingerprint_recognition_96px.png" />
