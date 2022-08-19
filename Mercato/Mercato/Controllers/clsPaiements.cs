@@ -56,7 +56,7 @@ namespace Mercato.Controllers
             {
                 if (cnx.State == ConnectionState.Closed)
                     cnx.Open();
-                var cmd = new SqlCommand("enregistrer_vente", cnx)
+                var cmd = new SqlCommand("enregistrer_paiement", cnx)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -64,6 +64,7 @@ namespace Mercato.Controllers
                 cmd.Parameters.Add(new SqlParameter("montant_dollars", SqlDbType.Decimal)).Value = paiement.Montant_dollars;
                 cmd.Parameters.Add(new SqlParameter("montant_fc", SqlDbType.Decimal)).Value = paiement.Montant_fc;
                 cmd.Parameters.Add(new SqlParameter("solde_restant_dollars", SqlDbType.Decimal)).Value = paiement.Solde_restant;
+                cmd.Parameters.Add(new SqlParameter("status_paiement", SqlDbType.NVarChar)).Value = paiement.Status;
                 cmd.ExecuteNonQuery();
                 notify.notifier("Facture payé!");
                 MessageBox.Show("Facture payé!", "Paiement effectué", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -114,6 +115,51 @@ namespace Mercato.Controllers
             }
 
         }
+        public void recuperer_deja_payé(Paiement paiement)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("recuperer_deja_payé", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("num_vente", SqlDbType.Int)).Value = paiement.Num_vente;
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr[0] != DBNull.Value)
+                    {
+                        paiement.Montant_deja_paye = Convert.ToDecimal(dr[0]);
+                    }
+                    else
+                    {
+                        paiement.Montant_deja_paye = 0;
+                    }
+                }
+                //notify.notifier("Enregistrement avec succès!");
+                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception tdf)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Voulez vous voir le code d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(tdf.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+
+        }        
         public void recuperer_taux(Paiement paiement)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
