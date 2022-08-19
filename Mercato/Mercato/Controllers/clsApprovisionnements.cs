@@ -30,6 +30,7 @@ namespace Mercato.Controllers
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -61,6 +62,7 @@ namespace Mercato.Controllers
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -80,7 +82,39 @@ namespace Mercato.Controllers
             {
                 cnx.Close(); cnx.Dispose();
             }
-        }        
+        }
+        public void recuperer_inventaire(DataGridView dtg)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("recuperer_inventaire", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                dtg.DataSource = dt;
+            }
+            catch (Exception exct)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(exct.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
         public void rechercher_articles_disponible_nom(DataGridView dtg, Approvisionnement approvisionnement)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
@@ -93,6 +127,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.Id_article;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -125,6 +160,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.Numero_serie;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -157,6 +193,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.Caracteristiques;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -189,6 +226,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.ID_fournisseurs;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -221,6 +259,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.Id_article;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -253,6 +292,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.num_details;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -285,6 +325,7 @@ namespace Mercato.Controllers
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("search", SqlDbType.NVarChar)).Value = approvisionnement.stats_vente;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
                 cmd.ExecuteNonQuery();
                 var da = new SqlDataAdapter(cmd);
                 var dt = new DataTable();
@@ -366,9 +407,43 @@ namespace Mercato.Controllers
                 cmd.Parameters.Add(new SqlParameter("id_depot", SqlDbType.NVarChar)).Value = approvisionnement.ID_Depot;
                 cmd.Parameters.Add(new SqlParameter("points", SqlDbType.Int)).Value = approvisionnement.points;
                 cmd.Parameters.Add(new SqlParameter("status_vente", SqlDbType.NVarChar)).Value = approvisionnement.stats_vente;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");
+                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception tdf)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Voulez vous voir le code d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(tdf.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+        public void update_stock_state(Approvisionnement approvisionnement)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("update_stock_state", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("num_details", SqlDbType.Int)).Value = approvisionnement.num_details;                
+                cmd.Parameters.Add(new SqlParameter("status_vente", SqlDbType.NVarChar)).Value = approvisionnement.stats_vente;
+                cmd.Parameters.Add(new SqlParameter("id_compagnie", SqlDbType.NVarChar)).Value = Properties.Settings.Default.Id_company;
+
+                cmd.ExecuteNonQuery();
+                notify.notifier("Stock mis a jour!");
                 //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception tdf)
@@ -436,7 +511,15 @@ namespace Mercato.Controllers
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
+                    if (dr[0] != DBNull.Value)
+                    {
                         calcul.Qte_sortie = Convert.ToInt32(dr[0]);
+                    }
+                    else
+                    {
+                        calcul.Qte_sortie = 0;
+                    }
+                    
                 }
                 notify.notifier("Enregistrement avec succès!");
                 //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -475,7 +558,14 @@ namespace Mercato.Controllers
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    calcul.Qte_initiale = Convert.ToInt32(dr[0]);
+                    if (dr[0] != DBNull.Value)
+                    {
+                        calcul.Qte_initiale = Convert.ToInt32(dr[0]);
+                    }
+                    else
+                    {
+                        calcul.Qte_initiale = 0;
+                    }
                 }
                 notify.notifier("Enregistrement avec succès!");
                 //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
