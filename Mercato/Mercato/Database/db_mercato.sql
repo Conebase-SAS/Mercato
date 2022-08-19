@@ -16,6 +16,12 @@ create table t_fournisseurs
     constraint pk_fournisseurs primary key(id_fournisseurs)
 )
 go
+    insert into t_fournisseurs
+        (id_fournisseurs, designation_fournisseurs, telephone)
+    values
+        ('Dubai Mall','Dubai Big Mall','+243977551835'),
+        ('Dubai Sharjah','Dubai Sharjah Big Mall','+243824212440')
+go
 create procedure afficher_fournisseurs
 as
 select top 50 
@@ -65,6 +71,11 @@ create table t_depot
     telephone nvarchar(50),
     constraint pk_depot primary key(id_depot)
 )
+go
+    insert into t_depot
+        (id_depot,designation_depot,telephone)
+    values
+        ('Rusina 1','Rusina Big Store','+243')
 go
 create procedure afficher_depot
 as
@@ -116,6 +127,11 @@ create table t_clients
     constraint pk_clients primary key(id_clients)
 )
 go
+    insert into t_clients
+        (id_clients,noms, adresse, telephone_mobile, telephone_work)
+    values
+        ('Client 0','Client ordinaire','Av.Tulipiers, 3','+24399','+24382')
+go
 create procedure afficher_clients
 as
 select top 50 
@@ -128,10 +144,10 @@ from t_clients
 order by
     id_clients asc
 go
-create procedure charger_clients
+alter procedure charger_clients
 as
 select
-    noms
+    id_clients
 from t_clients
 order by noms asc
 go
@@ -150,7 +166,7 @@ order by
     id_clients asc
 go
 create procedure enregistrer_client
-@id_clients nvarchar(50),
+@id_clients nvarchar(100),
 @noms nvarchar(100),
 @adresse nvarchar(max),
 @telephone_mobile nvarchar(50),
@@ -191,6 +207,12 @@ create table t_compagnie
     constraint pk_compagnie primary key(id_compagnie)
 )
 go
+    insert into t_compagnie
+        (id_compagnie,designation,telephone)
+    values
+        ('Conebase','Conebase SAS','+243'),
+        ('one Horizon','one Horizon SAS', '+243')
+go
 create procedure afficher_compagnie
 as
 select top 50
@@ -224,6 +246,11 @@ as
     delete from t_compagnie
         where id_compagnie like @id_compagnie
 go
+insert into t_compagnie
+    (id_compagnie, designation, telephone)
+values
+    ('Conebase SAS','Conebase SAS', '+243977551835');
+go
 --------------------------------------Fin des codes pour la comagnie------------------------------------------------
 --------------------------------------Début codes pour la boutique -------------------------------------------------
 create table t_boutique
@@ -237,6 +264,12 @@ create table t_boutique
     constraint pk_boutique primary key(id_boutique),
     constraint fk_boutique_compagnie foreign key(id_compagnie) references t_compagnie(id_compagnie) on update cascade on delete cascade
 )
+go
+    insert into t_boutique
+        (id_boutique,designation,mot_de_passe,id_compagnie,extension,admin_level)
+    values
+        ('Weka','Conebase - Weka project', '12345', 'Conebase', '647437HJSJSDBHSDQDQJ','Admin'),
+        ('Rusina Shop','one Horizon - Weka project', '12345', 'one Horizon', '647437HJSJSDBHSDQDQJ','Admin')
 go
 create procedure enregistrer_boutique
 @id_boutique nvarchar(50),
@@ -323,6 +356,12 @@ create table t_paquetage
     constraint pk_paquetage primary key(id_paquetage)
 )
 go
+    insert into t_paquetage
+        (id_paquetage, designation_paquetage)
+    values
+        ('Pièce', 'Vente par pièces'),
+        ('Paire','Vente par paire')
+go
 create procedure afficher_paquetage
 as
 select top 50
@@ -369,6 +408,12 @@ create table t_types_articles
     constraint pk_types_articles primary key(id_types_articles)
 )
 go
+    insert into t_types_articles
+        (id_types_articles, designation_types_articles)
+    values
+        ('Materiels informatiques', 'Materiels destinés à informatique'),
+        ('Télépones portables', 'Téléphones portables')
+go
 create procedure afficher_types_articles
 as
 select top 50
@@ -414,6 +459,12 @@ create table t_categories_articles
     designation_categories_articles nvarchar(100),
     constraint pk_categories_articles primary key(id_categories_articles)
 )
+go
+    insert into t_categories_articles
+        (id_categories_articles, designation_categories_articles)
+    values
+        ('Iphone','Apple Iphone'),
+        ('Samsung', 'Samsung Mobile')
 go
 create procedure afficher_catégorie_articles
 as
@@ -602,6 +653,14 @@ create table t_couleurs
     constraint pk_couleur primary key(id_couleur)
 )
 go
+    insert into t_couleurs
+        (id_couleur, designation_couleur)
+    values
+        ('Blanche','Couleur blanche'),
+        ('Noire','Couleur noire'),
+        ('Rouge','Couleur rouge'),
+        ('Rose','Couleur rose')
+go
 create procedure afficher_couleur
 as
     select top 50
@@ -655,7 +714,8 @@ create table t_approvisionnement
     prix_vente_fc decimal,
     id_depot nvarchar(50),
     points int,
-    status_vente nvarchar(50) -----to be sold, on hold, expired
+    status_vente nvarchar(50), -----to be sold, on hold, expired,
+    id_compagnie nvarchar(50)
     constraint pk_details_approv primary key(num_details),
     constraint fk_couleur_approv foreign key(id_couleur) references t_couleurs(id_couleur),
     constraint fk_approvisionnement_fournisseur foreign key(id_fournisseurs) references t_fournisseurs(id_fournisseurs),
@@ -664,6 +724,7 @@ create table t_approvisionnement
 )
 go
 create procedure afficher_approvisionnement
+@id_compagnie nvarchar(50)
 as
 select top 50 
     num_details as 'ID',
@@ -683,10 +744,12 @@ select top 50
     points as 'Points',
     status_vente as 'Status'
 from t_approvisionnement
-    order by num_details desc
+    where id_compagnie like @id_compagnie
+        order by num_details desc
 go
 create procedure rechercher_approvisionnement_fournisseur
-@search nvarchar(50)
+@search nvarchar(50),
+@id_compagnie nvarchar(50)
 as
 select top 50 
     num_details as 'ID',
@@ -706,11 +769,12 @@ select top 50
     points as 'Points',
     status_vente as 'Status'
 from t_approvisionnement
-    where id_fournisseurs like '%'+@search+'%'
+    where id_fournisseurs like '%'+@search+'%' and id_compagnie like @id_compagnie
 order by num_details desc
 go
 create procedure rechercher_approvisionnement_produit
-@search nvarchar(50)
+@search nvarchar(50),
+@id_compagnie nvarchar(50)
 as
 select top 50 
     num_details as 'ID',
@@ -730,11 +794,12 @@ select top 50
     points as 'Points',
     status_vente as 'Status'
 from t_approvisionnement
-    where id_article like '%'+@search+'%'
+    where id_article like '%'+@search+'%' and id_compagnie like @id_compagnie
 order by num_details desc
 go
 create procedure rechercher_approvisionnement_details
-@search nvarchar(50)
+@search nvarchar(50),
+@id_compagnie nvarchar(50)
 as
 select top 50 
     num_details as 'ID',
@@ -754,11 +819,12 @@ select top 50
     points as 'Points',
     status_vente as 'Status'
 from t_approvisionnement
-    where num_details like '%'+@search+'%'
+    where num_details like '%'+@search+'%' and id_compagnie like @id_compagnie
 order by num_details desc
 go
 create procedure rechercher_approvisionnement_vente
-@search nvarchar(50)
+@search nvarchar(50),
+@id_compagnie nvarchar(50)
 as
 select top 50 
     num_details as 'ID',
@@ -778,8 +844,19 @@ select top 50
     points as 'Points',
     status_vente as 'Status'
 from t_approvisionnement
-    where status_vente like '%'+@search+'%'
+    where status_vente like '%'+@search+'%' and id_compagnie like @id_compagnie
 order by num_details desc
+go
+create procedure update_stock_state
+@id_compagnie nvarchar(50),
+@num_details int,
+@status_vente nvarchar(50)
+as
+    update t_approvisionnement
+        set
+            status_vente = @status_vente
+        where
+            id_compagnie like @id_compagnie and num_details like @num_details
 go
 create procedure enregistrer_approvisionement
 @num_details int,
@@ -796,7 +873,8 @@ create procedure enregistrer_approvisionement
 @prix_vente_fc decimal,
 @id_depot nvarchar(50),
 @points int,
-@status_vente nvarchar(50)
+@status_vente nvarchar(50),
+@id_compagnie nvarchar(50)
 as
     merge into t_approvisionnement
 	using(select @num_details as x_id) as x_source
@@ -817,17 +895,18 @@ as
             prix_vente_fc=@prix_vente_fc,
             id_depot=@id_depot,
             points=@points,
-            status_vente=@status_vente
+            status_vente=@status_vente,
+            id_compagnie=@id_compagnie
     when not matched then
         insert
             (
                 date_details, id_article, numero_serie, id_couleur, id_caracteristiques, prix_achat_$, prix_achat_fc, qte_entree, id_fournisseurs, date_expiration, prix_vente_$, prix_vente_fc,
-                id_depot, points, status_vente
+                id_depot, points, status_vente, id_compagnie
             )
         values
             (
                 getdate(), @id_article, @numero_serie, @id_couleur, @id_caracteristiques, @prix_achat_$, @prix_achat_fc, @qte_entree, @id_fournisseurs, @date_expiration,  @prix_vente_$, 
-                @prix_vente_fc, @id_depot, @points, @status_vente
+                @prix_vente_fc, @id_depot, @points, @status_vente, @id_compagnie
             );
 go
 create procedure supprimer_approvisionnement
@@ -941,6 +1020,7 @@ create table t_paiement
     montant_paye_$ decimal,
     montant_paye_fc decimal,
     solde_restant decimal,
+    status_paiement nvarchar(50),
     constraint pk_paiement primary key(num_paiement),
     constraint fk_vente_paiement foreign key(num_vente) references t_ventes(num_vente) on update cascade
 )
@@ -953,7 +1033,8 @@ as
         num_vente as 'Vente ID',
         montant_paye_$ as '$',
         montant_paye_fc as 'FC',
-        solde_restant 'Solde $'
+        solde_restant as 'Solde $',
+        status_paiement as 'Status'
     from t_paiement
         order by num_paiement desc
 go
@@ -961,12 +1042,13 @@ create procedure enregistrer_paiement
 @num_vente int,
 @montant_dollars decimal,
 @montant_fc decimal,
-@solde_restant_dollars decimal
+@solde_restant_dollars decimal,
+@status_paiement nvarchar(50)
 as
     insert into t_paiement
-        (date_paiement, num_vente, montant_paye_$, montant_paye_fc)
+        (date_paiement, num_vente, montant_paye_$, montant_paye_fc, solde_restant, status_paiement)
     values
-        (getdate(), @num_vente, @montant_dollars, @montant_fc)
+        (getdate(), @num_vente, @montant_dollars, @montant_fc, @solde_restant_dollars, @status_paiement)
 go
 create procedure supprimer_paiement
 @num_paiement int
@@ -994,6 +1076,12 @@ go
 insert into t_taux
 values
  (1,2005)
+go
+create procedure recuperer_taux
+as
+select top 1 valeur_francs as 'taux' from t_taux
+order by id_taux desc
+go
 -------------------Fin de la partie concernant les produits ------------------------------------------------------
 -------------------Debut de la vente des services et autres ------------------------------------------------------
 create table t_composants
@@ -1179,6 +1267,7 @@ from
                 on t_approvisionnement.num_details = t_details_vente.num_details
 go
 create procedure afficher_articles_disponible
+@id_compagnie nvarchar(50)
 as
 select top 50
     num_details as 'ID', 
@@ -1192,7 +1281,7 @@ select top 50
     status_vente as 'Status'
 from
     t_approvisionnement
-    where status_vente like 'Vente'
+    where status_vente like 'Vente' and id_compagnie like @id_compagnie
 go
 create procedure recuperer_qte_initiale
 @num_details nvarchar(50)
@@ -1201,7 +1290,8 @@ as
         where num_details like @num_details
 go
 create procedure rechercher_articles_disponible_nom
-@search nvarchar(50)
+@search nvarchar(50),
+@id_compagnie nvarchar(50)
 as
 select top 50
     num_details as 'ID', 
@@ -1216,10 +1306,11 @@ select top 50
     status_vente as 'Status'
 from
     t_approvisionnement
-    where status_vente like 'Vente' and id_article like '%'+@search+'%'
+    where status_vente like 'Vente' and id_article like '%'+@search+'%' and id_compagnie like @id_compagnie
 go
 create procedure rechercher_articles_disponible_serie
-@search nvarchar(50)
+@search nvarchar(50),
+@id_compagnie nvarchar(50)
 as
 select top 50
     num_details as 'ID', 
@@ -1233,10 +1324,11 @@ select top 50
     status_vente as 'Status'
 from
     t_approvisionnement
-    where status_vente like 'Vente' and numero_serie like '%'+@search+'%'
+    where status_vente like 'Vente' and numero_serie like '%'+@search+'%' and id_compagnie like @id_compagnie
 go
 create procedure rechercher_articles_disponible_specs
-@search nvarchar(50)
+@search nvarchar(50),
+@id_compagnie nvarchar(50)
 as
 select top 50
     num_details as 'ID', 
@@ -1250,7 +1342,7 @@ select top 50
     status_vente as 'Status'
 from
     t_approvisionnement
-    where status_vente like 'Vente' and id_caracteristiques like '%'+@search+'%'
+    where status_vente like 'Vente' and id_caracteristiques like '%'+@search+'%' and id_compagnie like @id_compagnie
 go
 create procedure sortie_par_article
 @num_details int
@@ -1258,8 +1350,35 @@ as
     select isnull(sum(qte_sortie),0) from t_details_vente
         where num_details like @num_details
 go
+create procedure recuperer_deja_payé
+@num_vente int
+as
+select 
+    sum(montant_paye_$) as 'Total'
+    from t_paiement
+        where num_vente like @num_vente
+go
+create procedure recuperer_inventaire
+@id_compagnie nvarchar(50)
+as
+    select        
+        t_approvisionnement.num_details as 'ID', 
+        t_ventes.num_vente as 'Vente ID', 
+        t_ventes.id_boutique as 'Shop', 
+        t_ventes.id_clients as 'Client', 
+        t_approvisionnement.id_article as 'Article', 
+        t_approvisionnement.numero_serie as 'Unique ID', 
+        t_approvisionnement.prix_vente_$ as 'Prix $',
+        t_approvisionnement.qte_entree as 'Qte Init.', 
+        t_details_vente.qte_sortie as 'Qte', 
+        t_approvisionnement.status_vente as 'Etat Stock'
+    from            
+        t_approvisionnement 
+            inner join
+                t_details_vente on t_approvisionnement.num_details = t_details_vente.num_details 
+                    inner join
+                         t_ventes on t_details_vente.num_vente = t_ventes.num_vente
+    where
+        id_compagnie like @id_compagnie
+go
 --------------------------------Fin calculs spéciaux-------------------------------------
-insert into t_compagnie
-    (id_compagnie, designation,telephone)
-values
-    ('ETIKETS','ETIKETS SAS','+243977551835')
