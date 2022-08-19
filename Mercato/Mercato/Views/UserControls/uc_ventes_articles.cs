@@ -107,7 +107,7 @@ namespace Mercato.Views.UserControls
                 vente.Description_ventes = "Vente articles";
                 vente.Date_vente = DateTime.Now;
                 vente.Vente_id = Guid.NewGuid().ToString();
-                MessageBox.Show(boutique.Id_boutique);
+                MessageBox.Show(Properties.Settings.Default.Id_boutique);
                 cls_ventes.enregistrer_vente(vente);
                 txt_num_vente.Text =Convert.ToString(vente.Num_vente);
             }
@@ -154,6 +154,16 @@ namespace Mercato.Views.UserControls
             frm_pay_articles fr = new frm_pay_articles();
             fr.txt_num_vente.Text = txt_num_vente.Text;
             fr.ShowDialog();
+        }
+
+        private void txt_num_vente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void cbx_clients_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

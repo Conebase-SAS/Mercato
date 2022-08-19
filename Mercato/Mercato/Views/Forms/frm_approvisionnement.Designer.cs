@@ -32,6 +32,7 @@
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_header = new System.Windows.Forms.Panel();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_search = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -40,12 +41,17 @@
             this.txt_numero_serie = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbx_couleur = new System.Windows.Forms.ComboBox();
+            this.cbx_couleurs = new Bunifu.Framework.UI.BunifuImageButton();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_qte = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btn_add_article = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_refresh = new Bunifu.Framework.UI.BunifuImageButton();
             this.cbx_status = new System.Windows.Forms.ComboBox();
             this.cbx_depot = new System.Windows.Forms.ComboBox();
             this.cbx_fournisseur = new System.Windows.Forms.ComboBox();
+            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_add_fournisseur = new Bunifu.Framework.UI.BunifuImageButton();
             this.txt_prix_vente_fc = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txt_points = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label17 = new System.Windows.Forms.Label();
@@ -68,13 +74,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txt_num_approv = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbx_couleurs = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btn_add_article = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btn_refresh = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btn_add_fournisseur = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.pnl_header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbx_couleurs)).BeginInit();
@@ -82,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_fournisseur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl2
@@ -114,6 +114,21 @@
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(1200, 43);
             this.pnl_header.TabIndex = 2;
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.multiply_104px;
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(1159, 8);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(33, 30);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 2;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 20;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
             // bunifuDragControl1
             // 
@@ -246,6 +261,21 @@
             this.cbx_couleur.Size = new System.Drawing.Size(272, 29);
             this.cbx_couleur.TabIndex = 71;
             // 
+            // cbx_couleurs
+            // 
+            this.cbx_couleurs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_couleurs.BackColor = System.Drawing.Color.Transparent;
+            this.cbx_couleurs.Image = global::Mercato.Properties.Resources.add_96px1;
+            this.cbx_couleurs.ImageActive = null;
+            this.cbx_couleurs.Location = new System.Drawing.Point(471, 283);
+            this.cbx_couleurs.Name = "cbx_couleurs";
+            this.cbx_couleurs.Size = new System.Drawing.Size(28, 28);
+            this.cbx_couleurs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cbx_couleurs.TabIndex = 70;
+            this.cbx_couleurs.TabStop = false;
+            this.cbx_couleurs.Zoom = 20;
+            this.cbx_couleurs.Click += new System.EventHandler(this.cbx_couleurs_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -274,6 +304,7 @@
             this.txt_qte.Size = new System.Drawing.Size(272, 45);
             this.txt_qte.TabIndex = 68;
             this.txt_qte.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_qte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_qte_KeyPress);
             // 
             // label9
             // 
@@ -284,6 +315,37 @@
             this.label9.Size = new System.Drawing.Size(130, 21);
             this.label9.TabIndex = 67;
             this.label9.Text = "Quantité entrée";
+            // 
+            // btn_add_article
+            // 
+            this.btn_add_article.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add_article.BackColor = System.Drawing.Color.Transparent;
+            this.btn_add_article.Image = global::Mercato.Properties.Resources.add_96px1;
+            this.btn_add_article.ImageActive = null;
+            this.btn_add_article.Location = new System.Drawing.Point(471, 102);
+            this.btn_add_article.Name = "btn_add_article";
+            this.btn_add_article.Size = new System.Drawing.Size(28, 28);
+            this.btn_add_article.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_add_article.TabIndex = 66;
+            this.btn_add_article.TabStop = false;
+            this.btn_add_article.Zoom = 20;
+            this.btn_add_article.Click += new System.EventHandler(this.btn_add_article_Click);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_refresh.BackColor = System.Drawing.Color.Transparent;
+            this.btn_refresh.Image = global::Mercato.Properties.Resources.sync_96px;
+            this.btn_refresh.ImageActive = null;
+            this.btn_refresh.Location = new System.Drawing.Point(890, 6);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(51, 45);
+            this.btn_refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_refresh.TabIndex = 65;
+            this.btn_refresh.TabStop = false;
+            this.btn_refresh.Zoom = 20;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // cbx_status
             // 
@@ -319,6 +381,36 @@
             this.cbx_fournisseur.Name = "cbx_fournisseur";
             this.cbx_fournisseur.Size = new System.Drawing.Size(272, 29);
             this.cbx_fournisseur.TabIndex = 61;
+            // 
+            // bunifuImageButton2
+            // 
+            this.bunifuImageButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuImageButton2.Image = global::Mercato.Properties.Resources.add_96px1;
+            this.bunifuImageButton2.ImageActive = null;
+            this.bunifuImageButton2.Location = new System.Drawing.Point(471, 467);
+            this.bunifuImageButton2.Name = "bunifuImageButton2";
+            this.bunifuImageButton2.Size = new System.Drawing.Size(28, 28);
+            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton2.TabIndex = 60;
+            this.bunifuImageButton2.TabStop = false;
+            this.bunifuImageButton2.Zoom = 20;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
+            // 
+            // btn_add_fournisseur
+            // 
+            this.btn_add_fournisseur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add_fournisseur.BackColor = System.Drawing.Color.Transparent;
+            this.btn_add_fournisseur.Image = global::Mercato.Properties.Resources.add_96px1;
+            this.btn_add_fournisseur.ImageActive = null;
+            this.btn_add_fournisseur.Location = new System.Drawing.Point(471, 195);
+            this.btn_add_fournisseur.Name = "btn_add_fournisseur";
+            this.btn_add_fournisseur.Size = new System.Drawing.Size(28, 28);
+            this.btn_add_fournisseur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_add_fournisseur.TabIndex = 59;
+            this.btn_add_fournisseur.TabStop = false;
+            this.btn_add_fournisseur.Zoom = 20;
+            this.btn_add_fournisseur.Click += new System.EventHandler(this.btn_add_fournisseur_Click);
             // 
             // txt_prix_vente_fc
             // 
@@ -357,6 +449,7 @@
             this.txt_points.Size = new System.Drawing.Size(272, 45);
             this.txt_points.TabIndex = 56;
             this.txt_points.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_points.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_points_KeyPress);
             // 
             // label17
             // 
@@ -528,6 +621,7 @@
             this.txt_prix_achat_dollars.Size = new System.Drawing.Size(272, 45);
             this.txt_prix_achat_dollars.TabIndex = 34;
             this.txt_prix_achat_dollars.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_prix_achat_dollars.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_prix_achat_dollars_KeyPress);
             // 
             // label5
             // 
@@ -626,97 +720,6 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "N° Approv.";
             // 
-            // cbx_couleurs
-            // 
-            this.cbx_couleurs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_couleurs.BackColor = System.Drawing.Color.Transparent;
-            this.cbx_couleurs.Image = global::Mercato.Properties.Resources.add_96px1;
-            this.cbx_couleurs.ImageActive = null;
-            this.cbx_couleurs.Location = new System.Drawing.Point(471, 283);
-            this.cbx_couleurs.Name = "cbx_couleurs";
-            this.cbx_couleurs.Size = new System.Drawing.Size(28, 28);
-            this.cbx_couleurs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cbx_couleurs.TabIndex = 70;
-            this.cbx_couleurs.TabStop = false;
-            this.cbx_couleurs.Zoom = 20;
-            this.cbx_couleurs.Click += new System.EventHandler(this.cbx_couleurs_Click);
-            // 
-            // btn_add_article
-            // 
-            this.btn_add_article.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add_article.BackColor = System.Drawing.Color.Transparent;
-            this.btn_add_article.Image = global::Mercato.Properties.Resources.add_96px1;
-            this.btn_add_article.ImageActive = null;
-            this.btn_add_article.Location = new System.Drawing.Point(471, 102);
-            this.btn_add_article.Name = "btn_add_article";
-            this.btn_add_article.Size = new System.Drawing.Size(28, 28);
-            this.btn_add_article.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_add_article.TabIndex = 66;
-            this.btn_add_article.TabStop = false;
-            this.btn_add_article.Zoom = 20;
-            this.btn_add_article.Click += new System.EventHandler(this.btn_add_article_Click);
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_refresh.BackColor = System.Drawing.Color.Transparent;
-            this.btn_refresh.Image = global::Mercato.Properties.Resources.sync_96px;
-            this.btn_refresh.ImageActive = null;
-            this.btn_refresh.Location = new System.Drawing.Point(890, 6);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(51, 45);
-            this.btn_refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_refresh.TabIndex = 65;
-            this.btn_refresh.TabStop = false;
-            this.btn_refresh.Zoom = 20;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
-            // bunifuImageButton2
-            // 
-            this.bunifuImageButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton2.Image = global::Mercato.Properties.Resources.add_96px1;
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(471, 467);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(28, 28);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton2.TabIndex = 60;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 20;
-            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
-            // 
-            // btn_add_fournisseur
-            // 
-            this.btn_add_fournisseur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add_fournisseur.BackColor = System.Drawing.Color.Transparent;
-            this.btn_add_fournisseur.Image = global::Mercato.Properties.Resources.add_96px1;
-            this.btn_add_fournisseur.ImageActive = null;
-            this.btn_add_fournisseur.Location = new System.Drawing.Point(471, 195);
-            this.btn_add_fournisseur.Name = "btn_add_fournisseur";
-            this.btn_add_fournisseur.Size = new System.Drawing.Size(28, 28);
-            this.btn_add_fournisseur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_add_fournisseur.TabIndex = 59;
-            this.btn_add_fournisseur.TabStop = false;
-            this.btn_add_fournisseur.Zoom = 20;
-            this.btn_add_fournisseur.Click += new System.EventHandler(this.btn_add_fournisseur_Click);
-            // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.multiply_104px;
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(1159, 8);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(33, 30);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 2;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 20;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
-            // 
             // frm_approvisionnement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -731,6 +734,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -739,7 +743,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_refresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_fournisseur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
 
         }
