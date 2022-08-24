@@ -406,6 +406,8 @@
     <Content Include="Database\db_mercato.sql" />
     <Content Include="logo_conebase-1-300x300.ico" />
     <Content Include="logo_conebase-1-300x300~1.ico" />
+    <None Include="Resources\cb-041.png" />
+    <None Include="Resources\oneHorizon.jpg" />
     <None Include="Resources\close_window_120px.png" />
     <None Include="Resources\shutdown_120px.png" />
     <None Include="Resources\services_120px.png" />
