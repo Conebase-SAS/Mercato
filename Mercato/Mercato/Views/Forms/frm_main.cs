@@ -146,5 +146,10 @@ namespace Mercato.Views.Forms
         {
             lbl_titre.Text = "Mercato - Paramètres";
         }
+
+        private void pnl_body_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
