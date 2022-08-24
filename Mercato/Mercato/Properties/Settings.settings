@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LENSCORPX</Value>
+      <Value Profile="(Default)">DESKTOP-NKBFBH9</Value>
     </Setting>
     <Setting Name="Database" Type="System.String" Scope="User">
       <Value Profile="(Default)">db_mercato</Value>
