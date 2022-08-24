@@ -25,7 +25,7 @@ namespace Mercato.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LENSCORPX")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DESKTOP-NKBFBH9")]
         public string Server {
             get {
                 return ((string)(this["Server"]));

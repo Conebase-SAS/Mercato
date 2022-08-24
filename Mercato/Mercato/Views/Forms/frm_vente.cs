@@ -69,6 +69,18 @@ namespace Mercato.Views.Forms
                         detail_vente.Num_vente = Convert.ToInt32(txt_num_vente.Text);
                         detail_vente.Qte_sortie = Convert.ToInt32(txt_qte_voulue.Text);
                         cls_details_vente.enregistrer_details_vente(detail_vente);
+
+                        // appel de la mise a jour du stock
+
+                        cls_approv.sortie_par_article(approv, calcul);
+                        cls_approv.recuperer_qte_initiale(approv, calcul);
+                        int dispo;
+                        dispo = calcul.Qte_initiale - calcul.Qte_sortie;
+                        if(dispo==0)
+                        {
+                            approv.stats_vente = "Ecoulé";
+                            cls_approv.update_stock_state(approv);
+                        }
                     }
                     else
                     {

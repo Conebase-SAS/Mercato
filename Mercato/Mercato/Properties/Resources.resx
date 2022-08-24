@@ -199,6 +199,9 @@
   <data name="wine_bar_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wine_bar_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="close_window_120px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close_window_120px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add_96px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_96px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -210,6 +213,9 @@
   </data>
   <data name="dashboard_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboard_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oneHorizon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\oneHorizon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="services" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\services.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,7 +268,7 @@
   <data name="Cancel_104px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancel_104px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_window_120px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_window_120px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cb-041" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cb-041.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

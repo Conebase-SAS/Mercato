@@ -42,11 +42,38 @@ namespace Mercato.Views.Forms
         {
             if(txt_num_vente.Text!="")
             {
-                detail_vente.Num_vente =Convert.ToInt32(txt_num_vente.Text);
+                //recuperation des sommes deja payés pour cette vente
+
+                paiement.Num_vente = Convert.ToInt32(txt_num_vente.Text);
+                cls_paiement.recuperer_deja_payé(paiement);
+
+                // Recuperation informations sur la facture
+
+                detail_vente.Num_vente = Convert.ToInt32(txt_num_vente.Text);
                 cls_details_vente.recuperer_facture_details(detail_vente, dataGridView1);
                 cls_details_vente.recuperer_total_facture(detail_vente);
+
+                // Calculs
+
                 txt_total_dollars.Text = Convert.ToString(detail_vente.Total_facture_dollars);
                 txt_total_fc.Text = Convert.ToString(detail_vente.Total_facture_fc);
+                txt_deja_paye.Text = Convert.ToString(paiement.Montant_deja_paye);
+
+                if (txt_deja_paye.Text == txt_total_dollars.Text && txt_total_dollars.Text != "0")
+                {
+                    button1.Enabled = false;
+                    MessageBox.Show("Facture deja payée!");
+                }
+                else if (txt_deja_paye.Text == txt_total_dollars.Text && txt_total_dollars.Text == "0")
+                {
+                    button1.Enabled = false;
+                    MessageBox.Show("Facture non existante!");
+                }
+                else
+                {
+                    button1.Enabled = true;
+                }
+
             }
         }
 
@@ -81,13 +108,39 @@ namespace Mercato.Views.Forms
                 paiement.Num_vente = Convert.ToInt32(txt_num_vente.Text);
                 paiement.Montant_dollars = Convert.ToDecimal(txt_montant_paye.Text);
                 paiement.Montant_fc = paiement.Montant_dollars * paiement.Taux;
-                paiement.Solde_restant = Convert.ToDecimal(txt_total_dollars.Text) - Convert.ToDecimal(txt_montant_paye.Text);
-                MessageBox.Show(paiement.Num_vente.ToString());
-                MessageBox.Show(paiement.Montant_dollars.ToString());
-                MessageBox.Show(paiement.Montant_fc.ToString());
+                paiement.Solde_restant = (detail_vente.Total_facture_dollars - paiement.Montant_deja_paye) - paiement.Montant_dollars;
                 MessageBox.Show(paiement.Solde_restant.ToString());
-                // cls_paiement.enregistrer_paiement(paiement);
+                if(paiement.Solde_restant==0)
+                {
+                    paiement.Status ="Payée";
+                }
+                else
+                {
+                    paiement.Status = "Paiement partiel";
+                }
+                cls_paiement.enregistrer_paiement(paiement);
+                txt_num_vente_OnValueChanged(sender, e);
             }
+        }
+
+        private void txt_num_vente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txt_total_dollars_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txt_total_fc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txt_montant_paye_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

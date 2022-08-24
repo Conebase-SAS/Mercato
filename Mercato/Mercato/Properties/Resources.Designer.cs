@@ -163,6 +163,16 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cb_041 {
+            get {
+                object obj = ResourceManager.GetObject("cb-041", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap change_user_96px {
             get {
                 object obj = ResourceManager.GetObject("change_user_96px", resourceCulture);
@@ -356,6 +366,16 @@ namespace Mercato.Properties {
         internal static System.Drawing.Bitmap multiply_104px {
             get {
                 object obj = ResourceManager.GetObject("multiply_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oneHorizon {
+            get {
+                object obj = ResourceManager.GetObject("oneHorizon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

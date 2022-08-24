@@ -36,6 +36,8 @@
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_qte_initiale = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_couleur = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,8 +60,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.txt_qte_initiale = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -189,6 +189,40 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(557, 601);
             this.panel2.TabIndex = 3;
+            // 
+            // txt_qte_initiale
+            // 
+            this.txt_qte_initiale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_qte_initiale.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_qte_initiale.Enabled = false;
+            this.txt_qte_initiale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.txt_qte_initiale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_qte_initiale.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_qte_initiale.HintText = "Quantité initiale";
+            this.txt_qte_initiale.isPassword = false;
+            this.txt_qte_initiale.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_qte_initiale.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_qte_initiale.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.txt_qte_initiale.LineThickness = 3;
+            this.txt_qte_initiale.Location = new System.Drawing.Point(195, 388);
+            this.txt_qte_initiale.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txt_qte_initiale.Name = "txt_qte_initiale";
+            this.txt_qte_initiale.Size = new System.Drawing.Size(326, 45);
+            this.txt_qte_initiale.TabIndex = 88;
+            this.txt_qte_initiale.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(25, 398);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(135, 21);
+            this.label6.TabIndex = 87;
+            this.label6.Text = "Quantité initiale";
             // 
             // label5
             // 
@@ -556,40 +590,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.panel1;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // txt_qte_initiale
-            // 
-            this.txt_qte_initiale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_qte_initiale.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_qte_initiale.Enabled = false;
-            this.txt_qte_initiale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txt_qte_initiale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_qte_initiale.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_qte_initiale.HintText = "Quantité initiale";
-            this.txt_qte_initiale.isPassword = false;
-            this.txt_qte_initiale.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_qte_initiale.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_qte_initiale.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
-            this.txt_qte_initiale.LineThickness = 3;
-            this.txt_qte_initiale.Location = new System.Drawing.Point(195, 388);
-            this.txt_qte_initiale.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txt_qte_initiale.Name = "txt_qte_initiale";
-            this.txt_qte_initiale.Size = new System.Drawing.Size(326, 45);
-            this.txt_qte_initiale.TabIndex = 88;
-            this.txt_qte_initiale.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(25, 398);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 21);
-            this.label6.TabIndex = 87;
-            this.label6.Text = "Quantité initiale";
             // 
             // frm_vente
             // 
