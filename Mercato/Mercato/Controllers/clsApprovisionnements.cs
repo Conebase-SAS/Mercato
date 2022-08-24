@@ -411,7 +411,7 @@ namespace Mercato.Controllers
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");
-                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception tdf)
             {
@@ -444,7 +444,7 @@ namespace Mercato.Controllers
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Stock mis a jour!");
-                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Stock mis a jour", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception tdf)
             {
@@ -475,7 +475,7 @@ namespace Mercato.Controllers
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");
-                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception tdf)
             {

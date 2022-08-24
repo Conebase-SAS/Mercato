@@ -140,8 +140,8 @@ namespace Mercato.Controllers
                 cmd.Parameters.Add(new SqlParameter("description_articles", SqlDbType.NVarChar)).Value = articles.Description_articles;
 
                 cmd.ExecuteNonQuery();
-                notify.notifier("Enregistrement avec succès!");
-                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                notify.notifier("Article ajouté!");
+                MessageBox.Show("Article ajouté!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception tdf)
             {
@@ -172,7 +172,7 @@ namespace Mercato.Controllers
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");
-                //MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Enregistrement avec succès!", "Enregistrements", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception tdf)
             {
