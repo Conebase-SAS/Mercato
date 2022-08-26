@@ -93,5 +93,19 @@ namespace Mercato.Views.Forms
                 refresh();
             }
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            if(txt_id_article.Text!="")
+            {
+                DialogResult rs = MessageBox.Show(this, "Voulez vous supprimer cet article?", "Confirmation de suppression", MessageBoxButtons.YesNo);
+                if (rs==DialogResult.Yes)
+                {
+                    articles.Id_article = txt_id_article.Text;
+                    cls_art.supprimer_articles(articles);
+                    refresh();
+                }
+            }
+        }
     }
 }

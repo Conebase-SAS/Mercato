@@ -523,7 +523,11 @@ create procedure afficher_articles
 as
 select top 50
     id_article as 'ID',
-    designation_article as 'Designation'
+    designation_article as 'Designation',
+    id_categories_articles as 'Catégorie',
+    id_types_articles as 'Types',
+    id_paquetage as 'Paquetage',
+    description_articles as 'Description'
 from t_articles
     order by id_article asc
 go
@@ -974,6 +978,29 @@ create procedure supprimer_details_vente
 @num_details_vente int
 as
     delete from t_details_vente where num_details_vente like @num_details_vente
+go
+create procedure recuperer_factures
+as
+select        
+	t_details_vente.num_details_vente,
+	t_ventes.num_vente, 
+	t_ventes.id_boutique, 
+	t_ventes.id_clients, 
+	t_approvisionnement.id_article, 
+	t_paiement.montant_paye_$, 
+	t_paiement.montant_paye_fc, 
+    t_paiement.solde_restant, 
+	t_paiement.status_paiement, 
+	t_paiement.date_paiement
+
+from            
+	t_approvisionnement 
+		inner join
+			t_details_vente on t_approvisionnement.num_details = t_details_vente.num_details 
+		inner join
+			t_ventes on t_details_vente.num_vente = t_ventes.num_vente 
+		inner join
+			t_paiement on t_ventes.num_vente = t_paiement.num_vente
 go
 create procedure recuperer_facture_details
 @num_vente int

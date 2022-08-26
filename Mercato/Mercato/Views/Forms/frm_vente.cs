@@ -81,6 +81,7 @@ namespace Mercato.Views.Forms
                             approv.stats_vente = "Ecoulé";
                             cls_approv.update_stock_state(approv);
                         }
+                        this.Close();
                     }
                     else
                     {
