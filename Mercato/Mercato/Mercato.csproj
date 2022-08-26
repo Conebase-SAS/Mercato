@@ -248,6 +248,18 @@
     <Compile Include="Views\UserControls\uc_approvisionnement.Designer.cs">
       <DependentUpon>uc_approvisionnement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\uc_articles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_articles.Designer.cs">
+      <DependentUpon>uc_articles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\uc_settings.Designer.cs">
+      <DependentUpon>uc_settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\uc_utilisateurs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -352,6 +364,12 @@
     <EmbeddedResource Include="Views\UserControls\uc_approvisionnement.resx">
       <DependentUpon>uc_approvisionnement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_articles.resx">
+      <DependentUpon>uc_articles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\uc_settings.resx">
+      <DependentUpon>uc_settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\uc_utilisateurs.resx">
       <DependentUpon>uc_utilisateurs.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,6 +424,14 @@
     <Content Include="Database\db_mercato.sql" />
     <Content Include="logo_conebase-1-300x300.ico" />
     <Content Include="logo_conebase-1-300x300~1.ico" />
+    <None Include="Resources\magazine_104px.png" />
+    <None Include="Resources\currency_exchange_104px_.png" />
+    <None Include="Resources\empty_box_104px.png" />
+    <None Include="Resources\shop_104px.png" />
+    <None Include="Resources\trolley_104px_.png" />
+    <None Include="Resources\paint_palette_104px.png" />
+    <None Include="Resources\alphabetical_sorting_104px.png" />
+    <None Include="Resources\open_box_104px.png" />
     <None Include="Resources\cb-041.png" />
     <None Include="Resources\oneHorizon.jpg" />
     <None Include="Resources\close_window_120px.png" />

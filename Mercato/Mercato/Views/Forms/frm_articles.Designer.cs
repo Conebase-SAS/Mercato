@@ -415,6 +415,7 @@
             this.bunifuImageButton2.TabIndex = 4;
             this.bunifuImageButton2.TabStop = false;
             this.bunifuImageButton2.Zoom = 20;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
             // 
             // bunifuImageButton1
             // 
@@ -490,8 +491,8 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private Bunifu.Framework.UI.BunifuImageButton btn_refresh;
-        private System.Windows.Forms.ComboBox cbx_paquetage;
-        private System.Windows.Forms.ComboBox cbx_type;
-        private System.Windows.Forms.ComboBox cbx_categorie;
+        public System.Windows.Forms.ComboBox cbx_paquetage;
+        public System.Windows.Forms.ComboBox cbx_type;
+        public System.Windows.Forms.ComboBox cbx_categorie;
     }
 }

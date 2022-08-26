@@ -145,11 +145,21 @@ namespace Mercato.Views.Forms
         private void btn_settings_Click(object sender, EventArgs e)
         {
             lbl_titre.Text = "Mercato - Paramètres";
+            var fr = new uc_settings()
+            {
+                Size = pnl_body.Size
+            };
+            pnl_body.Controls.Clear();
+            pnl_body.Controls.Add(fr);
+            fr.Visible = false;
+            bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            bunifuTransition1.ShowSync(fr);
+            fr.Visible = true;
         }
 
         private void pnl_body_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
     }
 }

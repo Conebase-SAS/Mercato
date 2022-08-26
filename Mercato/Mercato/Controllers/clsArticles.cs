@@ -49,8 +49,40 @@ namespace Mercato.Controllers
                 cnx.Close(); cnx.Dispose();
             }
         }
-        
-            public void rechercher_article(ListBox lst, Articles articles)
+        public void rechercher_articles(Articles articles, DataGridView dtg)
+        {
+            cnx = new SqlConnection(datas.getInstance().ToString());
+            try
+            {
+                if (cnx.State == ConnectionState.Closed)
+                    cnx.Open();
+                var cmd = new SqlCommand("rechercher_articles", cnx)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("id_article", SqlDbType.NVarChar)).Value = articles.Id_article;
+                cmd.ExecuteNonQuery();
+                var da = new SqlDataAdapter(cmd);
+                var dt = new DataTable();
+                da.Fill(dt);
+                dtg.DataSource = dt;
+            }
+            catch (Exception exct)
+            {
+                var rs = new DialogResult();
+                rs = MessageBox.Show("Souhaitez vous lire le message d'erreur?", "Erreurs ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rs == DialogResult.Yes)
+                {
+                    MessageBox.Show(exct.ToString());
+                }
+            }
+            finally
+            {
+                cnx.Close(); cnx.Dispose();
+            }
+        }
+
+        public void rechercher_article(ListBox lst, Articles articles)
         {
             cnx = new SqlConnection(datas.getInstance().ToString());
             try
@@ -168,7 +200,7 @@ namespace Mercato.Controllers
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("id_article", SqlDbType.NVarChar)).Value = articles.Id_categories_articles;
+                cmd.Parameters.Add(new SqlParameter("id_article", SqlDbType.NVarChar)).Value = article.Id_article;
 
                 cmd.ExecuteNonQuery();
                 notify.notifier("Enregistrement avec succès!");

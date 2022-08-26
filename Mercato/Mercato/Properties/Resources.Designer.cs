@@ -93,6 +93,16 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alphabetical_sorting_104px {
+            get {
+                object obj = ResourceManager.GetObject("alphabetical_sorting_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap beer_104px {
             get {
                 object obj = ResourceManager.GetObject("beer_104px", resourceCulture);
@@ -223,6 +233,16 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap currency_exchange_104px_ {
+            get {
+                object obj = ResourceManager.GetObject("currency_exchange_104px_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customers {
             get {
                 object obj = ResourceManager.GetObject("customers", resourceCulture);
@@ -293,6 +313,16 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap empty_box_104px {
+            get {
+                object obj = ResourceManager.GetObject("empty_box_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap finance {
             get {
                 object obj = ResourceManager.GetObject("finance", resourceCulture);
@@ -343,6 +373,16 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magazine_104px {
+            get {
+                object obj = ResourceManager.GetObject("magazine_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap male_user_104px {
             get {
                 object obj = ResourceManager.GetObject("male_user_104px", resourceCulture);
@@ -376,6 +416,26 @@ namespace Mercato.Properties {
         internal static System.Drawing.Bitmap oneHorizon {
             get {
                 object obj = ResourceManager.GetObject("oneHorizon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap open_box_104px {
+            get {
+                object obj = ResourceManager.GetObject("open_box_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint_palette_104px {
+            get {
+                object obj = ResourceManager.GetObject("paint_palette_104px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,6 +543,16 @@ namespace Mercato.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap shop_104px {
+            get {
+                object obj = ResourceManager.GetObject("shop_104px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shopping_cart_96px {
             get {
                 object obj = ResourceManager.GetObject("shopping_cart_96px", resourceCulture);
@@ -546,6 +616,16 @@ namespace Mercato.Properties {
         internal static System.Drawing.Bitmap sync_96px {
             get {
                 object obj = ResourceManager.GetObject("sync_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trolley_104px_ {
+            get {
+                object obj = ResourceManager.GetObject("trolley_104px_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
