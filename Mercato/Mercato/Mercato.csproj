@@ -424,6 +424,7 @@
     <Content Include="Database\db_mercato.sql" />
     <Content Include="logo_conebase-1-300x300.ico" />
     <Content Include="logo_conebase-1-300x300~1.ico" />
+    <None Include="Resources\multiply_96px.png" />
     <None Include="Resources\magazine_104px.png" />
     <None Include="Resources\currency_exchange_104px_.png" />
     <None Include="Resources\empty_box_104px.png" />

@@ -67,7 +67,7 @@
             // 
             // pnl_header
             // 
-            this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(1)))), ((int)(((byte)(0)))));
+            this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
             this.pnl_header.Controls.Add(this.lbl_titre);
             this.pnl_header.Controls.Add(this.lbl_company);
             this.pnl_header.Controls.Add(this.bunifuImageButton1);
@@ -85,11 +85,11 @@
             this.lbl_titre.AutoSize = true;
             this.lbl_titre.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.lbl_titre, BunifuAnimatorNS.DecorationType.None);
-            this.lbl_titre.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_titre.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_titre.ForeColor = System.Drawing.Color.White;
-            this.lbl_titre.Location = new System.Drawing.Point(653, 13);
+            this.lbl_titre.Location = new System.Drawing.Point(626, 5);
             this.lbl_titre.Name = "lbl_titre";
-            this.lbl_titre.Size = new System.Drawing.Size(138, 25);
+            this.lbl_titre.Size = new System.Drawing.Size(220, 41);
             this.lbl_titre.TabIndex = 5;
             this.lbl_titre.Text = "Store Manager";
             this.lbl_titre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -112,7 +112,7 @@
             this.bunifuImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTransition1.SetDecoration(this.bunifuImageButton1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.shutdown_120px;
+            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.multiply_96px;
             this.bunifuImageButton1.ImageActive = null;
             this.bunifuImageButton1.Location = new System.Drawing.Point(1316, 5);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
@@ -311,8 +311,9 @@
             // 
             // pnl_body
             // 
+            this.pnl_body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(242)))), ((int)(((byte)(233)))));
             this.pnl_body.BackgroundImage = global::Mercato.Properties.Resources.logo;
-            this.pnl_body.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnl_body.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bunifuTransition1.SetDecoration(this.pnl_body, BunifuAnimatorNS.DecorationType.None);
             this.pnl_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_body.Location = new System.Drawing.Point(77, 50);

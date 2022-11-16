@@ -79,9 +79,9 @@ namespace Mercato.Views.Forms
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Mercato.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 103);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(441, 258);
+            this.pictureBox1.Size = new System.Drawing.Size(478, 310);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -106,7 +106,7 @@ namespace Mercato.Views.Forms
             this.pictureBox2.Image = global::Mercato.Properties.Resources.cb_041;
             this.pictureBox2.Location = new System.Drawing.Point(200, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(148, 70);
+            this.pictureBox2.Size = new System.Drawing.Size(148, 81);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -114,7 +114,7 @@ namespace Mercato.Views.Forms
             // bunifuFlatButton1
             // 
             this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(191)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(2)))));
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton1.BorderRadius = 0;
             this.bunifuFlatButton1.ButtonText = "Connecter";
@@ -136,7 +136,7 @@ namespace Mercato.Views.Forms
             this.bunifuFlatButton1.Location = new System.Drawing.Point(78, 563);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(2)))));
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(60)))), ((int)(((byte)(151)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black;
             this.bunifuFlatButton1.selected = false;
@@ -152,7 +152,7 @@ namespace Mercato.Views.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(2)))));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(16, 406);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(189, 40);
@@ -163,7 +163,7 @@ namespace Mercato.Views.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(2)))));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(16, 261);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(238, 40);
@@ -174,12 +174,12 @@ namespace Mercato.Views.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(2)))));
-            this.label1.Location = new System.Drawing.Point(117, 157);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(105, 151);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 65);
+            this.label1.Size = new System.Drawing.Size(341, 65);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Store Manager";
+            this.label1.Text = "Mercato - Teka";
             // 
             // txt_password
             // 
