@@ -135,6 +135,16 @@ namespace Mercato.Views.Forms
         private void btn_dash_Click(object sender, EventArgs e)
         {
             lbl_titre.Text = "Mercato - Dashboard";
+            var fr = new uc_dashboard()
+            {
+                Size = pnl_body.Size
+            };
+            pnl_body.Controls.Clear();
+            pnl_body.Controls.Add(fr);
+            fr.Visible = false;
+            bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            bunifuTransition1.ShowSync(fr);
+            fr.Visible = true;
         }
 
         private void btn_finances_Click(object sender, EventArgs e)
