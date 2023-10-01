@@ -36,7 +36,7 @@ namespace Mercato.Views.UserControls
             fr.ShowDialog();
         }
 
-        private void txt_search_OnValueChanged(object sender, EventArgs e)
+        private void txt_search_onValueChanged(object sender, EventArgs e)
         {
             //boutique.Id_boutique = txt_search.Text;
             //cls_boutique(clients, dataGridView1);

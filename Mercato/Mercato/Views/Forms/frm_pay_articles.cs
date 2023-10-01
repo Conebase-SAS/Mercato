@@ -38,7 +38,7 @@ namespace Mercato.Views.Forms
             this.Close();
         }
 
-        private void txt_num_vente_OnValueChanged(object sender, EventArgs e)
+        private void txt_num_vente_onValueChanged(object sender, EventArgs e)
         {
             if(txt_num_vente.Text!="")
             {
@@ -91,7 +91,7 @@ namespace Mercato.Views.Forms
                 if(rs==DialogResult.Yes)
                 {
                     cls_details_vente.supprimer_details_vente(detail_vente);
-                    txt_num_vente_OnValueChanged(sender, e);
+                    txt_num_vente_onValueChanged(sender, e);
                 }                
             }
 
@@ -119,7 +119,7 @@ namespace Mercato.Views.Forms
                     paiement.Status = "Paiement partiel";
                 }
                 cls_paiement.enregistrer_paiement(paiement);
-                txt_num_vente_OnValueChanged(sender, e);
+                txt_num_vente_onValueChanged(sender, e);
             }
         }
 

@@ -165,7 +165,7 @@
             this.txt_numero_serie.Size = new System.Drawing.Size(287, 45);
             this.txt_numero_serie.TabIndex = 17;
             this.txt_numero_serie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_numero_serie.OnValueChanged += new System.EventHandler(this.txt_numero_serie_OnValueChanged);
+            this.txt_numero_serie.onValueChanged += new System.EventHandler(this.txt_numero_serie_onValueChanged);
             // 
             // txt_caracterisitques
             // 
@@ -186,7 +186,7 @@
             this.txt_caracterisitques.Size = new System.Drawing.Size(287, 45);
             this.txt_caracterisitques.TabIndex = 16;
             this.txt_caracterisitques.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_caracterisitques.OnValueChanged += new System.EventHandler(this.txt_caracterisitques_OnValueChanged);
+            this.txt_caracterisitques.onValueChanged += new System.EventHandler(this.txt_caracterisitques_onValueChanged);
             // 
             // bunifuImageButton2
             // 
@@ -221,7 +221,7 @@
             this.txt_article.Size = new System.Drawing.Size(287, 45);
             this.txt_article.TabIndex = 12;
             this.txt_article.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_article.OnValueChanged += new System.EventHandler(this.txt_article_OnValueChanged);
+            this.txt_article.onValueChanged += new System.EventHandler(this.txt_article_onValueChanged);
             // 
             // panel1
             // 
@@ -270,7 +270,7 @@
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Readonly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

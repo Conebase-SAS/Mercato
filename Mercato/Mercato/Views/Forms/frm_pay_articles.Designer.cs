@@ -271,7 +271,7 @@
             this.txt_num_vente.Size = new System.Drawing.Size(208, 76);
             this.txt_num_vente.TabIndex = 32;
             this.txt_num_vente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_num_vente.OnValueChanged += new System.EventHandler(this.txt_num_vente_OnValueChanged);
+            this.txt_num_vente.onValueChanged += new System.EventHandler(this.txt_num_vente_onValueChanged);
             this.txt_num_vente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_num_vente_KeyPress);
             // 
             // button1
@@ -344,7 +344,7 @@
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Readonly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);

@@ -44,13 +44,13 @@ namespace Mercato.Views.UserControls
             cls_approv.afficher_articles_disponible(dataGridView1);
             txt_article.Text = "";
         }
-        private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
+        private void bunifuMaterialTextbox1_onValueChanged(object sender, EventArgs e)
         {
             //articles.Id_article = txt_search.Text;
             //cls_art.rechercher_article(listBox1, articles);
         }
 
-        private void txt_search_OnValueChanged(object sender, EventArgs e)
+        private void txt_search_onValueChanged(object sender, EventArgs e)
         {
             //articles.Id_article = txt_search.Text;
             //cls_art.rechercher_article(listBox1, articles);
@@ -80,7 +80,7 @@ namespace Mercato.Views.UserControls
             //MessageBox.Show(clients.Id_clients);
         }
 
-        private void txt_article_OnValueChanged(object sender, EventArgs e)
+        private void txt_article_onValueChanged(object sender, EventArgs e)
         {
             approvisionnement.Id_article = txt_article.Text;
             cls_approv.rechercher_articles_disponible_nom(dataGridView1, approvisionnement);
@@ -113,13 +113,13 @@ namespace Mercato.Views.UserControls
             }
         }
 
-        private void txt_numero_serie_OnValueChanged(object sender, EventArgs e)
+        private void txt_numero_serie_onValueChanged(object sender, EventArgs e)
         {
             approvisionnement.Numero_serie = txt_numero_serie.Text;
             cls_approv.rechercher_articles_disponible_serie(dataGridView1, approvisionnement);
         }
 
-        private void txt_caracterisitques_OnValueChanged(object sender, EventArgs e)
+        private void txt_caracterisitques_onValueChanged(object sender, EventArgs e)
         {
             approvisionnement.Caracteristiques = txt_caracterisitques.Text;
             cls_approv.rechercher_articles_disponible_specs(dataGridView1, approvisionnement);

@@ -269,7 +269,7 @@
             this.txt_services.Size = new System.Drawing.Size(367, 44);
             this.txt_services.TabIndex = 16;
             this.txt_services.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_services.OnValueChanged += new System.EventHandler(this.txt_services_OnValueChanged);
+            this.txt_services.onValueChanged += new System.EventHandler(this.txt_services_onValueChanged);
             // 
             // panel2
             // 
@@ -318,7 +318,7 @@
             this.txt_search.Size = new System.Drawing.Size(285, 44);
             this.txt_search.TabIndex = 1;
             this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_search.OnValueChanged += new System.EventHandler(this.txt_search_OnValueChanged);
+            this.txt_search.onValueChanged += new System.EventHandler(this.txt_search_onValueChanged);
             // 
             // panel1
             // 
@@ -425,7 +425,7 @@
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dataGridView1.Location = new System.Drawing.Point(8, 8);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Readonly = true;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);

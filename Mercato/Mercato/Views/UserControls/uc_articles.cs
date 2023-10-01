@@ -52,7 +52,7 @@ namespace Mercato.Views.UserControls
             fr.ShowDialog();
         }
 
-        private void txt_search_OnValueChanged(object sender, EventArgs e)
+        private void txt_search_onValueChanged(object sender, EventArgs e)
         {
             articles.Id_article = txt_search.Text;
             cls_art.rechercher_articles(articles, dataGridView1);

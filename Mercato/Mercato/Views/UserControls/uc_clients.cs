@@ -34,7 +34,7 @@ namespace Mercato.Views.UserControls
             fr.ShowDialog();
         }
 
-        private void txt_search_OnValueChanged(object sender, EventArgs e)
+        private void txt_search_onValueChanged(object sender, EventArgs e)
         {
             clients.Noms = txt_search.Text;
             cls_clients.rechercher_clients_by_noms(clients, dataGridView1);
