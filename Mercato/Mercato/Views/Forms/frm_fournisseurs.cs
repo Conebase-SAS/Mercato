@@ -55,5 +55,10 @@ namespace Mercato.Views.Forms
                 refresh();
             }
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

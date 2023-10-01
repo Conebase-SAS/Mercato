@@ -32,7 +32,6 @@ namespace Mercato.Views.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_logins));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -45,36 +44,23 @@ namespace Mercato.Views.Forms
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl3 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.btn_close = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(234)))));
-            this.panel1.Controls.Add(this.bunifuImageButton1);
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(12, 97);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1103, 470);
             this.panel1.TabIndex = 0;
-            // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(52)))), ((int)(((byte)(89)))));
-            this.bunifuImageButton1.Image = global::Mercato.Properties.Resources.cancel_96px1;
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(1030, 160);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(65, 151);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 1;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
             // pictureBox1
             // 
@@ -237,6 +223,20 @@ namespace Mercato.Views.Forms
             this.bunifuDragControl3.TargetControl = this.pictureBox1;
             this.bunifuDragControl3.Vertical = true;
             // 
+            // btn_close
+            // 
+            this.btn_close.BackColor = System.Drawing.Color.White;
+            this.btn_close.Image = global::Mercato.Properties.Resources.Cancel_104px;
+            this.btn_close.ImageActive = null;
+            this.btn_close.Location = new System.Drawing.Point(1029, 10);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(71, 452);
+            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_close.TabIndex = 1;
+            this.btn_close.TabStop = false;
+            this.btn_close.Zoom = 10;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
             // frm_logins
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -255,11 +255,11 @@ namespace Mercato.Views.Forms
             this.Text = "_";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(133)))), ((int)(((byte)(144)))));
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,5 +280,6 @@ namespace Mercato.Views.Forms
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         public Bunifu.Framework.UI.BunifuMetroTextbox txt_password;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Bunifu.Framework.UI.BunifuImageButton btn_close;
     }
 }

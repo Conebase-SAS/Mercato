@@ -7,6 +7,7 @@ if not exists(select * from sys.databases where name='db_mercato')
 go
 use db_mercato;
 go
+
 ------------------------------------------FOURNISSEURS------------------------------------------------------------------
 create table t_fournisseurs
 (
@@ -529,6 +530,21 @@ select top 50
     id_paquetage as 'Paquetage',
     description_articles as 'Description'
 from t_articles
+    order by id_article asc
+go
+create procedure rechercher_articles
+@id_article nvarchar(50)
+as
+select top 50
+    id_article as 'ID',
+    designation_article as 'Designation',
+    id_categories_articles as 'Catégorie',
+    id_types_articles as 'Types',
+    id_paquetage as 'Paquetage',
+    description_articles as 'Description'
+from t_articles
+    where
+        id_article like '%'+@id_article+'%'
     order by id_article asc
 go
 create procedure charger_listbox_article
