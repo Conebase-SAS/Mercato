@@ -75,6 +75,7 @@
             this.bunifuImageButton2.TabIndex = 2;
             this.bunifuImageButton2.TabStop = false;
             this.bunifuImageButton2.Zoom = 20;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
             // 
             // bunifuImageButton1
             // 

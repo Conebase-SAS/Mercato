@@ -66,7 +66,7 @@ namespace Mercato.Handlers
             return
                 string.Format
                 (
-                    "Data Source ={0};Initial Catalog={1};User ID={2};Password= {3};",
+                    "Data Source ={0};Initial Catalog={1};User ID={2};Password={3};",
                     _serveur, _database, _nom_user, _mot_de_passe
                 );
         }
