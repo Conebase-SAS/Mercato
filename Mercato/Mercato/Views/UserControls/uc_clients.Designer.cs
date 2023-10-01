@@ -94,7 +94,7 @@
             this.txt_search.Size = new System.Drawing.Size(726, 45);
             this.txt_search.TabIndex = 6;
             this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_search.OnValueChanged += new System.EventHandler(this.txt_search_OnValueChanged);
+            this.txt_search.onValueChanged += new System.EventHandler(this.txt_search_onValueChanged);
             // 
             // bunifuImageButton1
             // 
@@ -162,7 +162,7 @@
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Readonly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);

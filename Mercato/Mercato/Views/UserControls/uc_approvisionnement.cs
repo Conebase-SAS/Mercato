@@ -45,7 +45,7 @@ namespace Mercato.Views.UserControls
             fr.ShowDialog();
         }
 
-        private void txt_search_OnValueChanged(object sender, EventArgs e)
+        private void txt_search_onValueChanged(object sender, EventArgs e)
         {
             if(rdbtn_approv.Checked==true)
             {

@@ -427,7 +427,7 @@
             this.txt_num_approv.Size = new System.Drawing.Size(326, 45);
             this.txt_num_approv.TabIndex = 74;
             this.txt_num_approv.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_num_approv.OnValueChanged += new System.EventHandler(this.txt_num_approv_OnValueChanged);
+            this.txt_num_approv.onValueChanged += new System.EventHandler(this.txt_num_approv_onValueChanged);
             // 
             // label3
             // 

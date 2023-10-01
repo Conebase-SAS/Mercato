@@ -1270,6 +1270,36 @@ create table t_paiement_commande
 )
 go
 --------------------------------Calculs spéciaux-----------------------------------------
+create procedure inventaire_par_dates
+@date_un date,
+@date_deux date,
+@id_compagnie nvarchar(50)
+as
+    select top 50
+        t_paiement.date_paiement, 
+        t_paiement.status_paiement, 
+        t_boutique.id_compagnie, 
+        t_boutique.id_boutique, 
+        t_articles.id_article, 
+        t_articles.designation_article, 
+        t_approvisionnement.numero_serie, 
+        t_approvisionnement.id_caracteristiques, 
+        t_details_vente.qte_sortie, 
+        t_approvisionnement.prix_vente_$, 
+        t_approvisionnement.prix_vente_fc, 
+        t_paiement.montant_paye_$, 
+        t_paiement.montant_paye_fc,
+        t_paiement.solde_restant
+    from            
+        t_paiement inner join
+            t_ventes on t_paiement.num_vente = t_ventes.num_vente inner join
+            t_boutique on t_ventes.id_boutique = t_boutique.id_boutique inner join
+            t_details_vente on t_ventes.num_vente = t_details_vente.num_vente inner join
+            t_approvisionnement on t_details_vente.num_details = t_approvisionnement.num_details inner join
+            t_articles on t_approvisionnement.id_article = t_articles.id_article
+    where
+        t_paiement.date_paiement between @date_un and @date_deux and t_boutique.id_compagnie like @id_compagnie
+go
 create procedure recupérer_info_approv_vente
 @search nvarchar(50)
 as

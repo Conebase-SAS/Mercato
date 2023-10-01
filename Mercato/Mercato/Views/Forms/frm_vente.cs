@@ -96,7 +96,7 @@ namespace Mercato.Views.Forms
             }
         }
 
-        private void txt_num_approv_OnValueChanged(object sender, EventArgs e)
+        private void txt_num_approv_onValueChanged(object sender, EventArgs e)
         {
             approv.num_details = Convert.ToInt32(txt_num_approv.Text);
             cls_approv.sortie_par_article(approv, calcul);

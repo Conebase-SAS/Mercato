@@ -92,8 +92,8 @@
             this.btn_types_articles.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_types_articles.Name = "btn_types_articles";
             this.btn_types_articles.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_types_articles.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_types_articles.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_types_articles.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_types_articles.onHoverTextColor = System.Drawing.Color.White;
             this.btn_types_articles.selected = false;
             this.btn_types_articles.Size = new System.Drawing.Size(165, 44);
             this.btn_types_articles.TabIndex = 13;
@@ -130,8 +130,8 @@
             this.btn_articles.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_articles.Name = "btn_articles";
             this.btn_articles.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_articles.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_articles.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_articles.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_articles.onHoverTextColor = System.Drawing.Color.White;
             this.btn_articles.selected = false;
             this.btn_articles.Size = new System.Drawing.Size(148, 44);
             this.btn_articles.TabIndex = 5;
@@ -169,8 +169,8 @@
             this.btn_taux.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_taux.Name = "btn_taux";
             this.btn_taux.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_taux.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_taux.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_taux.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_taux.onHoverTextColor = System.Drawing.Color.White;
             this.btn_taux.selected = false;
             this.btn_taux.Size = new System.Drawing.Size(148, 44);
             this.btn_taux.TabIndex = 12;
@@ -207,8 +207,8 @@
             this.btn_categories.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_categories.Name = "btn_categories";
             this.btn_categories.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_categories.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_categories.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_categories.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_categories.onHoverTextColor = System.Drawing.Color.White;
             this.btn_categories.selected = false;
             this.btn_categories.Size = new System.Drawing.Size(148, 44);
             this.btn_categories.TabIndex = 7;
@@ -246,8 +246,8 @@
             this.btn_paquetage.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_paquetage.Name = "btn_paquetage";
             this.btn_paquetage.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_paquetage.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_paquetage.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_paquetage.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_paquetage.onHoverTextColor = System.Drawing.Color.White;
             this.btn_paquetage.selected = false;
             this.btn_paquetage.Size = new System.Drawing.Size(148, 44);
             this.btn_paquetage.TabIndex = 11;
@@ -284,8 +284,8 @@
             this.btn_couleurs.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_couleurs.Name = "btn_couleurs";
             this.btn_couleurs.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_couleurs.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_couleurs.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_couleurs.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_couleurs.onHoverTextColor = System.Drawing.Color.White;
             this.btn_couleurs.selected = false;
             this.btn_couleurs.Size = new System.Drawing.Size(148, 44);
             this.btn_couleurs.TabIndex = 8;
@@ -322,8 +322,8 @@
             this.btn_fournisseurs.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_fournisseurs.Name = "btn_fournisseurs";
             this.btn_fournisseurs.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_fournisseurs.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_fournisseurs.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_fournisseurs.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_fournisseurs.onHoverTextColor = System.Drawing.Color.White;
             this.btn_fournisseurs.selected = false;
             this.btn_fournisseurs.Size = new System.Drawing.Size(148, 44);
             this.btn_fournisseurs.TabIndex = 10;
@@ -360,8 +360,8 @@
             this.btn_depot.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_depot.Name = "btn_depot";
             this.btn_depot.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(1)))), ((int)(((byte)(255)))));
-            this.btn_depot.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.btn_depot.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_depot.onHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
+            this.btn_depot.onHoverTextColor = System.Drawing.Color.White;
             this.btn_depot.selected = false;
             this.btn_depot.Size = new System.Drawing.Size(148, 44);
             this.btn_depot.TabIndex = 9;
@@ -385,7 +385,7 @@
             // 
             this.bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.bunifuTransition1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
+            animation1.AnimateonlyDifferences = true;
             animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
             animation1.LeafCoeff = 0F;
             animation1.MaxTime = 1F;

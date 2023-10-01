@@ -165,7 +165,7 @@
             this.txt_search.Size = new System.Drawing.Size(215, 45);
             this.txt_search.TabIndex = 17;
             this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_search.OnValueChanged += new System.EventHandler(this.txt_search_OnValueChanged);
+            this.txt_search.onValueChanged += new System.EventHandler(this.txt_search_onValueChanged);
             // 
             // listBox1
             // 

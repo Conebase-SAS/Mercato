@@ -47,7 +47,7 @@ namespace Mercato.Views.UserControls
 
         }
 
-        private void txt_search_OnValueChanged(object sender, EventArgs e)
+        private void txt_search_onValueChanged(object sender, EventArgs e)
         {
             menu.Id_menu = txt_search.Text;
             cls_menu.rechercher_menu(listBox1, menu);
@@ -81,7 +81,7 @@ namespace Mercato.Views.UserControls
             frm.ShowDialog();
         }
 
-        private void txt_services_OnValueChanged(object sender, EventArgs e)
+        private void txt_services_onValueChanged(object sender, EventArgs e)
         {
             menu.Id_menu = txt_services.Text;
             cls_menu.Recuperer_prix_menu(txt_prix, menu);

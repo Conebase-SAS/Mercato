@@ -176,11 +176,11 @@
             this.cbx_agent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbx_agent.Properties.Items.AddRange(new object[] {
-            "PERSONNE PHYSIQUE",
-            "PERSONNE MORALE",
-            "ONG ET ASBL",
+            "PERSonNE PHYSIQUE",
+            "PERSonNE MORALE",
+            "onG ET ASBL",
             "SERVICE PUBLIC",
-            "INSTITUTION POLITIQUE"});
+            "INSTITUTIon POLITIQUE"});
             this.cbx_agent.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cbx_agent.Size = new System.Drawing.Size(514, 28);
             this.cbx_agent.TabIndex = 40;
@@ -194,11 +194,11 @@
             this.cbx_client.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbx_client.Properties.Items.AddRange(new object[] {
-            "PERSONNE PHYSIQUE",
-            "PERSONNE MORALE",
-            "ONG ET ASBL",
+            "PERSonNE PHYSIQUE",
+            "PERSonNE MORALE",
+            "onG ET ASBL",
             "SERVICE PUBLIC",
-            "INSTITUTION POLITIQUE"});
+            "INSTITUTIon POLITIQUE"});
             this.cbx_client.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cbx_client.Size = new System.Drawing.Size(514, 28);
             this.cbx_client.TabIndex = 39;
